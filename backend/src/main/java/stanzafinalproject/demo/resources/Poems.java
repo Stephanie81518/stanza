@@ -9,6 +9,9 @@ import java.util.Objects;
 public class Poems {
     private String poet;
     private String title;
+
+
+
     private String form;
     @Id
     @GeneratedValue
@@ -23,11 +26,23 @@ public class Poems {
     protected Poems() {
 
     }
-    
+
     public Long getId() {
         return id;
     }
 
+
+    public String getPoet() {
+        return poet;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getForm() {
+        return form;
+    }
 
     @Override
     public boolean equals(Object o) {
