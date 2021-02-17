@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import stanzafinalproject.demo.resources.PoemRepository;
+import stanzafinalproject.demo.storage.PoemRepository;
 import stanzafinalproject.demo.resources.Poems;
 
 import static org.assertj.core.api.Assertions.assertThat;
