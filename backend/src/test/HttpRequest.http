@@ -1,0 +1,3 @@
+GET localhost:8080/api/examplepoems
+###
+GET http://localhost:8080/api/examplepoems/7

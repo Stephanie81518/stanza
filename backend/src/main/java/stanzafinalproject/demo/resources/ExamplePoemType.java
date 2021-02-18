@@ -14,6 +14,7 @@ public class ExamplePoemType {
     @OneToMany(mappedBy = "examplePoemType")
     private Collection<ExamplePoem> examplePoem;
 
+
     public ExamplePoemType(String typeName, ExamplePoem... examplePoem) {
         this.typeName = typeName;
         this.examplePoem = List.of(examplePoem);

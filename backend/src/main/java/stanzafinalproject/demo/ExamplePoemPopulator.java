@@ -1,26 +1,24 @@
 package stanzafinalproject.demo;
 
-import org.hibernate.criterion.Example;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import stanzafinalproject.demo.resources.ExamplePoem;
 import stanzafinalproject.demo.resources.ExamplePoemType;
-import stanzafinalproject.demo.services.ExamplePoemRepository;
-import stanzafinalproject.demo.services.ExamplePoemService;
-import stanzafinalproject.demo.services.ExamplePoemTypeRepository;
-import stanzafinalproject.demo.services.ExamplePoemTypeService;
+import stanzafinalproject.demo.storage.ExamplePoemStorage;
+import stanzafinalproject.demo.storage.ExamplePoemTypeRepository;
+import stanzafinalproject.demo.storage.ExamplePoemTypeStorage;
 
 import javax.annotation.Resource;
 
 @Component
 public class ExamplePoemPopulator implements CommandLineRunner {
 
-    private ExamplePoemService examplePoemService;
-    private ExamplePoemTypeService examplePoemTypeService;
+    private ExamplePoemStorage examplePoemStorage;
+    private ExamplePoemTypeStorage examplePoemTypeStorage;
 
-    public ExamplePoemPopulator(ExamplePoemService examplePoemService, ExamplePoemTypeService examplePoemTypeService) {
-        this.examplePoemService = examplePoemService;
-        this.examplePoemTypeService = examplePoemTypeService;
+    public ExamplePoemPopulator(ExamplePoemStorage examplePoemStorage, ExamplePoemTypeStorage examplePoemTypeStorage) {
+        this.examplePoemStorage = examplePoemStorage;
+        this.examplePoemTypeStorage = examplePoemTypeStorage;
     }
 
     @Resource
@@ -31,29 +29,30 @@ public class ExamplePoemPopulator implements CommandLineRunner {
 
         //adding poem types to repository
         ExamplePoemType haiku = new ExamplePoemType("Haiku");
-        examplePoemTypeService.addExamplePoemType(haiku);
+        examplePoemTypeStorage.addExamplePoemType(haiku);
         examplePoemTypeRepo.save(haiku);
         ExamplePoemType sonnet = new ExamplePoemType("Sonnet");
-        examplePoemTypeService.addExamplePoemType(sonnet);
+        examplePoemTypeStorage.addExamplePoemType(sonnet);
         examplePoemTypeRepo.save(sonnet);
         ExamplePoemType villanelle = new ExamplePoemType("Villanelle");
-        examplePoemTypeService.addExamplePoemType(villanelle);
+        examplePoemTypeStorage.addExamplePoemType(villanelle);
         examplePoemTypeRepo.save(villanelle);
         ExamplePoemType sestina = new ExamplePoemType("Sestina");
-        examplePoemTypeService.addExamplePoemType(sestina);
+        examplePoemTypeStorage.addExamplePoemType(sestina);
         examplePoemTypeRepo.save(sestina);
         ExamplePoemType pantoum = new ExamplePoemType("Pantoum");
-        examplePoemTypeService.addExamplePoemType(pantoum);
+        examplePoemTypeStorage.addExamplePoemType(pantoum);
         examplePoemTypeRepo.save(pantoum);
         ExamplePoemType ghazal = new ExamplePoemType("Ghazal");
-        examplePoemTypeService.addExamplePoemType(ghazal);
+        examplePoemTypeStorage.addExamplePoemType(ghazal);
         examplePoemTypeRepo.save(ghazal);
 
 
         //adding example poems to api
         ExamplePoem exHaiku1 = new ExamplePoem("Haiku", "Etheridge Knight", haiku, "https://www.poetryfoundation.org/poems/47593/haiku");
-        examplePoemService.save(exHaiku1);
+        examplePoemStorage.save(exHaiku1);
         ExamplePoem exHaiku2 = new ExamplePoem("[The cry of the cicada]", "Matsuo Basho", haiku, "https://poets.org/poem/cry-cicada");
+<<<<<<< HEAD
         examplePoemService.save(exHaiku2);
         ExamplePoem exHaiku3 = new ExamplePoem("Blind Boone’s Apparitions", "Tyehimba Jess", haiku, "https://poets.org/poem/blind-boones-apparitions");
         examplePoemService.save(exHaiku3);
@@ -211,5 +210,14 @@ public class ExamplePoemPopulator implements CommandLineRunner {
 
 
 
+=======
+        examplePoemStorage.save(exHaiku2);
+
+        ExamplePoem exVillanelle1 = new ExamplePoem("One Art", "Elizabeth Bishop", villanelle, "https://poets.org/poem/one-art");
+        examplePoemStorage.save(exVillanelle1);
+
+        ExamplePoem exSonnet1 = new ExamplePoem("Sonnet (full-court press)", "Olena Kalytiak Davis", sonnet, "https://www.poetryfoundation.org/poems/147665/sonnet-full-court-press");
+        examplePoemStorage.save(exSonnet1);
+>>>>>>> ba1c946cfc42bb1052fcf54defb5a76ab99218bf
     }
 }

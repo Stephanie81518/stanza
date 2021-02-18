@@ -1,13 +1,12 @@
-package stanzafinalproject.demo.services;
+package stanzafinalproject.demo.storage;
 
 import org.springframework.stereotype.Service;
-import stanzafinalproject.demo.resources.ExamplePoem;
 import stanzafinalproject.demo.resources.ExamplePoemType;
 
 import javax.annotation.Resource;
 
 @Service
-public class ExamplePoemTypeService {
+public class ExamplePoemTypeStorage {
 
     @Resource
     private ExamplePoemTypeRepository examplePoemTypeRepo;
