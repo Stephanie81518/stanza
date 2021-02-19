@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Related Words with Datamuse API</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h3>Make a Selection</h3>
+    <form name="radio" action="dropdown.php" onsubmit="return validate">
+      <input type="radio" name="choiceRadioButtons" id="ryhming" value="Ryhming">Ryhming
+      <input type="radio" name="choiceRadioButtons" id="relatedWord" value="RelatedWord">Related Word
+      <input type="radio" name="choiceRadioButtons" id="synonym" value="Ryhming">Synonym
+      <input type="radio" name="choiceRadioButtons" id="syllables" value="Ryhming">Syllables
+      <input type="submit" value="submit"/>
+    </form>
+  <div id="container">
+    <form id="initial-word-form">
+      <input type="text" placeholder="Enter initial word...">
+    </form>
+    <a href="#" id="related-word"></a>
+    <p id="history"></p>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
