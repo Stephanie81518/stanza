@@ -13,11 +13,19 @@ public class ExamplePoemType {
     private String typeName;
     @OneToMany(mappedBy = "examplePoemType")
     private Collection<ExamplePoem> examplePoem;
+    @Column(length=1000)
+    private String typeDescription;
+
 
 
     public ExamplePoemType(String typeName, ExamplePoem... examplePoem) {
         this.typeName = typeName;
         this.examplePoem = List.of(examplePoem);
+    }
+
+    public ExamplePoemType(String typeName, String typeDescription){
+        this.typeName = typeName;
+        this.typeDescription = typeDescription;
     }
 
     public ExamplePoemType() {
@@ -31,11 +39,16 @@ public class ExamplePoemType {
         return typeName;
     }
 
+    public String getTypeDescription() {
+        return typeDescription;
+    }
+
     @Override
     public String toString() {
         return "ExamplePoemType{" +
                 "id=" + id +
                 ", typeName='" + typeName + '\'' +
+                ", typeDescription='" + typeDescription + '\'' +
                 '}';
     }
 
@@ -47,13 +60,15 @@ public class ExamplePoemType {
         ExamplePoemType that = (ExamplePoemType) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        return typeName != null ? typeName.equals(that.typeName) : that.typeName == null;
+        if (typeName != null ? !typeName.equals(that.typeName) : that.typeName != null) return false;
+        return typeDescription != null ? typeDescription.equals(that.typeDescription) : that.typeDescription == null;
     }
 
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (typeName != null ? typeName.hashCode() : 0);
+        result = 31 * result + (typeDescription != null ? typeDescription.hashCode() : 0);
         return result;
     }
 }

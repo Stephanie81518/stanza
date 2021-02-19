@@ -1,14 +1,12 @@
 package stanzafinalproject.demo.resources;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class ExamplePoem {
     private String title;
     private String poet;
+    @Column(length=500)
     private String poemUrl;
     @Id
     @GeneratedValue
