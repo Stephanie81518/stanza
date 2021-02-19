@@ -15,6 +15,7 @@ public class ExamplePoemType {
     private Collection<ExamplePoem> examplePoem;
     private String typeDescription;
 
+
     public ExamplePoemType(String typeName, ExamplePoem... examplePoem) {
         this.typeName = typeName;
         this.examplePoem = List.of(examplePoem);
