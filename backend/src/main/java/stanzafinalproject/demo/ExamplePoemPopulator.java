@@ -191,6 +191,5 @@ public class ExamplePoemPopulator implements CommandLineRunner {
         ExamplePoem exGhazal10 = new ExamplePoem("Ghazal of the Polar Vortex", "Brian Brodeur", ghazal, "https://poems.com/poem/ghazal-of-the-polar-vortex/");
         examplePoemStorage.save(exGhazal10);
         ExamplePoem exGhazal11 = new ExamplePoem("Ghazal Ya Lateef!", "Marilyn Hacker", ghazal, "https://poets.org/poem/ghazal-ya-ltyf-ya-lateef");
-        examplePoemStorage.save(exGhazal11);
-    }
+        examplePoemStorage.save(exGhazal11);  
 }

@@ -17,6 +17,7 @@ public class ExamplePoemType {
     private String typeDescription;
 
 
+
     public ExamplePoemType(String typeName, ExamplePoem... examplePoem) {
         this.typeName = typeName;
         this.examplePoem = List.of(examplePoem);
