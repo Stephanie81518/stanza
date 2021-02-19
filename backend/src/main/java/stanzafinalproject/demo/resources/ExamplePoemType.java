@@ -13,6 +13,7 @@ public class ExamplePoemType {
     private String typeName;
     @OneToMany(mappedBy = "examplePoemType")
     private Collection<ExamplePoem> examplePoem;
+    @Column(length=1000)
     private String typeDescription;
 
 
