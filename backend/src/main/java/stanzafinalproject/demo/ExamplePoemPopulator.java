@@ -27,7 +27,7 @@ public class ExamplePoemPopulator implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        //adding poem types to repository
+/*        //adding poem types to repository
         ExamplePoemType haiku = new ExamplePoemType("Haiku", "A Japanese short poetic form comprised of 3 unrhymed lines with a specific syllabic pattern.\nLine 1 has five syllables,\nLine 2 has seven syllables,\nLine 3 has five syllables.");
         examplePoemTypeStorage.addExamplePoemType(haiku);
         examplePoemTypeRepo.save(haiku);
@@ -45,7 +45,7 @@ public class ExamplePoemPopulator implements CommandLineRunner {
         examplePoemTypeRepo.save(pantoum);
         ExamplePoemType ghazal = new ExamplePoemType("Ghazal", "An ancient Arabic poetic form, dating back to the 7th-century. It typically consists of five to fifteen couplets (two-line stanzas) that can stand on their own, but are in some way linked, usually in theme.Each line is roughly the same length. The form is less strict in English and does not adhere to a specific meter, but typically the second line of each couplet ends with the same word. Often the final couplet includes a reference to the poet by name.");
         examplePoemTypeStorage.addExamplePoemType(ghazal);
-        examplePoemTypeRepo.save(ghazal);
+        examplePoemTypeRepo.save(ghazal);*/
 
 
         //adding example poems to api
@@ -106,29 +106,29 @@ public class ExamplePoemPopulator implements CommandLineRunner {
 //        examplePoemStorage.save(exVillanelle1);
 //        ExamplePoem exVillanelle2 = new ExamplePoem("Zombie Blues Villanelle", "Tim Seibles", villanelle, "https://poets.org/poem/zombie-blues-villanelle");
 //        examplePoemStorage.save(exVillanelle2);
-        ExamplePoem exVillanelle3 = new ExamplePoem("Do not go gentle into that good night", "Dylan Thomas", villanelle, "https://poets.org/poem/do-not-go-gentle-good-night");
-        examplePoemStorage.save(exVillanelle3);
-        ExamplePoem exVillanelle4 = new ExamplePoem("Testimony: 1968", "Rita Dove", villanelle, "https://poets.org/poem/testimony-1968");
-        examplePoemStorage.save(exVillanelle4);
-        ExamplePoem exVillanelle5 = new ExamplePoem("Letter to My Blackout", "Maria Hummel", villanelle, "https://www.poetryfoundation.org/poetrymagazine/poems/150043/letter-to-my-blackout");
-        examplePoemStorage.save(exVillanelle5);
-        ExamplePoem exVillanelle6 = new ExamplePoem("After the Auction, I Bid You Good-Bye", "Aimee Nezhukumatathil", villanelle, "https://www.poetryfoundation.org/poems/56134/after-the-auction-i-bid-you-good-bye");
-        examplePoemStorage.save(exVillanelle6);
-        ExamplePoem exVillanelle7 = new ExamplePoem("The Waking", "Theodore Roethke", villanelle, "https://www.poetryfoundation.org/poems/43333/the-waking-56d2220f25315");
-        examplePoemStorage.save(exVillanelle7);
-        ExamplePoem exVillanelle8 = new ExamplePoem("Nursery", "Kiki Petrosino", villanelle, "https://www.poetryfoundation.org/poetrymagazine/poems/92040/nursery");
-        examplePoemStorage.save(exVillanelle8);
-        ExamplePoem exVillanelle9 = new ExamplePoem("Mad Girl's Love Song", "Sylvia Plath", villanelle, "https://allpoetry.com/Mad-Girl%27s-Love-Song");
-        examplePoemStorage.save(exVillanelle9);
-        ExamplePoem exVillanelle10 = new ExamplePoem("The Story We Know", "Martha Collins", villanelle, "https://www.poetryfoundation.org/poetrymagazine/browse?contentId=34705");
-        examplePoemStorage.save(exVillanelle10);
-        ExamplePoem exVillanelle11 = new ExamplePoem("Between the House and the Hill", "Xochiquetzal Candelaria", villanelle, "https://www.poetryfoundation.org/poems/56978/between-the-house-and-the-hill");
-        examplePoemStorage.save(exVillanelle11);
+//        ExamplePoem exVillanelle3 = new ExamplePoem("Do not go gentle into that good night", "Dylan Thomas", villanelle, "https://poets.org/poem/do-not-go-gentle-good-night");
+//        examplePoemStorage.save(exVillanelle3);
+//        ExamplePoem exVillanelle4 = new ExamplePoem("Testimony: 1968", "Rita Dove", villanelle, "https://poets.org/poem/testimony-1968");
+//        examplePoemStorage.save(exVillanelle4);
+//        ExamplePoem exVillanelle5 = new ExamplePoem("Letter to My Blackout", "Maria Hummel", villanelle, "https://www.poetryfoundation.org/poetrymagazine/poems/150043/letter-to-my-blackout");
+//        examplePoemStorage.save(exVillanelle5);
+//        ExamplePoem exVillanelle6 = new ExamplePoem("After the Auction, I Bid You Good-Bye", "Aimee Nezhukumatathil", villanelle, "https://www.poetryfoundation.org/poems/56134/after-the-auction-i-bid-you-good-bye");
+//        examplePoemStorage.save(exVillanelle6);
+//        ExamplePoem exVillanelle7 = new ExamplePoem("The Waking", "Theodore Roethke", villanelle, "https://www.poetryfoundation.org/poems/43333/the-waking-56d2220f25315");
+//        examplePoemStorage.save(exVillanelle7);
+//        ExamplePoem exVillanelle8 = new ExamplePoem("Nursery", "Kiki Petrosino", villanelle, "https://www.poetryfoundation.org/poetrymagazine/poems/92040/nursery");
+//        examplePoemStorage.save(exVillanelle8);
+//        ExamplePoem exVillanelle9 = new ExamplePoem("Mad Girl's Love Song", "Sylvia Plath", villanelle, "https://allpoetry.com/Mad-Girl%27s-Love-Song");
+//        examplePoemStorage.save(exVillanelle9);
+//        ExamplePoem exVillanelle10 = new ExamplePoem("The Story We Know", "Martha Collins", villanelle, "https://www.poetryfoundation.org/poetrymagazine/browse?contentId=34705");
+//        examplePoemStorage.save(exVillanelle10);
+//        ExamplePoem exVillanelle11 = new ExamplePoem("Between the House and the Hill", "Xochiquetzal Candelaria", villanelle, "https://www.poetryfoundation.org/poems/56978/between-the-house-and-the-hill");
+//        examplePoemStorage.save(exVillanelle11);
 
 
-        ExamplePoem exSestina1 = new ExamplePoem("Homes", "Charlotte Anna Perkins Gilman", sestina, "https://www.poetryfoundation.org/poems/52089/homes");
-        examplePoemStorage.save(exSestina1);
-        ExamplePoem exSestina2 = new ExamplePoem("Time Reviews The Ziegfeld Follies Featuring Josephine Baker, 1936", "A. Van Jordan", sestina, "https://poets.org/poem/time-reviews-ziegfeld-follies-featuring-josephine-baker-1936");
+//        ExamplePoem exSestina1 = new ExamplePoem("Homes", "Charlotte Anna Perkins Gilman", sestina, "https://www.poetryfoundation.org/poems/52089/homes");
+//        examplePoemStorage.save(exSestina1);
+/*        ExamplePoem exSestina2 = new ExamplePoem("Time Reviews The Ziegfeld Follies Featuring Josephine Baker, 1936", "A. Van Jordan", sestina, "https://poets.org/poem/time-reviews-ziegfeld-follies-featuring-josephine-baker-1936");
         examplePoemStorage.save(exSestina2);
         ExamplePoem exSestina3 = new ExamplePoem("Ethel’s Sestina", "Patricia Smith", sestina, "https://poets.org/poem/ethels-sestina");
         examplePoemStorage.save(exSestina3);
@@ -191,6 +191,6 @@ public class ExamplePoemPopulator implements CommandLineRunner {
         ExamplePoem exGhazal10 = new ExamplePoem("Ghazal of the Polar Vortex", "Brian Brodeur", ghazal, "https://poems.com/poem/ghazal-of-the-polar-vortex/");
         examplePoemStorage.save(exGhazal10);
         ExamplePoem exGhazal11 = new ExamplePoem("Ghazal Ya Lateef!", "Marilyn Hacker", ghazal, "https://poets.org/poem/ghazal-ya-ltyf-ya-lateef");
-        examplePoemStorage.save(exGhazal11);
+        examplePoemStorage.save(exGhazal11);*/
     }
 }
