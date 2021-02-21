@@ -1,10 +1,8 @@
-let totalSyllablesForLine1 = 0;
-let totalSyllablesForLine2 = 0;
-let totalSyllablesForLine3 = 0;
-let totalSyllablesForLine4 = 0;
-let totalSyllablesForLine5 = 0;
-let totalSyllablesForLine6 = 0;
+const poetryTextEditor = document.getElementById('editor1');
+const divPrintOutBox = document.getElementById('div--description');
 
+
+/// ----------------- start of text editor code ---------------------- ///
 function chooseColor(){
   var mycolor = document.getElementById("myColor").value;
   document.execCommand('foreColor', false, mycolor);
@@ -30,10 +28,57 @@ function checkDiv(){
 function removeBorder(){
   document.getElementById("editor1").style.border = '1px solid transparent';
 }
+/// ----------------- end of text editor code -------------------------- ///
 
 
-// split into lines                 splitIntoLines(inString);
-// split each line into words       stripNonAlphanumericAndMakeArrayOfWords(inString);
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
+////////////////////// START OF WORD FUNCTIONS ///////////////////////////
+//////////////////////////////////////////////////////////////////////////
+const clearChildren = function (element) {
+  while (element.firstChild) {
+    element.removeChild(element.lastChild);
+  }
+};
+function splitIntoLines(inString){
+  let currentArrayOfLines = inString.split('<br>').join('#splitWithThisAgainLater##').split('div').join('#splitWithThisAgainLater##').split('#splitWithThisAgainLater##');
+  return currentArrayOfLines;
+}
+function stripNonAlphanumeric(inString){
+  let currentString = inString.replace(/[^a-z0-9-' ]+/gi, ' ');
+  return currentString;
+}
+function makeArrayOfWords(inString){
+  let allWords = inString.split(' ');
+  var finalArrayOfWords = allWords.filter(function (el) {
+    return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div');
+  });
+  return finalArrayOfWords;
+}
+
+
+function countSyllablesInOneWord() {
+
+}
+
+function keepTrackOfWhichWordsHaveBeenCounted(){
+  // use a multidimensional array and push & pop to add & remove lines & words
+
+  // arrayOfEverything[
+  //    arrayOfPoemWords[line1Words[], line2Words[]],
+  //    arrayOfWordsStatuses[line1WordsStatus[], line2WordsStatus[]]
+  //    arrayOfLinesStatuses[line1, line2],
+  // ]
+}
+
+
+// [DONE] split into lines                 splitIntoLines(inString);
+// [DONE] split each line into words       stripNonAlphanumericAndMakeArrayOfWords(inString);
+
+// use some logic to see if I've already checked the word for syllables [maybe a 2nd array with bool values in a corresponding index #]
 // count each word's syllables      countSyllablesInOneWord();
 // add, then write the # of syllables to the document
 
@@ -41,17 +86,38 @@ function removeBorder(){
 // allWords.forEach();
 // add delay of 0.5-1? sec, then check syllable count of line
 
-const poetryTextEditor = document.getElementById('editor1');
+
 poetryTextEditor.addEventListener('input', textChanged);
+
+
+let arrayOfLine1 = ['word1', 'word2', 'word3'];
+let arrayOfLine1WordsStatuses = [true, true, false]
+let arrayOfLines = ['line1', 'line2', 'line3'];
+let arrayOfLinesStatuses = [true, true, false];
+
+
+let arraysOfEverything = [
+  arrayOfLine1, 
+  arrayOfLine1WordsStatuses, 
+  arrayOfLines,
+  arrayOfLinesStatuses
+];
+console.table(arraysOfEverything);
 
 function textChanged(){
   let stringOfAllText = poetryTextEditor.innerHTML;
-
-  // let arrayOfLinesOfText = splitIntoLines(stringOfAllText);
-  let lineCount = 1;
+  clearChildren(divPrintOutBox);
   let arrayOfLinesOfText = splitIntoLines(stringOfAllText);
-  
-  console.log(arrayOfLinesOfText);
+  arrayOfLinesOfText.forEach( function(element, i) {
+    let stringOfCurrentLine = stripNonAlphanumeric(element);
+    let arrayOfCurrentLineWords = makeArrayOfWords(stringOfCurrentLine);
+    console.table(arrayOfCurrentLineWords);
+    // let finalArrayMinusEmptyElements = stringOfCurrentLine.replace(/[^a-z0-9-' ]+/gi, ' ');
+    // let finalArrayOfWords = finalArrayMinusEmptyElements.filter(function (el) {
+      // return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div')});
+    divPrintOutBox.append('line '+i+': '+stringOfCurrentLine);
+    divPrintOutBox.append(document.createElement('br'));
+  });
 
   
 
@@ -67,22 +133,4 @@ function textChanged(){
   // console.log(filteredWords);
 }
 
-function splitIntoLines(inString){
-  let currentString = inString.split('<br>').join('#splitWithThisAgainLater##').split('div').join('#splitWithThisAgainLater##').split('#splitWithThisAgainLater##');
-  return currentString;
-}
-
-
-function stripNonAlphanumericAndMakeArrayOfWords(inString){
-  let currentString = inString.replace(/[^a-z0-9-' ]+/gi, ' ');
-  let allWords = currentString.split(' ');
-  var finalArrayOfWords = allWords.filter(function (el) {
-    return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div');
-  });
-  console.log(finalArrayOfWords);
-}
-
-
-function countSyllablesInOneWord() {
-
-}
+textChanged(); //runs when page loads
