@@ -45,6 +45,9 @@ const clearChildren = function (element) {
 };
 function splitIntoLines(inString){
   let currentArrayOfLines = inString.split('<br>').join('#splitWithThisAgainLater##').split('div').join('#splitWithThisAgainLater##').split('#splitWithThisAgainLater##');
+  currentArrayOfLines.filter(function (el){
+    return (el != null && el != '');
+  })
   return currentArrayOfLines;
 }
 function stripNonAlphanumeric(inString){
@@ -61,12 +64,16 @@ function makeArrayOfWords(inString){
 
 
 function countSyllablesInOneWord() {
-
 }
 
 function keepTrackOfWhichWordsHaveBeenCounted(){
   // use a multidimensional array and push & pop to add & remove lines & words
-
+  
+  //  [
+  //    [[line1words],[line2words],[line3Words],[line4Words]],
+  //    [[line1WordStatuses],[line2WordStatuses],[line3WordStatuses],[line4WordStatuses]],
+  //    [line1Status, line2Status, line3Status, line4Status]
+  //  ]
   // arrayOfEverything[
   //    arrayOfPoemWords[line1Words[], line2Words[]],
   //    arrayOfWordsStatuses[line1WordsStatus[], line2WordsStatus[]]
@@ -90,11 +97,10 @@ function keepTrackOfWhichWordsHaveBeenCounted(){
 poetryTextEditor.addEventListener('input', textChanged);
 
 
-let arrayOfLine1 = ['word1', 'word2', 'word3'];
-let arrayOfLine1WordsStatuses = [true, true, false]
+let arrayOfLine1 = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'];
+let arrayOfLine1WordsStatuses = [true, true, true, true, true, true, true, true, true, false]
 let arrayOfLines = ['line1', 'line2', 'line3'];
 let arrayOfLinesStatuses = [true, true, false];
-
 
 let arraysOfEverything = [
   arrayOfLine1, 
@@ -103,6 +109,8 @@ let arraysOfEverything = [
   arrayOfLinesStatuses
 ];
 console.table(arraysOfEverything);
+console.log(arraysOfEverything[0][0]);
+
 
 function textChanged(){
   let stringOfAllText = poetryTextEditor.innerHTML;
@@ -111,26 +119,10 @@ function textChanged(){
   arrayOfLinesOfText.forEach( function(element, i) {
     let stringOfCurrentLine = stripNonAlphanumeric(element);
     let arrayOfCurrentLineWords = makeArrayOfWords(stringOfCurrentLine);
-    console.table(arrayOfCurrentLineWords);
-    // let finalArrayMinusEmptyElements = stringOfCurrentLine.replace(/[^a-z0-9-' ]+/gi, ' ');
-    // let finalArrayOfWords = finalArrayMinusEmptyElements.filter(function (el) {
-      // return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div')});
-    divPrintOutBox.append('line '+i+': '+stringOfCurrentLine);
+    console.log(arrayOfCurrentLineWords);
+    divPrintOutBox.append((i+1)+': '+arrayOfCurrentLineWords);
     divPrintOutBox.append(document.createElement('br'));
   });
-
-  
-
-// array of arrays  -  each inner arry is one line's words!
-
-  // let allLines = stringOfAllText.split(['<div>']);
-  // console.log(allLines);
-  // stringOfAllText = stringOfAllText.replace(/[^a-z0-9-' ]+/gi, ' ');
-  // let allWords = stringOfAllText.split(' ');
-  // var filteredWords = allWords.filter(function (el) {
-  //   return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div');
-  // });
-  // console.log(filteredWords);
 }
 
 textChanged(); //runs when page loads
