@@ -130,8 +130,8 @@ function textChanged(){
     arrayOfCurrentLineWords = makeArrayOfWords(stringOfCurrentLine);
     divPrintOutBox.append((i+1)+': '+arrayOfCurrentLineWords);
     divPrintOutBox.append(document.createElement('br'));
+    arrayOfWordsGroupedByLine.push(arrayOfCurrentLineWords);
   });
-  arrayOfWordsGroupedByLine.push(arrayOfCurrentLineWords);
   arrayOfWordsGroupedByLine.forEach((element, i)=>{
     console.table(element);
   });
