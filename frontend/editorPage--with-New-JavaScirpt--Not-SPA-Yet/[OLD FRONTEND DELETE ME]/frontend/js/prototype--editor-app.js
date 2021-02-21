@@ -1,6 +1,16 @@
 const poetryTextEditor = document.getElementById('editor1');
 const divPrintOutBox = document.getElementById('div--description');
+let arrayOfLine1 = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'];
+let arrayOfLine1WordsStatuses = [true, true, true, true, true, true, true, true, true, false]
+let arrayOfLines = ['line1', 'line2', 'line3'];
+let arrayOfLinesStatuses = [true, true, false];
 
+let arraysOfEverything = [
+  arrayOfLine1, 
+  arrayOfLine1WordsStatuses, 
+  arrayOfLines,
+  arrayOfLinesStatuses
+];
 
 /// ----------------- start of text editor code ---------------------- ///
 function chooseColor(){
@@ -66,63 +76,65 @@ function makeArrayOfWords(inString){
 function countSyllablesInOneWord() {
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////// TO DO LIST ////////////////////////////////////////////////////////////////////////////////////////////////////
+///// [DONE] split into lines                 splitIntoLines(inString);
+///// [DONE] split each line into words       stripNonAlphanumericAndMakeArrayOfWords(inString);
+///// use some logic to see if I've already checked the word for syllables [maybe a 2nd array with bool values in a corresponding index #]
+///// count each word's syllables      countSyllablesInOneWord();
+///// add, then write the # of syllables to the document
+///// add delay of 0.5-1? sec, then check syllable count of line
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function keepTrackOfWhichWordsHaveBeenCounted(){
-  // use a multidimensional array and push & pop to add & remove lines & words
-  
-  //  [
-  //    [[line1words],[line2words],[line3Words],[line4Words]],
-  //    [[line1WordStatuses],[line2WordStatuses],[line3WordStatuses],[line4WordStatuses]],
-  //    [line1Status, line2Status, line3Status, line4Status]
-  //  ]
-  // arrayOfEverything[
-  //    arrayOfPoemWords[line1Words[], line2Words[]],
-  //    arrayOfWordsStatuses[line1WordsStatus[], line2WordsStatus[]]
-  //    arrayOfLinesStatuses[line1, line2],
-  // ]
+  // use a multidimensional array (and push, pop & splice) to add & remove lines & words
+    // Add feature to check if previous words have been changed. 
+  arrayOfWordsStatusesGroupedByLine = [
+    [true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, true],
+    [true, true, true, true, true, true, true, true, true, false]
+  ]
+  arrayOfWordsGroupedByLine = [
+    ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'], 
+    ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'], 
+    ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10']
+  ];
+  arrayOfLinesStatuses = [true, true, false];
+
+  arraysOfEverything = [
+    arrayOfWordsStatusesGroupedByLine, 
+    arrayOfWordsGroupedByLine,
+    arrayOfLinesStatuses
+  ];
+  // console.table(arraysOfEverything);
+  // console.table(arrayOfWordsGroupedByLine);
+  // console.table(arrayOfWordsStatusesGroupedByLine)
+  // console.log(arrayOfLinesStatuses);
+  // // console.log('one element: ' + arraysOfEverything[0][0]);
 }
 
-
-// [DONE] split into lines                 splitIntoLines(inString);
-// [DONE] split each line into words       stripNonAlphanumericAndMakeArrayOfWords(inString);
-
-// use some logic to see if I've already checked the word for syllables [maybe a 2nd array with bool values in a corresponding index #]
-// count each word's syllables      countSyllablesInOneWord();
-// add, then write the # of syllables to the document
-
-// console.log("big <div> enormous <br> dove".split('div').join('###').split('<br>').join('###').split('###').join('').split(' '));
-// allWords.forEach();
-// add delay of 0.5-1? sec, then check syllable count of line
-
+keepTrackOfWhichWordsHaveBeenCounted();
 
 poetryTextEditor.addEventListener('input', textChanged);
 
 
-let arrayOfLine1 = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'];
-let arrayOfLine1WordsStatuses = [true, true, true, true, true, true, true, true, true, false]
-let arrayOfLines = ['line1', 'line2', 'line3'];
-let arrayOfLinesStatuses = [true, true, false];
-
-let arraysOfEverything = [
-  arrayOfLine1, 
-  arrayOfLine1WordsStatuses, 
-  arrayOfLines,
-  arrayOfLinesStatuses
-];
-console.table(arraysOfEverything);
-console.log(arraysOfEverything[0][0]);
 
 
+let arrayOfCurrentLineWords 
 function textChanged(){
   let stringOfAllText = poetryTextEditor.innerHTML;
   clearChildren(divPrintOutBox);
   let arrayOfLinesOfText = splitIntoLines(stringOfAllText);
   arrayOfLinesOfText.forEach( function(element, i) {
     let stringOfCurrentLine = stripNonAlphanumeric(element);
-    let arrayOfCurrentLineWords = makeArrayOfWords(stringOfCurrentLine);
-    console.log(arrayOfCurrentLineWords);
+    arrayOfCurrentLineWords = makeArrayOfWords(stringOfCurrentLine);
     divPrintOutBox.append((i+1)+': '+arrayOfCurrentLineWords);
     divPrintOutBox.append(document.createElement('br'));
   });
+  arrayOfWordsGroupedByLine.push(arrayOfCurrentLineWords);
+  arrayOfWordsGroupedByLine.forEach((element, i)=>{
+    console.table(element);
+  });
 }
 
-textChanged(); //runs when page loads
+textChanged();
