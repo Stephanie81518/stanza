@@ -1,13 +1,7 @@
 const poetryTextEditor = document.getElementById('editor1');
 const divPrintOutBox = document.getElementById('div--description');
-
-// let arraysOfEverything = '';
-// let arrayOfWordsGroupedByLine = '';
-// let arrayOfLinesStatuses = '';
-
 let arrFinalCountAndOutput = [];
 let arrEverything = [];
-let arrNewLine = [];
 let arrNewWord = [];
 
 
@@ -50,7 +44,7 @@ const clearChildren = function (element) {
   }
 };
 function splitIntoLines(inString){
-  let currentArrayOfLines = inString.split('<br>').join('#splitWithThisAgainLater##').split('div').join('#splitWithThisAgainLater##').split('#splitWithThisAgainLater##');
+  let currentArrayOfLines = inString.split('<div>');
   currentArrayOfLines.filter(function (el){
     return (el != null && el != '');
   })
@@ -68,37 +62,19 @@ function makeArrayOfWords(inString){
   return finalArrayOfWords;
 }
 
-
-// let countSyllablesInOneWord = (inWordToLookUp) => {
-//   fetch("https://api.datamuse.com/words?sp=" + inWordToLookUp + "&md=s")
-//   .then(res => res.json())
-//   .then(data => {
-//       arrNewWord = [];
-//       arrNewWord.push(data[0].word);
-//       arrNewWord.push(true);
-//       arrNewWord.push(data[0].numSyllables);
-//       arrNewLine.push(arrNewWord);
-//   })
-//   .catch(err => {
-//       console.log(err);
-//   });
-// }
-
-
 // countSyllablesInOneWord("onomatopoeia");
 // console.log(arrNewLine);
 
-
-
 let countSyllablesInAllLinesOfWords = () => {
+    arrFinalCountAndOutput = [];
   let stringOfAllText = poetryTextEditor.innerHTML;
   let arrOfLinesOfText = splitIntoLines(stringOfAllText);
-  arrOfLinesOfText.forEach((element, i) => {
+  arrOfLinesOfText.forEach((element) => {
+    let arrNewLine = [];
     let stringOfThisLine = stripNonAlphanumeric(element);
     let arrThisLineOfWords = makeArrayOfWords(stringOfThisLine);
     console.log(arrThisLineOfWords);
     for(j=0; j<arrThisLineOfWords.length; j++){
-      // arrThisLineOfWords[j]
       fetch("https://api.datamuse.com/words?sp=" + arrThisLineOfWords[j] + "&md=s")
       .then(res => res.json())
       .then(data => {
@@ -114,11 +90,28 @@ let countSyllablesInAllLinesOfWords = () => {
     }
     arrFinalCountAndOutput.push([arrNewLine]);
   })
-
-    // arrNewLine = [];
     console.log(arrFinalCountAndOutput);
+    arrFinalCountAndOutput.forEach((element) => {
+      element.forEach((el)=>{
+        console.log(el);
+      })
+    })
 }
 countSyllablesInAllLinesOfWords();
+
+poetryTextEditor.addEventListener('input', countSyllablesInAllLinesOfWords);  
+
+let input = document.getElementById('my-input');
+let timeout = null;
+input.addEventListener('keyup', function (e) {
+    clearTimeout(timeout);
+
+    timeout = setTimeout(function () {
+      countSyllablesInAllLinesOfWords();
+    }, 1000);
+});
+
+
 
 
 

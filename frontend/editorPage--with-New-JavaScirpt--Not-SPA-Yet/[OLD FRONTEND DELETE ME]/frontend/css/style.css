@@ -58,3 +58,7 @@
     left: 803px;
     border: 1px solid black;
 }
+
+#editor1 div{
+    border-bottom: solid 1px red;
+}
