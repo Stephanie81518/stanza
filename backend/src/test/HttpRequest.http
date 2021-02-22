@@ -3,3 +3,15 @@ GET localhost:8080/api/examplepoems
 GET http://localhost:8080/api/examplepoems/1
 ###
 GET localhost:8080/api/examplepoemtype
+###
+GET localhost:8080/api/userpoems/
+###
+POST localhost:8080/api/userpoems/
+Content-Type: application/json
+
+{ "poetName": "Jake",
+"title": "Love Simon",
+"poemContent": "blahblahLoveblahblah"
+}
+###
+GET localhost:8080/api/userpoems/5
