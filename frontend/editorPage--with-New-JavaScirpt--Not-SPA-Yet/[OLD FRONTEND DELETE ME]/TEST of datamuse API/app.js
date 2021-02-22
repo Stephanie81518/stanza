@@ -9,20 +9,30 @@ var numberOfSyllables = '';
 var data = '';
 
 arrayOfEverything = [
-    ["Count", "the", "syllables", "of", "these", "words"],
-    ["and", "these", "words", "too"]
+    [
+        ["Count", true, 1], 
+        ["the", , true, 1], 
+        ["syllables", , true, 3], 
+        ["of", , true, 1], 
+        ["these", , true, 1], 
+        ["words", true, 1], 
+    ],
+    [
+        ["and", , true, 1], 
+        ["these", , true, 1], 
+        ["words", , true, 1], 
+        ["too", true, 1], 
+    ]
 ]
 
 let newWords = ['Add', 'this', 'sentence']
-for(i=0; i<newWords.length; i++){
-    arrayOfOneLine.push(newWords[i]);
-}
-arrayOfEverything.push(arrayOfOneLine);
-arrayOfEverything = arrayOfEverything.filter(function (el) {
-    return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div');
-  });
-console.log('everything: ');
-console.log(arrayOfEverything);
+// for(i=0; i<newWords.length; i++){
+//     arrayOfOneLine.push(newWords[i]);
+// }
+// arrayOfEverything.push(arrayOfOneLine);
+// arrayOfEverything = arrayOfEverything.filter(function (el) {
+//     return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div');
+//   });    
 
 
 
@@ -31,29 +41,25 @@ console.log(arrayOfEverything);
 
 
 
-
+let newNewWords = [];
 
 
 let getNumberOfSyllables = (inWordToLookUp) => {
-    // console.log('wordtolookup: '+inWordToLookUp); 
     fetch("https://api.datamuse.com/words?sp=" + inWordToLookUp + "&md=s")
         .then(res => res.json())
         .then(data => {
             newWordArray = [];
+            // arrayOfOneLine = [];
             numberOfSyllables = data[0].numSyllables;
-            // console.log('#syl: '+numberOfSyllables);
-            // document.body.append(JSON.stringify(data));
             newWordArray.push(inWordToLookUp);
             newWordArray.push(true);
-            newWordArray.push(numberOfSyllables); //
-            arrayOfOneLine.push(newWordArray);
-            // console.log(arrayOfOneLine);
-            return newWordArray;
+            newWordArray.push(numberOfSyllables);
+            console.log(newWordArray);
             })
         .catch(err => {
             console.log(err);
         });
-        return numberOfSyllables;
+        return newWordArray;
     }
 
 // for(i=0; i<arrayOfLineOne.length; i++){
@@ -63,10 +69,13 @@ let getNumberOfSyllables = (inWordToLookUp) => {
 // }
 
 
+newWords.forEach((element, i)=>{
+    getNumberOfSyllables(element);
+})
+console.log(newNewWords);
 
 
-
-
+/*
 
 arrayOfEverything.forEach((element) => {
     console.log(element);
@@ -78,8 +87,7 @@ arrayOfEverything.forEach((element) => {
 })
 console.log(arrayOfEverything);
 
-
-
+*/
 
 
 // for(ii=0; ii<newWords[ii].length; ii++){

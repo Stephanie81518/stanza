@@ -1,9 +1,14 @@
 const poetryTextEditor = document.getElementById('editor1');
 const divPrintOutBox = document.getElementById('div--description');
 
-let arraysOfEverything = '';
-let arrayOfWordsGroupedByLine = '';
-let arrayOfLinesStatuses = '';
+// let arraysOfEverything = '';
+// let arrayOfWordsGroupedByLine = '';
+// let arrayOfLinesStatuses = '';
+
+let arrFinalCountAndOutput = [];
+let arrEverything = [];
+let arrNewLine = [];
+let arrNewWord = [];
 
 
 /// ----------------- start of text editor code ---------------------- ///
@@ -37,11 +42,8 @@ function removeBorder(){
 
 
 
-
-
-//////////////////////////////////////////////////////////////////////////
 ////////////////////// START OF WORD FUNCTIONS ///////////////////////////
-//////////////////////////////////////////////////////////////////////////
+
 const clearChildren = function (element) {
   while (element.firstChild) {
     element.removeChild(element.lastChild);
@@ -67,52 +69,65 @@ function makeArrayOfWords(inString){
 }
 
 
-function countSyllablesInOneWord() {
-}
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////// TO DO LIST ////////////////////////////////////////////////////////////////////////////////////////////////////
-///// [DONE] split into lines                 splitIntoLines(inString);
-///// [DONE] split each line into words       stripNonAlphanumericAndMakeArrayOfWords(inString);
-///// use some logic to see if I've already checked the word for syllables [maybe a 2nd array with bool values in a corresponding index #]
-///// count each word's syllables      countSyllablesInOneWord();
-///// add, then write the # of syllables to the document
-///// add delay of 0.5-1? sec, then check syllable count of line
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-function keepTrackOfWhichWordsHaveBeenCounted(){
-  // use a multidimensional array (with push, pop & splice) to add & remove lines & words
-    // Add feature to check if previous words have been changed. 
-
-  ////////////////////////////////      \/     \/    \/     \/     \/     \/
-  arrayOfWordsGroupedByLine = [];
-  arrayOfLinesStatuses = [true, true, false];
-
-  arraysOfEverything = [
-    arrayOfWordsGroupedByLine,
-    arrayOfLinesStatuses
-  ];
-}
-
-keepTrackOfWhichWordsHaveBeenCounted();
+// let countSyllablesInOneWord = (inWordToLookUp) => {
+//   fetch("https://api.datamuse.com/words?sp=" + inWordToLookUp + "&md=s")
+//   .then(res => res.json())
+//   .then(data => {
+//       arrNewWord = [];
+//       arrNewWord.push(data[0].word);
+//       arrNewWord.push(true);
+//       arrNewWord.push(data[0].numSyllables);
+//       arrNewLine.push(arrNewWord);
+//   })
+//   .catch(err => {
+//       console.log(err);
+//   });
+// }
 
 
-poetryTextEditor.addEventListener('input', textChanged);
+// countSyllablesInOneWord("onomatopoeia");
+// console.log(arrNewLine);
 
 
-let arrayOfCurrentLineOfWords = [];
-function textChanged(){
+
+let countSyllablesInAllLinesOfWords = () => {
   let stringOfAllText = poetryTextEditor.innerHTML;
-  clearChildren(divPrintOutBox);
-  let arrayOfLinesOfText = splitIntoLines(stringOfAllText);
-  arrayOfLinesOfText.forEach( function(element, i) {
-    let stringOfCurrentLine = stripNonAlphanumeric(element);
-    arrayOfCurrentLineOfWords = makeArrayOfWords(stringOfCurrentLine);
-    divPrintOutBox.append((i+1)+': '+arrayOfCurrentLineOfWords); //print to box on right side of screen
-    divPrintOutBox.append(document.createElement('br')); // adds line break
-    arrayOfWordsGroupedByLine.push(arrayOfCurrentLineOfWords);
-  });
-  console.log(arrayOfWordsGroupedByLine);
-}
+  let arrOfLinesOfText = splitIntoLines(stringOfAllText);
+  arrOfLinesOfText.forEach((element, i) => {
+    let stringOfThisLine = stripNonAlphanumeric(element);
+    let arrThisLineOfWords = makeArrayOfWords(stringOfThisLine);
+    console.log(arrThisLineOfWords);
+    for(j=0; j<arrThisLineOfWords.length; j++){
+      // arrThisLineOfWords[j]
+      fetch("https://api.datamuse.com/words?sp=" + arrThisLineOfWords[j] + "&md=s")
+      .then(res => res.json())
+      .then(data => {
+        arrNewWord = [];
+        arrNewWord.push(data[0].word);
+        arrNewWord.push(true);
+        arrNewWord.push(data[0].numSyllables);
+        arrNewLine.push(arrNewWord);
+        })
+      .catch(err => {
+          console.log(err);
+      });
+    }
+    arrFinalCountAndOutput.push([arrNewLine]);
+  })
 
-textChanged();
+    // arrNewLine = [];
+    console.log(arrFinalCountAndOutput);
+}
+countSyllablesInAllLinesOfWords();
+
+
+
+
+
+//  use some logic to see if I've already checked the word for syllables [maybe a 2nd array with bool values in a corresponding index #]
+//  count each word's syllables      countSyllablesInOneWord();
+//  add, then write the # of syllables to the document
+//  add delay of 0.5-1? sec, then check syllable count of line
+function keepTrackOfWhichWordsHaveBeenCounted(){
+}
+keepTrackOfWhichWordsHaveBeenCounted();
