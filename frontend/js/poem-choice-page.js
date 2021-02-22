@@ -1,40 +1,90 @@
-const mainContent = document.createElement("main");
+import { poemTypeElement } from "./poemTypeView.js";
 
+const poemChoiceElement = function (poemType) {
+  const poemChoiceContent = document.querySelector(".main-content");
+  clearChildren(poemChoiceContent);
 
-const poemChoiceElement = function () {
-    mainElement.classList.add("main-content");
-        const typeOfPoem = document.createElement("div");
-        typeOfPoem.classList.add("typeOfPoemBox");
-        mainElement.append(typeOfPoem);
+  const typeOfPoemDiv = document.createElement("div");
+  typeOfPoemDiv.classList.add("typeOfPoemBox");
+  poemChoiceContent.appendChild(typeOfPoemDiv);
 
-            const buttonFreeVerse = document.createElement("button");
-            buttonFreeVerse.classList.add("free-verse-button");
-            typeOfPoem.append(buttonFreeVerse);
-            const buttonHaiku = document.createElement("button");
-            buttonHaiku.classList.add("haiku-button");
-            typeOfPoem.append(buttonHaiku);
-            const buttonSonnet = document.createElement("button");
-            buttonSonnet.classList.add("sonnet-button");
-            typeOfPoem.append(buttonSonnet);
-            const buttonSestina = document.createElement("button");
-            buttonSestina.classList.add("sestina-button");
-            typeOfPoem.append(buttonSestina);
-            const buttonVillanelle = document.createElement("button");
-            buttonVillanelle.classList.add("villanelle-button");
-            typeOfPoem.append(buttonVillanelle);
-            const buttonGhazal = document.createElement("button");
-            buttonGhazal.classList.add("ghazal-button");
-            typeOfPoem.append(buttonGhazal);
-            const buttonPantoum = document.createElement("button");
-            buttonPantoum.classList.add("pantoum-button");
-            typeOfPoem.append(buttonPantoum);
-        
-        const buttonLogin = document.createElement("button");
-        buttonLogin.classList.add("login-button");
-        mainElement.append(buttonLogin);
-}
-// const mainElement = document.createElement("main");
-//   mainElement.classList.add("main-content");
-//   const albumSectionElement = document.createElement("section");
-//   albumSectionElement.classList.add("album-list");
-//   mainElement.prepend(albumSectionElement);
+  poemType.forEach((examplePoemType) => {
+    const poemTypeButton = document.createElement("button");
+    poemTypeButton.classList.add("poem-type-button");
+    poemTypeButton.innerText = examplePoemType.typeName;
+    poemTypeButton.addEventListener("click", () =>
+      poemTypeElement(examplePoemType)
+    );
+    typeOfPoemDiv.appendChild(poemTypeButton);
+  });
+  return poemChoiceElement;
+};
+
+const clearChildren = function (element) {
+  while (element.firstChild) {
+    element.removeChild(element.lastChild);
+  }
+};
+
+export { poemChoiceElement };
+
+//     const buttonFreeVerse = document.createElement("button");
+//     buttonFreeVerse.classList.add("free-verse-button");
+//     buttonFreeVerse.innerText = "Free Verse";
+//     typeOfPoem.append(buttonFreeVerse);
+//         buttonFreeVerse.addEventListener("click", () => {
+//             poemTypeElement(poemType);
+//         })
+
+//     const buttonHaiku = document.createElement("button");
+//     buttonHaiku.classList.add("haiku-button");
+//     buttonHaiku.innerText = "Haiku";
+//     typeOfPoem.append(buttonHaiku);
+//         buttonHaiku.addEventListener("click", () => {
+
+//         })
+
+//     const buttonSonnet = document.createElement("button");
+//     buttonSonnet.classList.add("sonnet-button");
+//     buttonSonnet.innerText = "Sonnet";
+//     typeOfPoem.append(buttonSonnet);
+//         buttonSonnet.addEventListener("click", () => {
+
+//         })
+
+//     const buttonSestina = document.createElement("button");
+//     buttonSestina.classList.add("sestina-button");
+//     buttonSestina.innerText = "Sestina";
+//     typeOfPoem.append(buttonSestina);
+//         buttonSestina.addEventListener("click", () => {
+
+//         })
+
+//     const buttonVillanelle = document.createElement("button");
+//     buttonVillanelle.classList.add("villanelle-button");
+//     buttonVillanelle.innerText = "Villanelle";
+//     typeOfPoem.append(buttonVillanelle);
+//         buttonVillanelle.addEventListener("click", () => {
+
+//         })
+
+//     const buttonGhazal = document.createElement("button");
+//     buttonGhazal.classList.add("ghazal-button");
+//     buttonGhazal.innerText = "Ghazal";
+//     typeOfPoem.append(buttonGhazal);
+//         buttonGhazal.addEventListener("click", () => {
+
+//         })
+
+//     const buttonPantoum = document.createElement("button");
+//     buttonPantoum.classList.add("pantoum-button");
+//     buttonPantoum.innerText = "Pantoum";
+//     typeOfPoem.append(buttonPantoum);
+//         buttonPantoum.addEventListener("click", () => {
+
+//         })
+
+// const buttonLogin = document.createElement("button");
+// buttonLogin.classList.add("login-button");
+// buttonLogin.innerText = "Log In";
+// mainElement.append(buttonLogin);
