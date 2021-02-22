@@ -1,0 +1,25 @@
+.div--wrapper-for-boxes{
+    display: flex;
+    flex-direction: row;
+}
+
+#div--testInput{
+    border: 1px solid black;
+    width: 600px;
+    height: 200px;
+}
+#div--testOutput{
+    border: 1px solid black;
+    margin-left: 33px;
+    width: 600px;
+    height: 200px;
+}
+.div--label-testInput{
+    width: 600px;
+    border: 1px solid black;
+}
+.div--label-testOutput{
+    margin-left: 33px;
+    width: 600px;
+    border: 1px solid black;
+}

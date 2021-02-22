@@ -1,16 +1,10 @@
 const poetryTextEditor = document.getElementById('editor1');
 const divPrintOutBox = document.getElementById('div--description');
-let arrayOfLine1 = ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'];
-let arrayOfLine1WordsStatuses = [true, true, true, true, true, true, true, true, true, false]
-let arrayOfLines = ['line1', 'line2', 'line3'];
-let arrayOfLinesStatuses = [true, true, false];
 
-let arraysOfEverything = [
-  arrayOfLine1, 
-  arrayOfLine1WordsStatuses, 
-  arrayOfLines,
-  arrayOfLinesStatuses
-];
+let arraysOfEverything = '';
+let arrayOfWordsGroupedByLine = '';
+let arrayOfLinesStatuses = '';
+
 
 /// ----------------- start of text editor code ---------------------- ///
 function chooseColor(){
@@ -87,54 +81,38 @@ function countSyllablesInOneWord() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function keepTrackOfWhichWordsHaveBeenCounted(){
-  // use a multidimensional array (and push, pop & splice) to add & remove lines & words
+  // use a multidimensional array (with push, pop & splice) to add & remove lines & words
     // Add feature to check if previous words have been changed. 
-  arrayOfWordsStatusesGroupedByLine = [
-    [true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, true],
-    [true, true, true, true, true, true, true, true, true, false]
-  ]
-  arrayOfWordsGroupedByLine = [
-    ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'], 
-    ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10'], 
-    ['word1', 'word2', 'word3', 'word4', 'word5', 'word6', 'word7', 'word8', 'word9', 'word10']
-  ];
+
+  ////////////////////////////////      \/     \/    \/     \/     \/     \/
+  arrayOfWordsGroupedByLine = [];
   arrayOfLinesStatuses = [true, true, false];
 
   arraysOfEverything = [
-    arrayOfWordsStatusesGroupedByLine, 
     arrayOfWordsGroupedByLine,
     arrayOfLinesStatuses
   ];
-  // console.table(arraysOfEverything);
-  // console.table(arrayOfWordsGroupedByLine);
-  // console.table(arrayOfWordsStatusesGroupedByLine)
-  // console.log(arrayOfLinesStatuses);
-  // // console.log('one element: ' + arraysOfEverything[0][0]);
 }
 
 keepTrackOfWhichWordsHaveBeenCounted();
 
+
 poetryTextEditor.addEventListener('input', textChanged);
 
 
-
-
-let arrayOfCurrentLineWords 
+let arrayOfCurrentLineOfWords = [];
 function textChanged(){
   let stringOfAllText = poetryTextEditor.innerHTML;
   clearChildren(divPrintOutBox);
   let arrayOfLinesOfText = splitIntoLines(stringOfAllText);
   arrayOfLinesOfText.forEach( function(element, i) {
     let stringOfCurrentLine = stripNonAlphanumeric(element);
-    arrayOfCurrentLineWords = makeArrayOfWords(stringOfCurrentLine);
-    divPrintOutBox.append((i+1)+': '+arrayOfCurrentLineWords);
-    divPrintOutBox.append(document.createElement('br'));
-    arrayOfWordsGroupedByLine.push(arrayOfCurrentLineWords);
+    arrayOfCurrentLineOfWords = makeArrayOfWords(stringOfCurrentLine);
+    divPrintOutBox.append((i+1)+': '+arrayOfCurrentLineOfWords); //print to box on right side of screen
+    divPrintOutBox.append(document.createElement('br')); // adds line break
+    arrayOfWordsGroupedByLine.push(arrayOfCurrentLineOfWords);
   });
-  arrayOfWordsGroupedByLine.forEach((element, i)=>{
-    console.table(element);
-  });
+  console.log(arrayOfWordsGroupedByLine);
 }
 
 textChanged();
