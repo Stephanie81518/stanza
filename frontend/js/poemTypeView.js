@@ -1,4 +1,8 @@
+import {getRandomExamplePoem} from "./app.js";
+
+
 const poemTypeElement = function (examplePoemType) {
+
   const poemTypeContent = document.querySelector(".main-content");
   clearChildren(poemTypeContent);
 
@@ -11,9 +15,10 @@ const poemTypeElement = function (examplePoemType) {
   typeDesP.innerText = examplePoemType.typeDescription;
   containerDiv.appendChild(typeDesP);
 
-  const richTextFieldset = document.createElement("fieldset");
-  richTextFieldset.classList.add("texteditor-fieldset");
-  containerDiv.appendChild(richTextFieldset);
+    const typeExamplesP = document.createElement("p");
+    typeExamplesP.classList.add("type-examples-p");
+    typeExamplesP.innerHTML = `${getRandomExamplePoem(examplePoemType.typeName)}`;
+    containerDiv.appendChild(typeExamplesP);
 
   return poemTypeElement;
 };
