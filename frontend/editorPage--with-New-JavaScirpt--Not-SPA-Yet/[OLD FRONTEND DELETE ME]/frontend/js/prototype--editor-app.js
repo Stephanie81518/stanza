@@ -90,22 +90,15 @@ let countSyllablesInAllLinesOfWords = () => {
     }
     arrFinalCountAndOutput.push([arrNewLine]);
   })
-    console.log(arrFinalCountAndOutput);
-    arrFinalCountAndOutput.forEach((element) => {
-      element.forEach((el)=>{
-        console.log(el);
-      })
-    })
+    // console.log(arrFinalCountAndOutput);
 }
 countSyllablesInAllLinesOfWords();
 
-poetryTextEditor.addEventListener('input', countSyllablesInAllLinesOfWords);  
 
-let input = document.getElementById('my-input');
+// 1 second time delay to prevent instantly querying the API: 
 let timeout = null;
-input.addEventListener('keyup', function (e) {
+poetryTextEditor.addEventListener('keyup', function (e) {
     clearTimeout(timeout);
-
     timeout = setTimeout(function () {
       countSyllablesInAllLinesOfWords();
     }, 1000);
