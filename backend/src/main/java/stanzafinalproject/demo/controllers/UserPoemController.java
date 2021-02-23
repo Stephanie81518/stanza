@@ -1,5 +1,6 @@
 package stanzafinalproject.demo.controllers;
 
+import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.*;
 import stanzafinalproject.demo.resources.UserPoem;
 import stanzafinalproject.demo.storage.UserPoemStorage;
@@ -28,5 +29,19 @@ public class UserPoemController {
         userPoemStorage.addUserPoem(poemToAdd);
         return poemToAdd;
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteUserPoem(@PathVariable Long id){
+        userPoemStorage.removeUserPoem(id);
+    }
+
+    @PutMapping(value = "")
+    public UserPoem updateUserPoem(@RequestBody UserPoem userPoem){
+        if( userPoem.getId() != null){
+            userPoemStorage.addUserPoem(userPoem);
+        }
+        return userPoem;
+    }
+
 
 }
