@@ -1,3 +1,4 @@
+import { createFooter } from "./footer.js";
 import { poemTypeElement } from "./poemTypeView.js";
 
 const poemChoiceElement = function (poemType) {
@@ -17,6 +18,10 @@ const poemChoiceElement = function (poemType) {
     );
     typeOfPoemDiv.appendChild(poemTypeButton);
   });
+
+  let footer = createFooter();
+  typeOfPoemDiv.appendChild(footer);
+
   return poemChoiceElement;
 };
 

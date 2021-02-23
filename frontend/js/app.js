@@ -41,13 +41,6 @@ const getPoemTypes = function () {
     .catch((error) => console.log(error));
 };
 
-function createNode(element) {
-  return document.createElement(element);
-}
-
-function append(parent, element) {
-return parent.appendChild(element);
-}
 
 const getRandomExamplePoem = function (inPoemType) {
   fetch("http://localhost:8080/api/examplepoems", {
@@ -56,17 +49,29 @@ const getRandomExamplePoem = function (inPoemType) {
   })
   .then((response) => response.json())
   .then((examplePoems) => {
+    function filterForRandomPoem(examplePoems) {
     let filtered = examplePoems.filter(onePoem => onePoem.examplePoemType.typeName === inPoemType);
     console.log(filtered);
     let randomPoem = Math.floor(Math.random() * filtered.length);
     console.log(filtered[randomPoem]);
-    let p = createNode(p);
-    p.innerHTML = `${filtered[randomPoem]}`;
-    append(p);
+    return filtered[randomPoem];
+    }
+    filterForRandomPoem(examplePoems);
   })
   .catch((error) => console.log(error));
 }
 
 
-export {getPoemTypes};
-export {getRandomExamplePoem};
+ export {getPoemTypes};
+ export {getRandomExamplePoem};
+ export {clearChildren};
+
+// function createNode(element) {
+//   return document.createElement(element);
+// }
+// function append(parent, pl) {
+// return parent.appendChild(pl);
+// }
+// let pl = createNode("p");
+//     pl.innerHTML = `${filtered[randomPoem]}`;
+//     append(pl);

@@ -1,4 +1,9 @@
+import { getPoemTypes } from "./app.js";
 import { landing } from "./landing.js";
+import { poemChoiceElement } from "./poem-choice-page.js";
+import {discoverElement} from "./discover.js";
+import { devsElement } from "./devs.js";
+import { aboutElement } from "./about.js";
 
 const createFooter = function () {
     const footer = document.createElement("footer");
@@ -12,7 +17,7 @@ const createFooter = function () {
         devsLink.classList.add("devs-link");
         devsLink.innerHTML = `The Devs`;
         devsLink.addEventListener("click", () => {
-
+            devsElement();
         })
         navBar.appendChild(devsLink);
 
@@ -20,7 +25,7 @@ const createFooter = function () {
         discoverLink.classList.add("discover-link");
         discoverLink.innerHTML = `Discover`;
         discoverLink.addEventListener("click", () => {
-            
+            discoverElement();
         })
         navBar.appendChild(discoverLink);
 
@@ -28,7 +33,7 @@ const createFooter = function () {
         aboutLink.classList.add("about-link");
         aboutLink.innerHTML = `About`;
         aboutLink.addEventListener("click", () => {
-            
+            aboutElement();
         })
         navBar.appendChild(aboutLink);
 
@@ -36,7 +41,7 @@ const createFooter = function () {
         homeLink.classList.add("home-link");
         homeLink.innerHTML = `Home`;
         homeLink.addEventListener("click", () => {
-            landing();
+            getPoemTypes();
         })
         navBar.appendChild(homeLink);
 
