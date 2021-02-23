@@ -62,35 +62,75 @@ function makeArrayOfWords(inString){
   return finalArrayOfWords;
 }
 
+
+
+let x = [];
+
+// const response = await fetch("https://api.datamuse.com/words?sp=sky&md=s");
+// console.log(response);
+
+function fetchOneWordsSyllables(inWord){
+    fetch("https://api.datamuse.com/words?sp=" + inWord + "&md=s")
+    .then(res => res.json())
+    .then(data => {
+      arrNewWord = [];
+      // arrNewWord.push(data[0].word);
+      // arrNewWord.push(true);
+      // arrNewWord.push(data[0].numSyllables);
+      x[data[0].word] = data[0].numSyllables;
+      // testReturnValue(arrNewWord);
+      // arrNewLine.push(arrNewWord);
+      })
+    .catch(err => {
+        console.log(err);
+    });
+    console.log(arrNewWord);
+  }
+fetchOneWordsSyllables('water');
+function testReturnValue(inArrWord){
+  x = inArrWord;
+  console.log('test: '+ inArrWord);
+}
 // countSyllablesInOneWord("onomatopoeia");
 // console.log(arrNewLine);
 
+
+
+
+
 let countSyllablesInAllLinesOfWords = () => {
     arrFinalCountAndOutput = [];
-  let stringOfAllText = poetryTextEditor.innerHTML;
+  let stringOfAllText = poetryTextEditor.value;
   let arrOfLinesOfText = splitIntoLines(stringOfAllText);
   arrOfLinesOfText.forEach((element) => {
     let arrNewLine = [];
     let stringOfThisLine = stripNonAlphanumeric(element);
     let arrThisLineOfWords = makeArrayOfWords(stringOfThisLine);
-    console.log(arrThisLineOfWords);
-    for(j=0; j<arrThisLineOfWords.length; j++){
-      fetch("https://api.datamuse.com/words?sp=" + arrThisLineOfWords[j] + "&md=s")
-      .then(res => res.json())
-      .then(data => {
-        arrNewWord = [];
-        arrNewWord.push(data[0].word);
-        arrNewWord.push(true);
-        arrNewWord.push(data[0].numSyllables);
-        arrNewLine.push(arrNewWord);
-        })
-      .catch(err => {
-          console.log(err);
-      });
-    }
+    // console.log(arrThisLineOfWords);
+
+
+
+    // for(j=0; j<arrThisLineOfWords.length; j++){
+    //   fetch("https://api.datamuse.com/words?sp=" + arrThisLineOfWords[j] + "&md=s")
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     arrNewWord = [];
+    //     arrNewWord.push(data[0].word);
+    //     arrNewWord.push(true);
+    //     arrNewWord.push(data[0].numSyllables);
+    //     arrNewLine.push(arrNewWord);
+    //     })
+    //   .catch(err => {
+    //       console.log(err);
+    //   });
+    // }
+
     arrFinalCountAndOutput.push([arrNewLine]);
+    console.log(arrNewLine);
   })
-    // console.log(arrFinalCountAndOutput);
+  arrFinalCountAndOutput.forEach((el, i)=>{
+    console.log(el[0][i]);
+  });
 }
 countSyllablesInAllLinesOfWords();
 
