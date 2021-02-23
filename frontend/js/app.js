@@ -54,17 +54,21 @@ const getRandomExamplePoem = function (inPoemType) {
     console.log(filtered);
     let randomPoem = Math.floor(Math.random() * filtered.length);
     console.log(filtered[randomPoem]);
-    return filtered[randomPoem];
+    return randomPoem;
     }
     filterForRandomPoem(examplePoems);
+    
   })
+  // .then(() => {
+  //   return filtered[randomPoem];
+  // })
   .catch((error) => console.log(error));
 }
 
 
  export {getPoemTypes};
  export {getRandomExamplePoem};
- export {clearChildren};
+ export {clearChildren}
 
 // function createNode(element) {
 //   return document.createElement(element);

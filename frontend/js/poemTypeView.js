@@ -21,9 +21,68 @@ const poemTypeElement = function (examplePoemType) {
   typeDesP.classList.add("type-description-p");
   typeDesP.innerText = examplePoemType.typeDescription;
   bookViewDiv.appendChild(typeDesP);
+  //editor toolbar
   const poemEditorFieldset = document.createElement("fieldset");
   poemEditorFieldset.classList.add("poem-editor-fieldset");
   bookViewDiv.appendChild(poemEditorFieldset);
+  const italicButton = document.createElement("button");
+  italicButton.classList.add("fontStyle-italic");
+  italicButton.setAttribute("title", "Italicize Highlighted Text");
+  italicButton.innerHTML = `Italic`;
+  italicButton.addEventListener("click", () => {
+    document.execCommand('italic',false,null);
+  });
+  poemEditorFieldset.appendChild(italicButton);
+  const boldButton = document.createElement("button");
+  boldButton.classList.add("fontStyle-bold");
+  boldButton.setAttribute("title", "Bold Highlighted Text");
+  boldButton.innerHTML = `Bold`;
+  boldButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.execCommand('bold',false,null);
+    console.log("bold button clicked");
+  });
+  poemEditorFieldset.appendChild(boldButton);
+  const underlineButton = document.createElement("button");
+  underlineButton.classList.add("fontStyle-underline");
+  underlineButton.setAttribute("title", "Underline Highlighted Text");
+  underlineButton.innerHTML = `Underline`;
+  underlineButton.addEventListener("click", () => {
+    document.execCommand('underline',false,null);
+  });
+  poemEditorFieldset.appendChild(underlineButton);
+  const strikeButton = document.createElement("button");
+  strikeButton.classList.add("fontStyle-strikethrough");
+  strikeButton.setAttribute("title", "Strikethrough Highlighted Text");
+  strikeButton.innerHTML = `Strikethrough`;
+  strikeButton.addEventListener("click", () => {
+    document.execCommand('strikethrough',false,null);
+  });
+  poemEditorFieldset.appendChild(strikeButton);
+  const fontSelect = document.createElement("select");
+  fontSelect.classList.add("input");
+  fontSelect.id = "input-font";
+  fontSelect.addEventListener("change", () => {
+    changeFont(this);
+  });
+  poemEditorFieldset.appendChild(fontSelect);
+  const optionArial = document.createElement("option");
+  optionArial.value = "Arial";
+  optionArial.innerText = "Arial";
+  fontSelect.appendChild(optionArial);
+  //editor textarea
+  const editorArea = document.createElement("textarea");
+  editorArea.classList.add("editor-textarea");
+  editorArea.setAttribute("name", "");
+  editorArea.setAttribute("id", "editor1");
+  editorArea.setAttribute("contenteditable", true);
+  editorArea.setAttribute("placeholder", "Write here.");
+  // editorArea.addEventListener("blur", () => {
+  //   setTimeout(() => {
+  //     editorArea.focus();
+  //   }, 0)
+  // });
+  bookViewDiv.appendChild(editorArea);
 
   //poem type example random
   const typeExamplesP = document.createElement("p");
