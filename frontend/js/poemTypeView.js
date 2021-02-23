@@ -71,8 +71,8 @@ const poemTypeElement = function (examplePoemType) {
   optionArial.innerText = "Arial";
   fontSelect.appendChild(optionArial);
   //editor textarea
-  const editorArea = document.createElement("textarea");
-  editorArea.classList.add("editor-textarea");
+  const editorArea = document.createElement("div");
+  editorArea.classList.add("editor-div");
   editorArea.setAttribute("name", "");
   editorArea.setAttribute("id", "editor1");
   editorArea.setAttribute("contenteditable", true);

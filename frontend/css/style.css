@@ -1,47 +1,33 @@
 .header{
     margin: auto;
 }
-
 #div--panels-wrapper{
     display: flex;
     flex-direction: row;
 }
-
-#div--left-panel{
-}
-
 #textEditor-menu{
     display: flex;
     flex-direction: row;
 }
-
 #div--right-panel{
     padding: 0px;
     margin: 0px;
 }
-
-
 .div--right-panel-item{
     border: 1px solid gray;
     margin: 10px;
     width: 600px;
     height: 200px
 }
-
 #div--poem-type{
     margin: 0px 0px 0px 10px;
 }
-
-.typeOfPoemBox{
-}
-
 .section--discover-subsection{
     margin: 20px auto 20px auto;
     border: 1px solid gray;
     width: 50%;
     height: 166px;
 }
-
 nav{
     display: flex;
     justify-content: space-between;
@@ -50,4 +36,96 @@ nav{
     border: 1px solid gray;
     width: 100%;
     height: 66px;
+}
+body {
+    font: 400 16px/1.4 'serif';
+    }
+#container, #containerHeader{
+    text-align: center;
+    cursor:move;
+}
+#container, #editor1 {
+    border: 1px solid grey;
+    height: 100px;
+    width: 602px;
+    margin: 0px auto 0;
+    padding:10px;
+   }
+#container fieldset {
+    margin: 2px auto 0px;
+    width: 600px;
+    height:26px;
+    background-color: #F2F2F2;
+    border:none;
+}
+#container button {
+    width: 5ex;
+    text-align: center;
+    padding: 1px 3px;
+    height:30px;
+    width:30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border:none;
+}
+#container img{
+      width:100%;
+}
+#container .bold{
+background-image: url();
+}
+#container .italic{
+    background-image: url();
+}
+#container .underline{
+    background-image: url();
+}
+#container .align-left{
+    background-image : url();
+    width:40px;
+}
+#container .align-right{
+    background-image:url();
+    width:40px;
+}
+#container .align-center{
+    width: 38px;
+    background-size: contain;
+    background-image:url();
+}
+#container .redo-apply{
+    background-image: url();
+}
+#container .undo-apply{
+    background-image: url();
+}
+#container .unorderedlist{
+    background-image: url();
+}
+#container .orderedlist{
+    background-image: url();
+}
+#container .strikethrough{
+    background-image: url();
+}
+#container .color-apply{
+    width: 20px;
+}
+#container #input-font{
+    width: 100px;
+    height: 25px;
+}
+[contentEditable=true]:empty:not(:focus):before{
+    content:attr(data-text);
+    color:#888;
+}
+#container .loader {
+    border: 6px solid #F3F3F3; 
+    border-top: 6px solid #3498DB; 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+    line-height: 20px;
 }
