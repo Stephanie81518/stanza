@@ -16,10 +16,9 @@ const landing = function () {
     getPoemTypes();
   });
 
-  //landing.appendChild(createButton);
+  landing.appendChild(createButton);
   createButtonDiv.appendChild(createButton);
-  //createFooter();
-
+  //landing.appendChild(createFooter());
   return landing;
 };
 

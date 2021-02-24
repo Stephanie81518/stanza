@@ -21,12 +21,12 @@
     height:100vh;
     padding: 0px;
 }
-.main-header{
+/*.main-header{
     margin: auto;
     text-align: center;
     font-size: x-large;
   color: #FABEC0; 
-}
+}*/
 nav{
     display: flex;
     justify-content:space-around;
@@ -46,7 +46,7 @@ nav{
     display: flex;
     justify-content:center;
     align-items: center;
-    font-size: 60px;
+    font-size: ;
 }
 .poem-type-button,.download-button,.share-button,.reset-button, .tools-button{
     /* display:flex;
