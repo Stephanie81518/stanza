@@ -44,23 +44,23 @@ body {
     text-align: center;
     cursor:move;
 }
-#container, #editor1 {
+#editor1 {
     border: 1px solid grey;
-    height: 100px;
+    height: 400px;
     width: 602px;
     margin: 0px auto 0;
-    padding:10px;
+    padding: 10px;
+    overflow: auto;
    }
-#container fieldset {
+fieldset {
     margin: 2px auto 0px;
-    width: 600px;
-    height:26px;
     background-color: #F2F2F2;
     border:none;
 }
-#container button {
+fieldset > button {
     width: 5ex;
     text-align: center;
+    justify-items: center;
     padding: 1px 3px;
     height:30px;
     width:30px;
@@ -71,49 +71,8 @@ body {
 #container img{
       width:100%;
 }
-#container .bold{
-background-image: url();
-}
-#container .italic{
-    background-image: url();
-}
-#container .underline{
-    background-image: url();
-}
-#container .align-left{
-    background-image : url();
-    width:40px;
-}
-#container .align-right{
-    background-image:url();
-    width:40px;
-}
-#container .align-center{
-    width: 38px;
-    background-size: contain;
-    background-image:url();
-}
-#container .redo-apply{
-    background-image: url();
-}
-#container .undo-apply{
-    background-image: url();
-}
-#container .unorderedlist{
-    background-image: url();
-}
-#container .orderedlist{
-    background-image: url();
-}
-#container .strikethrough{
-    background-image: url();
-}
 #container .color-apply{
     width: 20px;
-}
-#container #input-font{
-    width: 100px;
-    height: 25px;
 }
 [contentEditable=true]:empty:not(:focus):before{
     content:attr(data-text);
@@ -128,4 +87,18 @@ background-image: url();
     animation: spin 2s linear infinite;
     margin: 0 auto;
     line-height: 20px;
+}
+#bold-image,
+#italic-image,
+#underline-image,
+#strikethrough-image,
+#alignleft-image,
+#alignright-image,
+#aligncenter-image,
+#redo-image,
+#undo-image {
+    height: 25px;
+}
+#font-input {
+    height: 25px;
 }
