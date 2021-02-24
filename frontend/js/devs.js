@@ -14,8 +14,8 @@ const devsElement = function () {
     devsMainDiv.classList.add("devs-div-main");
     devsElement.appendChild(devsMainDiv);
 
-    let footer = createFooter();
-    devsElement.appendChild(footer);
+    //let footer = createFooter();
+    //devsElement.appendChild(footer);
 
     return devsElement;
 }

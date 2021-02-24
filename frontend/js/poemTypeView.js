@@ -6,7 +6,7 @@ const poemTypeElement = function (examplePoemType) {
   clearChildren(poemTypeContent);
 
   const containerDiv = document.createElement("div");
-  containerDiv.classList.add("container");
+  containerDiv.classList.add("descriptionDiv");
   poemTypeContent.appendChild(containerDiv);
 
   //poem type description & editor
@@ -207,8 +207,8 @@ const poemTypeElement = function (examplePoemType) {
   //add event listener here to open collapsible tools menu?
   toolsDiv.appendChild(toolsButton);
 
-  let footer = createFooter();
-  poemTypeContent.appendChild(footer);
+  //let footer = createFooter();
+  //poemTypeContent.appendChild(footer);
 
   return poemTypeElement;
 };

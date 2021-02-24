@@ -19,8 +19,8 @@ const poemChoiceElement = function (poemType) {
     typeOfPoemDiv.appendChild(poemTypeButton);
   });
 
-  let footer = createFooter();
-  typeOfPoemDiv.appendChild(footer);
+  //let footer = createFooter();
+  //typeOfPoemDiv.appendChild(footer);
 
   return poemChoiceElement;
 };
