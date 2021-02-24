@@ -1,4 +1,5 @@
 import { getPoemTypes } from "./app.js";
+import { createFooter } from "./footer.js";
 import { poemChoiceElement } from "./poem-choice-page.js";
 
 const landing = function () {
@@ -14,6 +15,8 @@ const landing = function () {
     getPoemTypes();
   });
   landing.appendChild(createButton);
+
+  createFooter();
 
   return landing;
 };

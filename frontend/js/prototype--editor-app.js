@@ -4,7 +4,7 @@ function chooseColor(){
   }
 
   function changeFont(){
-    var myFont = document.getElementById("input-font").value;
+    var myFont = document.getElementById("font-input").value;
     document.execCommand('fontName', false, myFont);
   }
 
