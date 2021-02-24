@@ -43,6 +43,8 @@
 }
 
 nav{
+    display: flex;
+    justify-content: space-between;
     margin: 20px auto 20px auto;
     padding: auto;
     border: 1px solid gray;
