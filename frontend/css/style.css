@@ -102,3 +102,31 @@ fieldset > button {
 #font-input {
     height: 25px;
 }
+
+.wrapperForFlexboxOrGrid{
+    display: flex;
+    flex-direction: row;
+}
+
+#leftColumn{
+    min-width: 1fr;
+}
+
+#rightColumn{
+    min-width: 500px;
+    justify-content: right;
+    text-align: right;
+}
+
+#div--count-of-syllables-per-line{
+    width: 25px;
+    height: 790px;
+    position: absolute;
+    top: 146px;
+    left: 803px;
+    padding: 15px 0px 0px 5px;
+}
+/* 
+#editor1 div{
+    border-bottom: solid 1px red;
+} */    
