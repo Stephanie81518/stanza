@@ -1,6 +1,6 @@
 import { getRandomExamplePoem } from "./app.js";
 import { createFooter } from "./footer.js";
-import { addEventListenerToTextEditor } from "./syllableCounter.js";
+import { addTextEditor } from "./syllableCounter.js";
 const poemTypeElement = function (examplePoemType) {
   const poemTypeContent = document.querySelector(".main-content");
   clearChildren(poemTypeContent);
@@ -34,13 +34,13 @@ const poemTypeElement = function (examplePoemType) {
 
 
   //poem type description & editor
-  const bookViewDiv = document.createElement("div");
-  bookViewDiv.classList.add("book-view-div");
-  wrapperForFlexboxOrGrid.appendChild(bookViewDiv);
+  const editorDiv = document.createElement("div");
+  editorDiv.classList.add("editor-div");
+  wrapperForFlexboxOrGrid.appendChild(editorDiv);
   //editor toolbar
   const poemEditorFieldset = document.createElement("fieldset");
   poemEditorFieldset.classList.add("poem-editor-fieldset");
-  bookViewDiv.appendChild(poemEditorFieldset);
+  editorDiv.appendChild(poemEditorFieldset);
   const italicButton = document.createElement("button");
   italicButton.classList.add("fontStyle-italic");
   italicButton.setAttribute("title", "Italicize Highlighted Text");
@@ -180,23 +180,13 @@ const poemTypeElement = function (examplePoemType) {
   fontSizeSelect.appendChild(optionSize1);
 
 
-  //editor textarea
-  const editorArea = document.createElement("div");
-  editorArea.classList.add("editor-div");
-  editorArea.setAttribute("name", "");
-  editorArea.setAttribute("id", "editor1");
-  editorArea.setAttribute("contenteditable", true);
-  editorArea.setAttribute("data-text", "Write here.");
-  bookViewDiv.appendChild(editorArea);
+  addTextEditor();
 
-  const columnOfSyllableCounts = document.createElement('div');
-  columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
-  bookViewDiv.appendChild(columnOfSyllableCounts);
 
   //user poem buttons (download, share, reset)
   const userPoemOptionsDiv = document.createElement("div");
   userPoemOptionsDiv.classList.add("user-poem-options-div");
-  bookViewDiv.appendChild(userPoemOptionsDiv);
+  editorDiv.appendChild(userPoemOptionsDiv);
   const downloadButton = document.createElement("button");
   downloadButton.classList.add("download-button");
   downloadButton.innerText = "Download";
@@ -244,6 +234,5 @@ const clearChildren = function (element) {
     element.removeChild(element.lastChild);
   }
 };
-addEventListenerToTextEditor();
 
 export { poemTypeElement };
