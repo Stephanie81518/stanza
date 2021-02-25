@@ -11,9 +11,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/frontend/images/smaller-landing-background-image.png);
+    background-image: url(/frontend/images/larger-landing-background-0224.png);
     background-repeat:no-repeat;
-    background-size: 50%;
+    background-size: 45%;
     background-position:top;
 }
 .container{
@@ -29,34 +29,95 @@
 }*/
 nav{
     display: flex;
-    justify-content:space-around;
-    /* margin: 20px auto 20px auto; */
+    justify-content: space-around;
     padding: auto;
-    border: 1px solid gray;
     width: 100%;
-    height: 80px;
-    background-color:#873C37 ;
-    color:#FABEC0 ;
-}
-.create-button{
-    
-    background-color:#FABEC0  ;
     height: 100px;
-    width: 200px;
+    background-color:#873C37;
+    color:#FABEC0;
+    font-family: 'Open Sans', sans-serif;
+}
+a{
+    font-size: 2.2em; 
+}
+
+a:hover{
+    color: #4A5259;
+    cursor: pointer;
+}
+
+.create-button{
+    margin-top: 75%;
+    background-color:#FABEC0;
+    height: 75px;
+    width: 250px;
+    border-radius: 60px;
+    border-color: #FABEC0;
+    box-shadow: 12px 30px 5px 0 rgba(0,0,0,0.24);
     display: flex;
     justify-content:center;
     align-items: center;
-    font-size: ;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5em;
+    color: #873C37;
+    transition-duration: 0.3s;
 }
-.poem-type-button,.download-button,.share-button,.reset-button, .tools-button{
-    /* display:flex;
-    justify-content: space-between; */
-    background-color:#FABEC0  ;
-    height: 50px;
-    width: 100px;
-    gap: 24px;
-    margin: 50px;
+.create-button:hover {
+    background-color: #4A5259;
+    color: #f9dbd1;
+    cursor: pointer;
+}
+
+.poem-type-button{
+    margin-top: 20%;
+    align-items: center;
+    justify-self: center;
+    background-color:#FABEC0;
+    border-radius: 60px;
+    border-color: #FABEC0;
+    box-shadow: 12px 30px 5px 0 rgba(0,0,0,0.24);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2em;
+    height: 75px;
+    width: 250px;
+    margin-right: 5%;
+    margin-left: 10%;
+    
+}
+.poem-type-button:hover{
+    background-color: #4A5259;
+    color: #f9dbd1;
+    cursor: pointer;
+}
+
+.download-button,.share-button,.reset-button{
+    background-color:#FABEC0;
+    border-radius: 60px;
+    border-color: #FABEC0;
+    box-shadow: 12px 30px 5px 0 rgba(0,0,0,0.24);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2em;
+    height: 75px;
+    width: 250px;
+    margin-bottom: 5%;
 }
 
 
 
+.download-button:hover,.share-button:hover,.reset-button:hover{
+        background-color: #4A5259;
+        color: #f9dbd1;
+        cursor: pointer;
+}
+
+
+.tools-button
+
+
+
+
+
+
+
+
+.tools-button:hover
