@@ -16,10 +16,8 @@ const poemTypeElement = function (examplePoemType) {
   wrapperForFlexboxOrGrid.classList.add('wrapperForFlexboxOrGrid');
   containerDiv.appendChild(wrapperForFlexboxOrGrid);
 
-
-
-  const leftColumn = document.createElement('div');
-  leftColumn.setAttribute('in', 'leftColumn');
+  const leftColumn = document.createElement("div");
+  leftColumn.setAttribute("id", "leftColumn");
   wrapperForFlexboxOrGrid.appendChild(leftColumn);
 
   const descHeader = document.createElement("h2");
@@ -29,7 +27,7 @@ const poemTypeElement = function (examplePoemType) {
 
   const typeDesP = document.createElement("p");
   typeDesP.classList.add("type-description-p");
-  typeDesP.innerText = examplePoemType.typeDescription;
+  typeDesP.innerHTML = examplePoemType.typeDescription;
   leftColumn.appendChild(typeDesP);
 
 
@@ -44,7 +42,7 @@ const poemTypeElement = function (examplePoemType) {
   const italicButton = document.createElement("button");
   italicButton.classList.add("fontStyle-italic");
   italicButton.setAttribute("title", "Italicize Highlighted Text");
-  italicButton.innerHTML = `<img id="italic-image" src="images/italics-button-image.png">`;
+  italicButton.innerHTML = `<i class="fas fa-italic"></i>`;
   italicButton.addEventListener("click", () => {
     document.execCommand('italic',false,null);
   });
@@ -52,7 +50,7 @@ const poemTypeElement = function (examplePoemType) {
   const boldButton = document.createElement("button");
   boldButton.classList.add("fontStyle-bold");
   boldButton.setAttribute("title", "Bold Highlighted Text");
-  boldButton.innerHTML = `<img id="bold-image" src="images/bold-button-image.png">`;
+  boldButton.innerHTML = `<i class="fas fa-bold"></i>`;
   boldButton.addEventListener("click", (e) => {
     e.preventDefault();
     document.execCommand('bold',false,null);
@@ -62,7 +60,7 @@ const poemTypeElement = function (examplePoemType) {
   const underlineButton = document.createElement("button");
   underlineButton.classList.add("fontStyle-underline");
   underlineButton.setAttribute("title", "Underline Highlighted Text");
-  underlineButton.innerHTML = `<img id="underline-image" src="images/underline-button-image.png">`;
+  underlineButton.innerHTML = `<i class="fas fa-underline"></i>`;
   underlineButton.addEventListener("click", () => {
     document.execCommand('underline',false,null);
   });
@@ -70,7 +68,7 @@ const poemTypeElement = function (examplePoemType) {
   const strikeButton = document.createElement("button");
   strikeButton.classList.add("fontStyle-strikethrough");
   strikeButton.setAttribute("title", "Strikethrough Highlighted Text");
-  strikeButton.innerHTML = `<img id="strikethrough-image" src="images/strikethrough-button-image.png">`;
+  strikeButton.innerHTML = `<i class="fas fa-strikethrough"></i>`;
   strikeButton.addEventListener("click", () => {
     document.execCommand('strikethrough',false,null);
   });
@@ -126,35 +124,35 @@ const poemTypeElement = function (examplePoemType) {
   //
   const alignLeftButton = document.createElement("button");
   alignLeftButton.classList.add("align-left-button");
-  alignLeftButton.innerHTML = `<img id="alignleft-image" src="images/left-align-button-image.png">`;
+  alignLeftButton.innerHTML = `<i class="fas fa-align-left"></i>`;
   alignLeftButton.addEventListener("click", () => {
     document.execCommand('justifyLeft', false, null);
   });
   poemEditorFieldset.appendChild(alignLeftButton);
   const alignCenterButton = document.createElement("button");
   alignCenterButton.classList.add("align-center-button");
-  alignCenterButton.innerHTML = `<img id="aligncenter-image" src="images/center-button-image.png">`;
+  alignCenterButton.innerHTML = `<i class="fas fa-align-center"></i>`;
   alignCenterButton.addEventListener("click", () => {
     document.execCommand('justifyCenter', false, null);
   });
   poemEditorFieldset.appendChild(alignCenterButton);
   const alignRightButton = document.createElement("button");
   alignRightButton.classList.add("align-right-button");
-  alignRightButton.innerHTML = `<img id="alignright-image" src="images/right-align-button-image.png">`;
+  alignRightButton.innerHTML = `<i class="fas fa-align-right"></i>`;
   alignRightButton.addEventListener("click", () => {
     document.execCommand('justifyRight', false, null);
   });
   poemEditorFieldset.appendChild(alignRightButton);
   const redoButton = document.createElement("button");
   redoButton.classList.add("redo-apply-button");
-  redoButton.innerHTML = `<img id="redo-image" src="images/redo-button-image.png">`;
+  redoButton.innerHTML = `<i class="fas fa-redo-alt"></i>`;
   redoButton.addEventListener("click", () => {
     document.execCommand('redo', false, null);
   });
   poemEditorFieldset.appendChild(redoButton);
   const undoButton = document.createElement("button");
   undoButton.classList.add("undo-apply-button");
-  undoButton.innerHTML = `<img id="undo-image" src="images/undo-button-image.png">`;
+  undoButton.innerHTML = `<i class="fas fa-undo-alt"></i>`;
   undoButton.addEventListener("click", () => {
     document.execCommand('undo', false, null);
   });
@@ -182,10 +180,14 @@ const poemTypeElement = function (examplePoemType) {
 
   addTextEditor();
 
+  const rightColumn = document.createElement('div');
+  rightColumn.setAttribute('id', 'rightColumn');
+  wrapperForFlexboxOrGrid.appendChild(rightColumn);
+
   //poem type example random
   const typeExamplesDiv = document.createElement("div");
   typeExamplesDiv.classList.add("type-examples-div");
-  containerDiv.appendChild(typeExamplesDiv);
+  rightColumn.appendChild(typeExamplesDiv);
   const typeExamplesHeader = document.createElement("h2");
   typeExamplesHeader.classList.add("type-examples-header");
   typeExamplesHeader.innerHTML = `Read a ${examplePoemType.typeName}`;
@@ -220,11 +222,6 @@ const poemTypeElement = function (examplePoemType) {
   resetButton.classList.add("reset-button");
   resetButton.innerText = "Reset";
   userPoemOptionsDiv.appendChild(resetButton);
-
-
-  const rightColumn = document.createElement('div');
-  rightColumn.setAttribute('id', 'rightColumn');
-  wrapperForFlexboxOrGrid.appendChild(rightColumn);
   
   //tools button
   const toolsDiv = document.createElement("div");
@@ -238,7 +235,7 @@ const poemTypeElement = function (examplePoemType) {
   rightColumn.appendChild(toolsDiv);
 
   //poem type example random
-  const typeExamplesP = document.createElement("p");
+  typeExamplesP = document.createElement("p");
   typeExamplesP.classList.add("type-examples-p");
   getRandomExamplePoem(examplePoemType.typeName);
   //typeExamplesP.innerHTML = `${randomPoem.title}`;

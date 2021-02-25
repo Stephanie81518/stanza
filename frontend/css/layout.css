@@ -1,0 +1,21 @@
+#div--panels-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+#textEditor-menu{
+    display: flex;
+    flex-direction: row;
+}
+.wrapperForFlexboxOrGrid{
+    display: flex;
+    flex-direction: row;
+    padding-top: 200px;
+}
+.editorContainer{
+    position: relative;
+}
+.devs-div-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

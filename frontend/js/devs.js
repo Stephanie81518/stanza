@@ -85,10 +85,7 @@ const devsElement = function () {
     devsImageCap6.classList.add("devs-image-cap-6");
     devsImageCap6.innerText = "Stephanie Stone";
     devsDiv6.appendChild(devsImageCap6);
-
-    let footer = createFooter();
-    devsElement.appendChild(footer);
-
+    
     return devsElement;
 }
 

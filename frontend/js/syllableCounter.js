@@ -11,12 +11,9 @@ let arrayForOneWordAndNumSyllables = [];
 
 
 function addTextEditor(){
-
-
-
   //editor textarea
   let bookViewDiv = document.querySelector('.editor-div');
-  let editorContainer = document.querySelector('.poem-editor-fieldset');
+  //let editorContainer = document.querySelector('.');
 
   const editorArea = document.createElement("div");
   editorArea.classList.add("editor-div");
@@ -28,7 +25,7 @@ function addTextEditor(){
 
   const columnOfSyllableCounts = document.createElement('div');
   columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
-  editorContainer.appendChild(columnOfSyllableCounts);
+  bookViewDiv.appendChild(columnOfSyllableCounts);
 
 
 
