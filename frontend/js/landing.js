@@ -16,8 +16,6 @@ const landing = function () {
   });
   landing.appendChild(createButton);
 
-  createFooter();
-
   return landing;
 };
 

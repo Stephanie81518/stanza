@@ -102,3 +102,18 @@ fieldset > button {
 #font-input {
     height: 25px;
 }
+
+#devsImage1,
+#devsImage2,
+#devsImage3,
+#devsImage4,
+#devsImage5,
+#devsImage6 {
+    width: 200px;
+}
+
+.devs-div-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
