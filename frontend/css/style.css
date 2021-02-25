@@ -69,13 +69,14 @@ fieldset > button {
     background-size: cover;
     border:none;
 }
-#container img{                         /*This isn't working right now, but the new image and path are correct*/
+/*#container img{                         /*This isn't working right now, but the new image and path are correct
     background-image: url(/frontend/images/new-red-book-0224.png);
       width:100%;
 }
 #container .color-apply{
     width: 20px;
 }
+*/
 [contentEditable=true]:empty:not(:focus):before{
     content:attr(data-text);
     color:#888;
