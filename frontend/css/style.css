@@ -37,7 +37,7 @@
     width: 100%;
     height: 66px;
 }*/
-/* *body { 
+/* body { 
     font: 400 16px/1.4 'serif';
     }
 */
@@ -104,6 +104,34 @@ fieldset > button {
 }
 #font-input {
     height: 25px;
+}
+
+.wrapperForFlexboxOrGrid{
+    display: flex;
+    flex-direction: row;
+}
+
+#leftColumn{
+    min-width: 1fr;
+}
+
+#rightColumn{
+    min-width: 500px;
+    justify-content: right;
+    text-align: right;
+}
+
+#div--count-of-syllables-per-line{
+    width: 25px;
+    height: 790px;
+    position: absolute;
+    top: 72px;
+    left: 712px;
+    padding: 15px 0px 0px 5px;
+}
+
+.editorContainer{
+    position: relative;
 }
 
 #devsImage1,

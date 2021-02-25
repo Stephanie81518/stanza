@@ -1,17 +1,40 @@
-const poetryTextEditor = document.getElementById('editor1');
+let poetryTextEditor = '';
+let syllablesDisplay = '';
 
 let arrayOfEverything = [];
-let arrayCountOfSyllablesForEachLine = [0,0,0,0];
+let arrayCountOfSyllablesForEachLine = [];
 let arrayOfAllLines = [];
 let arrayOfThisLinesWords = [];
 let arrayForOneWordAndNumSyllables = [];
-const syllablesDisplay = document.getElementById('div--count-of-syllables-per-line');
 
-const clearChildren = function (element) {
-    while (element.firstChild) {
-        element.removeChild(element.lastChild);
-    }
-};
+
+
+
+function addTextEditor(){
+
+
+
+  //editor textarea
+  let bookViewDiv = document.querySelector('.editor-div');
+  let editorContainer = document.querySelector('.poem-editor-fieldset');
+
+  const editorArea = document.createElement("div");
+  editorArea.classList.add("editor-div");
+  editorArea.setAttribute("name", "");
+  editorArea.setAttribute("id", "editor1");
+  editorArea.setAttribute("contenteditable", true);
+  editorArea.setAttribute("data-text", "Write here.");
+  bookViewDiv.appendChild(editorArea);
+
+  const columnOfSyllableCounts = document.createElement('div');
+  columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
+  editorContainer.appendChild(columnOfSyllableCounts);
+
+
+
+poetryTextEditor = document.getElementById('editor1');
+syllablesDisplay = document.getElementById('div--count-of-syllables-per-line');
+
 function stripNonAlphanumeric(inString){
     let currentString = inString.replace(/[^a-z0-9-' ↵]+/gi, ' ');
     return currentString;
@@ -28,7 +51,7 @@ function updateSyllables(){
     let sizeOfSyllablesArray = arrayOfEverything.length;
     let arrayCountOfSyllablesForEachLine = new Array(sizeOfSyllablesArray);
     arrayOfEverything.forEach((line, i)=>{
-        totalSyllablesForThisLine = 0;
+        let totalSyllablesForThisLine = 0;
         line.forEach((word)=>{
             totalSyllablesForThisLine += word[1]
         })
@@ -41,7 +64,7 @@ function updateSyllables(){
 
 function createAllArrays(){
     arrayOfEverything = [];
-    fullStringOfAllText = poetryTextEditor.innerHTML;
+    let fullStringOfAllText = poetryTextEditor.innerHTML;
     splitIntoLines(fullStringOfAllText).forEach((el, i)=>{
         if(el == '' && i == 0 || el == null && i == 0){return;} //skips empty element at [0]
         arrayOfAllLines.push(el);
@@ -90,6 +113,7 @@ function lookupSyllables(inWord, inLineNum, inWordNum){
 }
 
 
+
 // 1 second time delay to prevent instantly querying the API: 
 let timeout = null;
 poetryTextEditor.addEventListener('keyup', function (e) {
@@ -110,3 +134,6 @@ poetryTextEditor.addEventListener('keyup', function (e) {
 
 
 createAllArrays();
+}
+
+export {addTextEditor};

@@ -1,6 +1,6 @@
 import { getRandomExamplePoem } from "./app.js";
 import { createFooter } from "./footer.js";
-
+import { addTextEditor } from "./syllableCounter.js";
 const poemTypeElement = function (examplePoemType) {
   const poemTypeContent = document.querySelector(".main-content");
   clearChildren(poemTypeContent);
@@ -9,22 +9,38 @@ const poemTypeElement = function (examplePoemType) {
   containerDiv.classList.add("descriptionDiv");
   poemTypeContent.appendChild(containerDiv);
 
-  //poem type description & editor
-  const bookViewDiv = document.createElement("div");
-  bookViewDiv.classList.add("book-view-div");
-  containerDiv.appendChild(bookViewDiv);
+
+  
+  // wrapper div for 3x columns:
+  const wrapperForFlexboxOrGrid = document.createElement('div');
+  wrapperForFlexboxOrGrid.classList.add('wrapperForFlexboxOrGrid');
+  containerDiv.appendChild(wrapperForFlexboxOrGrid);
+
+
+
+  const leftColumn = document.createElement('div');
+  leftColumn.setAttribute('in', 'leftColumn');
+  wrapperForFlexboxOrGrid.appendChild(leftColumn);
+
   const descHeader = document.createElement("h2");
   descHeader.classList.add("description-header");
   descHeader.innerText = examplePoemType.typeName;
-  bookViewDiv.appendChild(descHeader);
+  leftColumn.appendChild(descHeader);
+
   const typeDesP = document.createElement("p");
   typeDesP.classList.add("type-description-p");
   typeDesP.innerText = examplePoemType.typeDescription;
-  bookViewDiv.appendChild(typeDesP);
+  leftColumn.appendChild(typeDesP);
+
+
+  //poem type description & editor
+  const editorDiv = document.createElement("div");
+  editorDiv.classList.add("editor-div");
+  wrapperForFlexboxOrGrid.appendChild(editorDiv);
   //editor toolbar
   const poemEditorFieldset = document.createElement("fieldset");
   poemEditorFieldset.classList.add("poem-editor-fieldset");
-  bookViewDiv.appendChild(poemEditorFieldset);
+  editorDiv.appendChild(poemEditorFieldset);
   const italicButton = document.createElement("button");
   italicButton.classList.add("fontStyle-italic");
   italicButton.setAttribute("title", "Italicize Highlighted Text");
@@ -164,14 +180,7 @@ const poemTypeElement = function (examplePoemType) {
   fontSizeSelect.appendChild(optionSize1);
 
 
-  //editor textarea
-  const editorArea = document.createElement("div");
-  editorArea.classList.add("editor-div");
-  editorArea.setAttribute("name", "");
-  editorArea.setAttribute("id", "editor1");
-  editorArea.setAttribute("contenteditable", true);
-  editorArea.setAttribute("data-text", "Write here.");
-  bookViewDiv.appendChild(editorArea);
+  addTextEditor();
 
   //poem type example random
   const typeExamplesDiv = document.createElement("div");
@@ -198,7 +207,7 @@ const poemTypeElement = function (examplePoemType) {
   //user poem buttons (download, share, reset)
   const userPoemOptionsDiv = document.createElement("div");
   userPoemOptionsDiv.classList.add("user-poem-options-div");
-  poemTypeContent.appendChild(userPoemOptionsDiv);
+  editorDiv.appendChild(userPoemOptionsDiv);
   const downloadButton = document.createElement("button");
   downloadButton.classList.add("download-button");
   downloadButton.innerText = "Download";
@@ -212,6 +221,11 @@ const poemTypeElement = function (examplePoemType) {
   resetButton.innerText = "Reset";
   userPoemOptionsDiv.appendChild(resetButton);
 
+
+  const rightColumn = document.createElement('div');
+  rightColumn.setAttribute('id', 'rightColumn');
+  wrapperForFlexboxOrGrid.appendChild(rightColumn);
+  
   //tools button
   const toolsDiv = document.createElement("div");
   toolsDiv.classList.add("tools-div");
@@ -221,6 +235,14 @@ const poemTypeElement = function (examplePoemType) {
   toolsButton.innerText = "Tools";
   //add event listener here to open collapsible tools menu?
   toolsDiv.appendChild(toolsButton);
+  rightColumn.appendChild(toolsDiv);
+
+  //poem type example random
+  const typeExamplesP = document.createElement("p");
+  typeExamplesP.classList.add("type-examples-p");
+  getRandomExamplePoem(examplePoemType.typeName);
+  //typeExamplesP.innerHTML = `${randomPoem.title}`;
+  containerDiv.appendChild(typeExamplesP);
 
   //let footer = createFooter();
   //poemTypeContent.appendChild(footer);
