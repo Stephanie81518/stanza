@@ -81,7 +81,7 @@ fieldset > button {
     content:attr(data-text);
     color:#888;
 }
-/*#container .loader {
+#container .loader {
     border: 6px solid #F3F3F3; 
     border-top: 6px solid #3498DB; 
     border-radius: 50%;
@@ -90,4 +90,33 @@ fieldset > button {
     animation: spin 2s linear infinite;
     margin: 0 auto;
     line-height: 20px;
-}*/
+}
+#bold-image,
+#italic-image,
+#underline-image,
+#strikethrough-image,
+#alignleft-image,
+#alignright-image,
+#aligncenter-image,
+#redo-image,
+#undo-image {
+    height: 25px;
+}
+#font-input {
+    height: 25px;
+}
+
+#devsImage1,
+#devsImage2,
+#devsImage3,
+#devsImage4,
+#devsImage5,
+#devsImage6 {
+    width: 200px;
+}
+
+.devs-div-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}

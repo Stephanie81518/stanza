@@ -174,11 +174,26 @@ const poemTypeElement = function (examplePoemType) {
   bookViewDiv.appendChild(editorArea);
 
   //poem type example random
-  const typeExamplesP = document.createElement("p");
+  const typeExamplesDiv = document.createElement("div");
+  typeExamplesDiv.classList.add("type-examples-div");
+  containerDiv.appendChild(typeExamplesDiv);
+  const typeExamplesHeader = document.createElement("h2");
+  typeExamplesHeader.classList.add("type-examples-header");
+  typeExamplesHeader.innerHTML = `Read a ${examplePoemType.typeName}`;
+  typeExamplesDiv.appendChild(typeExamplesHeader);
+  let typeExamplesP = document.createElement("p");
   typeExamplesP.classList.add("type-examples-p");
   getRandomExamplePoem(examplePoemType.typeName);
-  //typeExamplesP.innerHTML = `${randomPoem.title}`;
-  containerDiv.appendChild(typeExamplesP);
+  typeExamplesDiv.appendChild(typeExamplesP);
+  const anotherExampleButton = document.createElement("button");
+  anotherExampleButton.classList.add("another-example-button");
+  anotherExampleButton.innerText = "Show me another";
+  anotherExampleButton.addEventListener("click", () => {
+    clearChildren(typeExamplesP);
+    getRandomExamplePoem(examplePoemType.typeName);
+  })
+  typeExamplesDiv.appendChild(anotherExampleButton);
+  
 
   //user poem buttons (download, share, reset)
   const userPoemOptionsDiv = document.createElement("div");

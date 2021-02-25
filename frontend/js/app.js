@@ -50,11 +50,12 @@ const getRandomExamplePoem = function (inPoemType) {
   .then((response) => response.json())
   .then((examplePoems) => {
     function filterForRandomPoem(examplePoems) {
+    let examplePoemDisplay = document.querySelector(".type-examples-p");
     let filtered = examplePoems.filter(onePoem => onePoem.examplePoemType.typeName === inPoemType);
     console.log(filtered);
     let randomPoem = Math.floor(Math.random() * filtered.length);
     console.log(filtered[randomPoem]);
-    return randomPoem;
+    examplePoemDisplay.innerHTML = `<a href="` + filtered[randomPoem].poemUrl + `">` + filtered[randomPoem].title + `</a><br>` + filtered[randomPoem].poet;
     }
     filterForRandomPoem(examplePoems);
     
