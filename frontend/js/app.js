@@ -23,7 +23,7 @@ const displayHomeView = function (examplePoems) {
   let main = landing(examplePoems);
   container.appendChild(main);
   footer = createFooter();
-  main.appendChild(footer);
+  container.appendChild(footer);
 };
 
 fetch("http://localhost:8080/api/examplepoems")
