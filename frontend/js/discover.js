@@ -14,8 +14,8 @@ const discoverElement = function () {
     discoverMainDiv.classList.add("discover-div-main");
     discoverElement.appendChild(discoverMainDiv);
 
-    let footer = createFooter();
-    discoverElement.appendChild(footer);
+    //let footer = createFooter();
+    //discoverElement.appendChild(footer);
 
     return discoverElement;
 }
