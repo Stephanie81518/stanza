@@ -23,7 +23,7 @@ const displayHomeView = function (examplePoems) {
   let main = landing(examplePoems);
   container.appendChild(main);
   footer = createFooter();
-  main.appendChild(footer);
+  container.appendChild(footer);
 };
 
 fetch("http://localhost:8080/api/examplepoems")
@@ -50,18 +50,15 @@ const getRandomExamplePoem = function (inPoemType) {
   .then((response) => response.json())
   .then((examplePoems) => {
     function filterForRandomPoem(examplePoems) {
+    let examplePoemDisplay = document.querySelector(".type-examples-p");
     let filtered = examplePoems.filter(onePoem => onePoem.examplePoemType.typeName === inPoemType);
     console.log(filtered);
     let randomPoem = Math.floor(Math.random() * filtered.length);
     console.log(filtered[randomPoem]);
-    return randomPoem;
+    examplePoemDisplay.innerHTML = `<a href="` + filtered[randomPoem].poemUrl + `" target="popup" onclick="window.open('` + filtered[randomPoem].poemUrl + `','name','width=600,height=400')">` + filtered[randomPoem].title + `</a><br>` + filtered[randomPoem].poet;
     }
     filterForRandomPoem(examplePoems);
-    
   })
-  // .then(() => {
-  //   return filtered[randomPoem];
-  // })
   .catch((error) => console.log(error));
 }
 

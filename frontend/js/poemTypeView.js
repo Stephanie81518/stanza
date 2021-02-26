@@ -1,34 +1,48 @@
 import { getRandomExamplePoem } from "./app.js";
 import { createFooter } from "./footer.js";
-
+import { addTextEditor } from "./syllableCounter.js";
 const poemTypeElement = function (examplePoemType) {
   const poemTypeContent = document.querySelector(".main-content");
   clearChildren(poemTypeContent);
 
   const containerDiv = document.createElement("div");
-  containerDiv.classList.add("container");
+  containerDiv.classList.add("descriptionDiv");
   poemTypeContent.appendChild(containerDiv);
 
-  //poem type description & editor
-  const bookViewDiv = document.createElement("div");
-  bookViewDiv.classList.add("book-view-div");
-  containerDiv.appendChild(bookViewDiv);
+
+  
+  // wrapper div for 3x columns:
+  const wrapperForFlexboxOrGrid = document.createElement('div');
+  wrapperForFlexboxOrGrid.classList.add('wrapperForFlexboxOrGrid');
+  containerDiv.appendChild(wrapperForFlexboxOrGrid);
+
+  const leftColumn = document.createElement("div");
+  leftColumn.setAttribute("id", "leftColumn");
+  wrapperForFlexboxOrGrid.appendChild(leftColumn);
+
   const descHeader = document.createElement("h2");
   descHeader.classList.add("description-header");
   descHeader.innerText = examplePoemType.typeName;
-  bookViewDiv.appendChild(descHeader);
+  leftColumn.appendChild(descHeader);
+
   const typeDesP = document.createElement("p");
   typeDesP.classList.add("type-description-p");
-  typeDesP.innerText = examplePoemType.typeDescription;
-  bookViewDiv.appendChild(typeDesP);
+  typeDesP.innerHTML = examplePoemType.typeDescription;
+  leftColumn.appendChild(typeDesP);
+
+
+  //poem type description & editor
+  const editorDiv = document.createElement("div");
+  editorDiv.classList.add("editor-div");
+  wrapperForFlexboxOrGrid.appendChild(editorDiv);
   //editor toolbar
   const poemEditorFieldset = document.createElement("fieldset");
   poemEditorFieldset.classList.add("poem-editor-fieldset");
-  bookViewDiv.appendChild(poemEditorFieldset);
+  editorDiv.appendChild(poemEditorFieldset);
   const italicButton = document.createElement("button");
   italicButton.classList.add("fontStyle-italic");
   italicButton.setAttribute("title", "Italicize Highlighted Text");
-  italicButton.innerHTML = `<img id="italic-image" src="images/italics-button-image.png">`;
+  italicButton.innerHTML = `<i class="fas fa-italic"></i>`;
   italicButton.addEventListener("click", () => {
     document.execCommand('italic',false,null);
   });
@@ -36,7 +50,7 @@ const poemTypeElement = function (examplePoemType) {
   const boldButton = document.createElement("button");
   boldButton.classList.add("fontStyle-bold");
   boldButton.setAttribute("title", "Bold Highlighted Text");
-  boldButton.innerHTML = `<img id="bold-image" src="images/bold-button-image.png">`;
+  boldButton.innerHTML = `<i class="fas fa-bold"></i>`;
   boldButton.addEventListener("click", (e) => {
     e.preventDefault();
     document.execCommand('bold',false,null);
@@ -46,7 +60,7 @@ const poemTypeElement = function (examplePoemType) {
   const underlineButton = document.createElement("button");
   underlineButton.classList.add("fontStyle-underline");
   underlineButton.setAttribute("title", "Underline Highlighted Text");
-  underlineButton.innerHTML = `<img id="underline-image" src="images/underline-button-image.png">`;
+  underlineButton.innerHTML = `<i class="fas fa-underline"></i>`;
   underlineButton.addEventListener("click", () => {
     document.execCommand('underline',false,null);
   });
@@ -54,7 +68,7 @@ const poemTypeElement = function (examplePoemType) {
   const strikeButton = document.createElement("button");
   strikeButton.classList.add("fontStyle-strikethrough");
   strikeButton.setAttribute("title", "Strikethrough Highlighted Text");
-  strikeButton.innerHTML = `<img id="strikethrough-image" src="images/strikethrough-button-image.png">`;
+  strikeButton.innerHTML = `<i class="fas fa-strikethrough"></i>`;
   strikeButton.addEventListener("click", () => {
     document.execCommand('strikethrough',false,null);
   });
@@ -110,35 +124,35 @@ const poemTypeElement = function (examplePoemType) {
   //
   const alignLeftButton = document.createElement("button");
   alignLeftButton.classList.add("align-left-button");
-  alignLeftButton.innerHTML = `<img id="alignleft-image" src="images/left-align-button-image.png">`;
+  alignLeftButton.innerHTML = `<i class="fas fa-align-left"></i>`;
   alignLeftButton.addEventListener("click", () => {
     document.execCommand('justifyLeft', false, null);
   });
   poemEditorFieldset.appendChild(alignLeftButton);
   const alignCenterButton = document.createElement("button");
   alignCenterButton.classList.add("align-center-button");
-  alignCenterButton.innerHTML = `<img id="aligncenter-image" src="images/center-button-image.png">`;
+  alignCenterButton.innerHTML = `<i class="fas fa-align-center"></i>`;
   alignCenterButton.addEventListener("click", () => {
     document.execCommand('justifyCenter', false, null);
   });
   poemEditorFieldset.appendChild(alignCenterButton);
   const alignRightButton = document.createElement("button");
   alignRightButton.classList.add("align-right-button");
-  alignRightButton.innerHTML = `<img id="alignright-image" src="images/right-align-button-image.png">`;
+  alignRightButton.innerHTML = `<i class="fas fa-align-right"></i>`;
   alignRightButton.addEventListener("click", () => {
     document.execCommand('justifyRight', false, null);
   });
   poemEditorFieldset.appendChild(alignRightButton);
   const redoButton = document.createElement("button");
   redoButton.classList.add("redo-apply-button");
-  redoButton.innerHTML = `<img id="redo-image" src="images/redo-button-image.png">`;
+  redoButton.innerHTML = `<i class="fas fa-redo-alt"></i>`;
   redoButton.addEventListener("click", () => {
     document.execCommand('redo', false, null);
   });
   poemEditorFieldset.appendChild(redoButton);
   const undoButton = document.createElement("button");
   undoButton.classList.add("undo-apply-button");
-  undoButton.innerHTML = `<img id="undo-image" src="images/undo-button-image.png">`;
+  undoButton.innerHTML = `<i class="fas fa-undo-alt"></i>`;
   undoButton.addEventListener("click", () => {
     document.execCommand('undo', false, null);
   });
@@ -164,26 +178,38 @@ const poemTypeElement = function (examplePoemType) {
   fontSizeSelect.appendChild(optionSize1);
 
 
-  //editor textarea
-  const editorArea = document.createElement("div");
-  editorArea.classList.add("editor-div");
-  editorArea.setAttribute("name", "");
-  editorArea.setAttribute("id", "editor1");
-  editorArea.setAttribute("contenteditable", true);
-  editorArea.setAttribute("data-text", "Write here.");
-  bookViewDiv.appendChild(editorArea);
+  addTextEditor();
+
+  const rightColumn = document.createElement('div');
+  rightColumn.setAttribute('id', 'rightColumn');
+  wrapperForFlexboxOrGrid.appendChild(rightColumn);
 
   //poem type example random
-  const typeExamplesP = document.createElement("p");
+  const typeExamplesDiv = document.createElement("div");
+  typeExamplesDiv.classList.add("type-examples-div");
+  rightColumn.appendChild(typeExamplesDiv);
+  const typeExamplesHeader = document.createElement("h2");
+  typeExamplesHeader.classList.add("type-examples-header");
+  typeExamplesHeader.innerHTML = `Read a ${examplePoemType.typeName}`;
+  typeExamplesDiv.appendChild(typeExamplesHeader);
+  let typeExamplesP = document.createElement("p");
   typeExamplesP.classList.add("type-examples-p");
   getRandomExamplePoem(examplePoemType.typeName);
-  //typeExamplesP.innerHTML = `${randomPoem.title}`;
-  containerDiv.appendChild(typeExamplesP);
+  typeExamplesDiv.appendChild(typeExamplesP);
+  const anotherExampleButton = document.createElement("button");
+  anotherExampleButton.classList.add("another-example-button");
+  anotherExampleButton.innerText = "Show me another";
+  anotherExampleButton.addEventListener("click", () => {
+    clearChildren(typeExamplesP);
+    getRandomExamplePoem(examplePoemType.typeName);
+  })
+  typeExamplesDiv.appendChild(anotherExampleButton);
+  
 
   //user poem buttons (download, share, reset)
   const userPoemOptionsDiv = document.createElement("div");
   userPoemOptionsDiv.classList.add("user-poem-options-div");
-  poemTypeContent.appendChild(userPoemOptionsDiv);
+  editorDiv.appendChild(userPoemOptionsDiv);
   const downloadButton = document.createElement("button");
   downloadButton.classList.add("download-button");
   downloadButton.innerText = "Download";
@@ -196,7 +222,7 @@ const poemTypeElement = function (examplePoemType) {
   resetButton.classList.add("reset-button");
   resetButton.innerText = "Reset";
   userPoemOptionsDiv.appendChild(resetButton);
-
+  
   //tools button
   const toolsDiv = document.createElement("div");
   toolsDiv.classList.add("tools-div");
@@ -206,9 +232,17 @@ const poemTypeElement = function (examplePoemType) {
   toolsButton.innerText = "Tools";
   //add event listener here to open collapsible tools menu?
   toolsDiv.appendChild(toolsButton);
+  rightColumn.appendChild(toolsDiv);
 
-  let footer = createFooter();
-  poemTypeContent.appendChild(footer);
+  //poem type example random
+  typeExamplesP = document.createElement("p");
+  typeExamplesP.classList.add("type-examples-p");
+  getRandomExamplePoem(examplePoemType.typeName);
+  //typeExamplesP.innerHTML = `${randomPoem.title}`;
+  containerDiv.appendChild(typeExamplesP);
+
+  //let footer = createFooter();
+  //poemTypeContent.appendChild(footer);
 
   return poemTypeElement;
 };

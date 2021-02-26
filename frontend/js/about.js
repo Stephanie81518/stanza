@@ -14,8 +14,8 @@ const aboutElement = function () {
     aboutMainDiv.classList.add("about-div-main");
     aboutElement.appendChild(aboutMainDiv);
 
-    let footer = createFooter();
-    aboutElement.appendChild(footer);
+    //let footer = createFooter();
+    //aboutElement.appendChild(footer);
 
     return aboutElement;
 }
