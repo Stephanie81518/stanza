@@ -1,0 +1,6 @@
+2021-02-25 21:39:21 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (EXAMPLE_POEM: ""EXAMPLE_POEM_TYPE_ID"" BIGINT)"; SQL statement:
+INSERT INTO "PUBLIC"."EXAMPLE_POEM"("ID","POEM_URL","POET","TITLE","EXAMPLE_POEM_TYPE_ID")VALUES(?,?,?,?,?) [22018-200]
+2021-02-25 21:39:21 jdbc[43]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (EXAMPLE_POEM: ""EXAMPLE_POEM_TYPE_ID"" BIGINT)"; SQL statement:
+INSERT INTO "PUBLIC"."EXAMPLE_POEM"("ID","POEM_URL","POET","TITLE","EXAMPLE_POEM_TYPE_ID")VALUES(?,?,?,?,?) [22018-200]

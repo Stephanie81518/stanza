@@ -16,6 +16,26 @@
 }
 .devs-div-main {
     display: flex;
-    justify-content: space-between;
+    align-items: space-between;
     flex-wrap: wrap;
+}
+.discover-div-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow:auto;
+    margin-top: 420px;
+}
+.discover-div-1,
+.discover-div-2,
+.discover-div-3,
+.discover-div-4,
+.discover-div-5 {
+    background-color: rgba(250, 190, 192, .9);
+    width: 400px;
+    height: auto;
+    border-radius: 30px;
+    margin-bottom: 50px;
 }

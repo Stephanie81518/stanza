@@ -126,3 +126,13 @@ figcaption {
     width: 200px;
     padding: 1rem;
 }
+.discover-div-main a,
+.discover-div-main p,
+.discover-div-main h2 {
+    font-size: 1em;
+    margin-left: 10px;
+    overflow: auto;
+}
+.typeOfPoemBox {
+    margin-top: 150px;
+}

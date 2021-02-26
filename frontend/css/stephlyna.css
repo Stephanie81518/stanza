@@ -5,7 +5,8 @@
 }
 body {
     background-color:#9DA6AE;
-    overflow: hidden;
+    background-attachment: fixed;
+    overflow: auto;
 }
 .main-content {
     background-color:#9DA6AE ;
@@ -19,17 +20,13 @@ body {
     background-repeat:no-repeat;
     background-size: 45%;
     background-position: top;
+    background-attachment:fixed;
 }
 .container{
     height:100vh;
     padding: 0px;
 }
-/*.main-header{
-    margin: auto;
-    text-align: center;
-    font-size: x-large;
-  color: #FABEC0; 
-}*/
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -73,7 +70,7 @@ a:hover{
 }
 
 .poem-type-button{
-    margin-top: 20%;
+    margin-top: 40px;
     align-items: center;
     justify-self: center;
     background-color:#FABEC0;
