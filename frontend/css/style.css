@@ -36,8 +36,14 @@
 fieldset {
     margin: auto;
     background-color: #F2F2F2;
-    width: 600px;
+    width: 601px;
     border:none;
+}
+.poem-editor-fieldset{
+    border-radius: 10px 10px 0px 0px;
+    text-align: center;
+    position: relative;
+    left: 1px;
 }
 fieldset > button {
     width: 5ex;
@@ -94,6 +100,7 @@ fieldset > button {
     width: 600px;
     margin: auto;
     position: relative;
+    border-radius: 0px 0px 10px 10px;
 }
 
 #rightColumn{
@@ -113,7 +120,8 @@ fieldset > button {
     position: absolute;
     top: 28px;
     left: 577px;
-    padding: 15px 0px 0px 5px;
+    padding: 15px 0px 5px 5px;
+    text-align: center;
 }
 
 #devsImage1,
