@@ -2,18 +2,15 @@ let poetryTextEditor = '';
 let syllablesDisplay = '';
 
 let arrayOfEverything = [];
-let arrayCountOfSyllablesForEachLine = [];
 let arrayOfAllLines = [];
 let arrayOfThisLinesWords = [];
 let arrayForOneWordAndNumSyllables = [];
 
-
+let allWordsAndSyllables = {};
 
 
 function addTextEditor(){
-  //editor textarea
   let bookViewDiv = document.querySelector('.editor-div');
-  //let editorContainer = document.querySelector('.');
 
   const editorArea = document.createElement("div");
   editorArea.classList.add("editor-div");
@@ -36,9 +33,9 @@ function stripNonAlphanumeric(inString){
     let currentString = inString.replace(/[^a-z0-9-' ↵]+/gi, ' ');
     return currentString;
 }
-function filterUnnecessaryStrings(inString){
-    var finalArrayOfWords = allWords.filter(function (el) {
-        return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div');
+function filterUnnecessaryStrings(inArray){
+    let finalArrayOfWords = inArray.filter(function (oneWord) {
+        return (oneWord != null && oneWord != '' && oneWord != 'nbsp' && oneWord != 'br' && oneWord != 'div');
       });
     return finalArrayOfWords;
 }
@@ -47,12 +44,12 @@ function updateSyllables(){
     syllablesDisplay.innerHTML = '';
     let sizeOfSyllablesArray = arrayOfEverything.length;
     let arrayCountOfSyllablesForEachLine = new Array(sizeOfSyllablesArray);
-    arrayOfEverything.forEach((line, i)=>{
+    arrayOfEverything.forEach((line, inLineNum)=>{
         let totalSyllablesForThisLine = 0;
         line.forEach((word)=>{
-            totalSyllablesForThisLine += word[1]
+            totalSyllablesForThisLine += word[1];
         })
-        arrayCountOfSyllablesForEachLine[i] = totalSyllablesForThisLine;
+        arrayCountOfSyllablesForEachLine[inLineNum] = totalSyllablesForThisLine;
     })
     arrayCountOfSyllablesForEachLine.forEach((element)=>{
         syllablesDisplay.innerHTML+=(element + '<br>');
@@ -69,12 +66,11 @@ function createAllArrays(){
     arrayOfAllLines.forEach((el) => {
         arrayOfEverything.push(splitIntoArrayOfWords(el))
     })
-    arrayOfEverything.forEach((oneLine, i) => {
-        oneLine.forEach((oneWord, ii) => {
-            lookupSyllables(oneWord, i, ii)
+    arrayOfEverything.forEach((oneLine, inLineNum) => {
+        oneLine.forEach((oneWord, inWordNum) => {
+                lookupSyllables(oneWord, inLineNum, inWordNum);
         })
     })
-    console.log(arrayOfEverything);
 }
 
 function splitIntoLines(inString){
@@ -90,22 +86,26 @@ function splitIntoLines(inString){
 function splitIntoArrayOfWords(inLine){
     let thisLine = stripNonAlphanumeric(inLine);
     arrayOfThisLinesWords = thisLine.split(' ');
-    arrayOfThisLinesWords = arrayOfThisLinesWords.filter(function (el) {
-      return (el != null && el != '' && el != 'nbsp' && el != 'br' && el != 'div');
-    });
-    return arrayOfThisLinesWords;
+    arrayOfThisLinesWords = filterUnnecessaryStrings(arrayOfThisLinesWords);
+    return arrayOfThisLinesWords;   
 }
 
 
 function lookupSyllables(inWord, inLineNum, inWordNum){
     (async () => {
-        const res = await fetch('https://api.datamuse.com/words?sp=' + inWord + '&md=s')
-        const json = await res.json();
-        arrayOfEverything[inLineNum][inWordNum] = [];
-        arrayForOneWordAndNumSyllables = [];
-        await arrayForOneWordAndNumSyllables.push(json[0].word);
-        await  arrayForOneWordAndNumSyllables.push(json[0].numSyllables);
-        arrayOfEverything[inLineNum][inWordNum] = await arrayForOneWordAndNumSyllables;
+        if( allWordsAndSyllables[inWord] == undefined ){
+            const res = await fetch('https://api.datamuse.com/words?sp=' + inWord + '&md=s')
+            const json = await res.json();
+            arrayOfEverything[inLineNum][inWordNum] = [];
+            arrayForOneWordAndNumSyllables = [];
+            await arrayForOneWordAndNumSyllables.push(json[0].word);
+            await  arrayForOneWordAndNumSyllables.push(json[0].numSyllables);
+            arrayOfEverything[inLineNum][inWordNum] = await arrayForOneWordAndNumSyllables;
+            allWordsAndSyllables[inWord] = await json[0].numSyllables;
+        } else {
+            arrayOfEverything[inLineNum][inWordNum] = [inWord, allWordsAndSyllables[inWord]]
+        }
+
     })();
 }
 
@@ -126,7 +126,6 @@ poetryTextEditor.addEventListener('keyup', function (e) {
     const interval = setInterval(function() {
         updateSyllables();
       }, 1000);
-    //  clearInterval(interval);
 })();
 
 
