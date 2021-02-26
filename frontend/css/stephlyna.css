@@ -47,17 +47,19 @@ a{
 
 a:hover{
     color: #4A5259;
+    font-weight: bold;
     cursor: pointer;
 }
 
 .create-button{
     margin-top: 75%;
     background-color:#FABEC0;
+    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    box-shadow:  16px 16px 50px #644c4d, -16px -16px 50px #D3D7DA;
     height: 75px;
     width: 250px;
     border-radius: 60px;
     border-color: #FABEC0;
-    box-shadow: 12px 30px 5px 0 rgba(0,0,0,0.24);
     display: flex;
     justify-content:center;
     align-items: center;
@@ -67,8 +69,12 @@ a:hover{
     transition-duration: 0.3s;
 }
 .create-button:hover {
-    background-color: #4A5259;
-    color: #f9dbd1;
+    border-radius: 60px;
+    background: #fabec0;
+    box-shadow: inset 16px 16px 50px #76595a,
+            inset -16px -16px 50px #ffffff;
+    color: #4a5259;
+    font-size: 2.4em;
     cursor: pointer;
 }
 
@@ -77,29 +83,33 @@ a:hover{
     align-items: center;
     justify-self: center;
     background-color:#FABEC0;
+    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    box-shadow:  16px 16px 50px #644c4d, -16px -16px 50px #D3D7DA;
     border-radius: 60px;
     border-color: #FABEC0;
-    box-shadow: 12px 30px 5px 0 rgba(0,0,0,0.24);
     font-family: 'Open Sans', sans-serif;
+    color: #873C37;
     font-size: 2em;
     height: 75px;
     width: 250px;
     margin-right: 5%;
     margin-left: 10%;
-    
 }
 .poem-type-button:hover{
-    background-color: #4A5259;
-    color: #f9dbd1;
+    border-radius: 60px;
+    background: #fabec0;
+    box-shadow: inset 16px 16px 50px #76595a, inset -16px -16px 50px #ffffff;
+    color: #4a5259;
+    font-size: 1.8em;
     cursor: pointer;
 }
-
 .download-button,.share-button,.reset-button{
     background-color:#FABEC0;
     border-radius: 60px;
     border-color: #FABEC0;
-    box-shadow: 10px 10px 5px 0 rgba(0,0,0,0.24);
+    box-shadow:  4px 4px 25px #644c4d, -4px -4px 25px #D3D7DA;
     font-family: 'Open Sans', sans-serif;
+    color: #873C37;
     font-size: 1em;
     height: 35px;
     width: 100px;
@@ -108,23 +118,56 @@ a:hover{
     margin-left: 10%;
     margin-top: 2%;
 }
-
-
-
 .download-button:hover,.share-button:hover,.reset-button:hover{
-        background-color: #4A5259;
-        color: #f9dbd1;
-        cursor: pointer;
+    border-radius: 60px;
+    background: #fabec0;
+    box-shadow: inset 4px 4px 25px #76595a, inset -4px -4px 25px #ffffff;
+    color: #4a5259;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+.another-example-button, .tools-button {
+        background-color:#FABEC0;
+        border-radius: 60px;
+        border-color: #FABEC0;
+        box-shadow:  4px 4px 25px #644c4d, -4px -4px 25px #D3D7DA;
+        font-family: 'Open Sans', sans-serif;
+        color: #873C37;
+        font-size: 1em;
+        height: 35px;
+        width: 145px;
+        margin-bottom: 5%;
+        margin-right: 5%;
+        margin-left: 10%;
+        margin-top: 2%;
+}
+.another-example-button:hover,.tools-button:hover{
+    border-radius: 60px;
+    background: #fabec0;
+    box-shadow: inset 4px 4px 25px #76595a, inset -4px -4px 25px #ffffff;
+    color: #4a5259;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+.about-header { /*This specification is temporary for building purposes on this branch only, but this issue will need to be fixed in dev*/
+    margin-bottom: 95%;
+}
+.about-div-main {
+    /* Below will be tweaked and moved to layout.css*/
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+   /*Below will be tweaked and moved to style.css*/
+    background-color: rgba(250, 190, 192, .9);
+    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    box-shadow:  16px 16px 50px #644c4d, -16px -16px 50px #D3D7DA;
+    width: 800px;
+    height: auto;
+    padding: 35px;
+    border-radius: 30px;
+    margin-bottom: 50px;
+    font-family:  'Open Sans', sans-serif;
+    font-size: 2em;
+    color: #4A5259;
 }
 
-
-/*.tools-button
-
-
-
-
-
-
-
-
-.tools-button:hover*/
