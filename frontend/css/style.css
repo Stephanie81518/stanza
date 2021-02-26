@@ -1,14 +1,6 @@
 .header{
     margin: auto;
 }
-#div--panels-wrapper{
-    display: flex;
-    flex-direction: row;
-}
-#textEditor-menu{
-    display: flex;
-    flex-direction: row;
-}
 #div--right-panel{
     padding: 0px;
     margin: 0px;
@@ -28,18 +20,6 @@
     width: 50%;
     height: 166px;
 }
-nav{
-    display: flex;
-    justify-content: space-between;
-    margin: 20px auto 20px auto;
-    padding: auto;
-    border: 1px solid gray;
-    width: 100%;
-    height: 66px;
-}
-body {
-    font: 400 16px/1.4 'serif';
-    }
 #container, #containerHeader{
     text-align: center;
     cursor:move;
@@ -51,10 +31,12 @@ body {
     margin: 0px auto 0;
     padding: 10px;
     overflow: auto;
+    background-color: rgba(255, 255, 255, .5);
    }
 fieldset {
-    margin: 2px auto 0px;
+    margin: auto;
     background-color: #F2F2F2;
+    width: 600px;
     border:none;
 }
 fieldset > button {
@@ -68,12 +50,11 @@ fieldset > button {
     background-size: cover;
     border:none;
 }
-#container img{
-      width:100%;
-}
+
 #container .color-apply{
     width: 20px;
 }
+
 [contentEditable=true]:empty:not(:focus):before{
     content:attr(data-text);
     color:#888;
@@ -103,17 +84,45 @@ fieldset > button {
     height: 25px;
 }
 
+#leftColumn{
+    min-width: 33vw;
+    margin-left: 3rem;
+    padding: 1rem;
+}
+
+.editor-div{
+    width: 600px;
+    margin: auto;
+    position: relative;
+}
+
+#rightColumn{
+    min-width: 33vw;
+    justify-content: right;
+    padding: 1rem;
+}
+
+#rightColumn a {
+    font-size: 1em;
+    text-decoration: none;
+}
+
+#div--count-of-syllables-per-line{
+    width: 25px;
+    height: 790px;
+    position: absolute;
+    top: 28px;
+    left: 577px;
+    padding: 15px 0px 0px 5px;
+}
+
 #devsImage1,
 #devsImage2,
 #devsImage3,
 #devsImage4,
 #devsImage5,
-#devsImage6 {
+#devsImage6,
+figcaption {
     width: 200px;
-}
-
-.devs-div-main {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    padding: 1rem;
 }

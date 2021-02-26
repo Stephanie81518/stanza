@@ -6,6 +6,7 @@ const landing = function () {
   const landing = document.createElement("main");
   landing.classList.add("main-content");
   const createButtonDiv = document.createElement("div");
+  createButtonDiv.classList.add("divCreateButton");
   landing.appendChild(createButtonDiv);
 
   const createButton = document.createElement("button");
@@ -14,8 +15,10 @@ const landing = function () {
   createButton.addEventListener("click", () => {
     getPoemTypes();
   });
-  landing.appendChild(createButton);
 
+  landing.appendChild(createButton);
+  createButtonDiv.appendChild(createButton);
+  //landing.appendChild(createFooter());
   return landing;
 };
 
