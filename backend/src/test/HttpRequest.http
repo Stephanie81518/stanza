@@ -10,8 +10,8 @@ PATCH localhost:8080/api/user/227/poem
 Content-Type: application/json
 
 { "poetName": "Jake",
-"title": "Love Simon",
-"poemContent": "blahblahLoveblahblah"
+"title": "Breathe",
+"poemContent": "Greatest Poem Of All Times"
 }
 ###
 GET localhost:8080/api/userpoems/70
