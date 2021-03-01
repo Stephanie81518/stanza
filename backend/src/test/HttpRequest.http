@@ -6,18 +6,17 @@ GET localhost:8080/api/examplepoemtype
 ###
 GET localhost:8080/api/userpoems/
 ###
-POST localhost:8080/api/userpoems/
+PATCH localhost:8080/api/user/227/poem
 Content-Type: application/json
 
 { "poetName": "Jake",
-"title": "Love Simon",
-"poemContent": "blahblahLoveblahblah",
-  "userName": "Joe123"
+"title": "Breathe",
+"poemContent": "Greatest Poem Of All Times"
 }
 ###
 GET localhost:8080/api/userpoems/70
 ###
-DELETE localhost:8080/api/userpoems/70
+DELETE localhost:8080/api/userpoems/228
 ###
 PUT localhost:8080/api/userpoems/
 Content-Type: application/json
@@ -28,3 +27,14 @@ Content-Type: application/json
   "poemContent": "This is a Poem about loooooooove.",
   "userName": "Joe123"
 }
+###
+GET localhost:8080/api/user
+###
+POST localhost:8080/api/user
+Content-Type: application/json
+
+{
+"userName": "Dylon"
+}
+###
+GET localhost:8080/api/user/227

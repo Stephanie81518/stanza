@@ -83,7 +83,6 @@ fieldset > button {
 
 #leftColumn{
     min-width: 33vw;
-    margin-left: 3rem;
     padding: 1rem;
 }
 
@@ -109,7 +108,7 @@ fieldset > button {
     padding: 1rem;
 }
 
-#rightColumn a {
+#leftColumn a {
     font-size: 1em;
     text-decoration: none;
 }
@@ -133,4 +132,14 @@ fieldset > button {
 figcaption {
     width: 200px;
     padding: 1rem;
+}
+.discover-div-main a,
+.discover-div-main p,
+.discover-div-main h2 {
+    font-size: 1em;
+    margin-left: 10px;
+    overflow: auto;
+}
+.typeOfPoemBox {
+    margin-top: 150px;
 }

@@ -188,7 +188,7 @@ const poemTypeElement = function (examplePoemType) {
   //poem type example random
   const typeExamplesDiv = document.createElement("div");
   typeExamplesDiv.classList.add("type-examples-div");
-  rightColumn.appendChild(typeExamplesDiv);
+  leftColumn.appendChild(typeExamplesDiv);
   const typeExamplesHeader = document.createElement("h2");
   typeExamplesHeader.classList.add("type-examples-header");
   typeExamplesHeader.innerHTML = `Read a ${examplePoemType.typeName}`;

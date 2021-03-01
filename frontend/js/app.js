@@ -41,6 +41,16 @@ const getPoemTypes = function () {
     .catch((error) => console.log(error));
 };
 
+const getUserPoems = function () {
+  fetch("http://localhost:8080/api/userpoems", {
+    method: "GET",
+    mode: "cors",
+  })
+  .then((response) => response.json())
+  .then((userPoems) => userPoemElement(userPoems))
+  .catch((error) => console.log(error));
+};
+
 
 const getRandomExamplePoem = function (inPoemType) {
   fetch("http://localhost:8080/api/examplepoems", {
@@ -66,13 +76,3 @@ const getRandomExamplePoem = function (inPoemType) {
  export {getPoemTypes};
  export {getRandomExamplePoem};
  export {clearChildren}
-
-// function createNode(element) {
-//   return document.createElement(element);
-// }
-// function append(parent, pl) {
-// return parent.appendChild(pl);
-// }
-// let pl = createNode("p");
-//     pl.innerHTML = `${filtered[randomPoem]}`;
-//     append(pl);
