@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(/images/larger-landing-background-0224.png);
+    background-image: url(/frontend/images/larger-landing-background-0224.png);
     background-repeat:no-repeat;
     background-size: 45%;
     background-position: top;
@@ -52,7 +52,7 @@ a:hover{
     margin-top: 75%;
     background-color:#FABEC0;
     background: linear-gradient(145deg, #ffcbcd, #e1abad);
-    box-shadow:  16px 16px 50px #644c4d, -16px -16px 50px #D3D7DA;
+    box-shadow:  4px 4px 12px #644c4d;
     height: 75px;
     width: 250px;
     border-radius: 60px;
@@ -67,13 +67,19 @@ a:hover{
 }
 .create-button:hover {
     border-radius: 60px;
+    outline: none; 
+    border: none;
     background: #fabec0;
-    box-shadow: inset 16px 16px 50px #76595a,
-            inset -16px -16px 50px #ffffff;
+    box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
     color: #4a5259;
     font-size: 2.4em;
     cursor: pointer;
 }
+
+.create-button:focus {
+    outline: none; 
+    border: none;
+    }
 
 .poem-type-button{
     margin-top: 40px;
@@ -81,7 +87,7 @@ a:hover{
     justify-self: center;
     background-color:#FABEC0;
     background: linear-gradient(145deg, #ffcbcd, #e1abad);
-    box-shadow:  16px 16px 50px #644c4d, -16px -16px 50px #D3D7DA;
+    box-shadow:  4px 4px 12px #644c4d;
     border-radius: 60px;
     border-color: #FABEC0;
     font-family: 'Open Sans', sans-serif;
@@ -91,20 +97,29 @@ a:hover{
     width: 250px;
     margin-right: 5%;
     margin-left: 10%;
+    transition-duration: 0.3s;
 }
 .poem-type-button:hover{
     border-radius: 60px;
+    outline: none; 
+    border: none;
     background: #fabec0;
-    box-shadow: inset 16px 16px 50px #76595a, inset -16px -16px 50px #ffffff;
+    box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
     color: #4a5259;
     font-size: 1.8em;
     cursor: pointer;
 }
+.poem-type-button:focus {
+    outline: none; 
+    border: none;
+}
+
 .download-button,.share-button,.reset-button{
     background-color:#FABEC0;
+    background: linear-gradient(145deg, #ffcbcd, #e1abad);
     border-radius: 60px;
     border-color: #FABEC0;
-    box-shadow:  4px 4px 25px #644c4d, -4px -4px 25px #D3D7DA;
+    box-shadow:  2px 2px 6px #644c4d; 
     font-family: 'Open Sans', sans-serif;
     color: #873C37;
     font-size: 1em;
@@ -117,17 +132,24 @@ a:hover{
 }
 .download-button:hover,.share-button:hover,.reset-button:hover{
     border-radius: 60px;
+    outline: none; 
+    border: none;
     background: #fabec0;
-    box-shadow: inset 4px 4px 25px #76595a, inset -4px -4px 25px #ffffff;
+    box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
     color: #4a5259;
     font-size: 0.9em;
     cursor: pointer;
 }
+.download-button:focus,.share-button:focus,.reset-button:focus {
+    outline: none; 
+    border: none;
+}
+
 .another-example-button, .tools-button {
         background-color:#FABEC0;
         border-radius: 60px;
         border-color: #FABEC0;
-        box-shadow:  4px 4px 25px #644c4d, -4px -4px 25px #D3D7DA;
+        box-shadow:  2px 2px 6px #644c4d;
         font-family: 'Open Sans', sans-serif;
         color: #873C37;
         font-size: 1em;
@@ -140,12 +162,19 @@ a:hover{
 }
 .another-example-button:hover,.tools-button:hover{
     border-radius: 60px;
+    outline: none; 
+    border: none;
     background: #fabec0;
-    box-shadow: inset 4px 4px 25px #76595a, inset -4px -4px 25px #ffffff;
+    box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
     color: #4a5259;
     font-size: 0.9em;
     cursor: pointer;
 }
+.another-example-button:focus,.tools-button:focus {
+    outline: none; 
+    border: none;
+}
+
 .about-header { /*This specification is temporary for building purposes on this branch only, but this issue will need to be fixed in dev*/
     margin-bottom: 95%;
 }
@@ -155,16 +184,16 @@ a:hover{
     justify-content: space-between;
     flex-wrap: wrap;
    /*Below will be tweaked and moved to style.css*/
-    background-color: rgba(250, 190, 192, .9);
+    background-color: rgba(250, 190, 192, .75);
     background: linear-gradient(145deg, #ffcbcd, #e1abad);
-    box-shadow:  16px 16px 50px #644c4d, -16px -16px 50px #D3D7DA;
-    width: 800px;
+    box-shadow:  8px 8px 25px #644c4d, -8px -8px 25px #D3D7DA;
+    width: 30vw;
     height: auto;
     padding: 35px;
     border-radius: 30px;
     margin-bottom: 50px;
     font-family:  'Open Sans', sans-serif;
-    font-size: 2em;
+    font-size: 1.5em;
     color: #4A5259;
 }
 
