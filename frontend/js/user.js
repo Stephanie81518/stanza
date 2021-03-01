@@ -1,7 +1,6 @@
 import { clearChildren } from "./app.js";
 
-
-const userPoemsElement = function (userPoem) {
+const userPoemsElement = function (userName) {
     const userPoemsElement = document.querySelector(".main-content");
     clearChildren(userPoemsElement);
 
@@ -9,19 +8,19 @@ const userPoemsElement = function (userPoem) {
     userPoemsDiv.classList.add("user-poems-div");
     userPoemsElement.appendChild(userPoemsDiv);
 
-    userPoem.forEach((userPoem) => {
+    userName.forEach((userPoems) => {
         const singleUserPoemDiv = document.createElement("div");
         singleUserPoemDiv.classList.add("single-user-poem-div");
         userPoemsDiv.appendChild(singleUserPoemDiv);
 
         const singleUserPoemHeader = document.createElement("h2");
         singleUserPoemHeader.classList.add("single-user-poem-h2");
-        singleUserPoemHeader.innerText = userPoem.title;
+        singleUserPoemHeader.innerText = userPoems.title;
         singleUserPoemDiv.appendChild(singleUserPoemHeader);
 
         const singleUserPoemP = document.createElement("p");
         singleUserPoemP.classList.add("single-user-poem-p");
-        singleUserPoemP.innerText = userPoem.poemContent;
+        singleUserPoemP.innerText = userPoems.poemContent;
         singleUserPoemDiv.appendChild(singleUserPoemP);
 
         const userPoemEditButton = document.createElement("button");
@@ -30,13 +29,14 @@ const userPoemsElement = function (userPoem) {
         userPoemEditButton.addEventListener("click", () => {
 
         })
-
+        userPoemsDiv.appendChild(userPoemEditButton);
         const userPoemDeleteButton = document.createElement("button");
         userPoemDeleteButton.classList.add("poem-delete-button");
         userPoemDeleteButton.innerText = "Delete";
         userPoemDeleteButton.addEventListener("click", () => {
             
         })
+        userPoemsDiv.appendChild(userPoemDeleteButton);
       });
 }
 

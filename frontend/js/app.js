@@ -73,14 +73,20 @@ const getRandomExamplePoem = function (inPoemType) {
 }
 
 const checkUserLogIn = function (userName) {
-  fetch("http://localhost:8080/api/user", {
+  fetch("http://localhost:8080/api/user/", {
     method: "GET",
     mode: "cors",
   })
   .then((response) => response.json())
   .then((userName) => {
     if (userName != null) {
-      userPoemsElement(userName);
+      fetch("http://localhost:8080/api/userpoems/", {
+        method: "GET",
+        mode: "cors",
+      })
+      .then((response) => response.json())
+      .then((userPoems) => userPoemsElement(userPoems))
+      userPoemsElement();
     }
   })
   .catch((error) => console.log(error));
