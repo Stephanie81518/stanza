@@ -39,3 +39,8 @@
     border-radius: 30px;
     margin-bottom: 50px;
 }
+.description-header,
+.type-description-p,
+.type-examples-div {
+    margin-left: 60px;
+}
