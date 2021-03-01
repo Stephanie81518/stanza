@@ -126,7 +126,7 @@ function addTextEditor(){
     (async () => {
         const interval = setInterval(function() {
             updateSyllables();
-        }, 100);
+        }, 1000);
     })();
 
 
