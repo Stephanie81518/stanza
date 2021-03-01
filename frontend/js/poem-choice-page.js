@@ -1,4 +1,3 @@
-import { createFooter } from "./footer.js";
 import { poemTypeElement } from "./poemTypeView.js";
 
 const poemChoiceElement = function (poemType) {
