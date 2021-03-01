@@ -1,6 +1,7 @@
-import { clearChildren } from "./app";
+import { clearChildren } from "./app.js";
 
-const userPoemsElement = function () {
+
+const userPoemsElement = function (userPoem) {
     const userPoemsElement = document.querySelector(".main-content");
     clearChildren(userPoemsElement);
 
@@ -38,3 +39,5 @@ const userPoemsElement = function () {
         })
       });
 }
+
+export {userPoemsElement};

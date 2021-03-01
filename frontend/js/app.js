@@ -3,6 +3,7 @@ import { landing } from "./landing.js";
 import { poemChoiceElement } from "./poem-choice-page.js";
 import { createFooter } from "./footer.js";
 import { poemTypeElement } from "./poemTypeView.js";
+import {userPoemsElement} from "./user.js";
 
 const clearChildren = function (element) {
   while (element.firstChild) {
@@ -51,7 +52,6 @@ const getUserPoems = function () {
   .catch((error) => console.log(error));
 };
 
-
 const getRandomExamplePoem = function (inPoemType) {
   fetch("http://localhost:8080/api/examplepoems", {
     method: "GET",
@@ -72,7 +72,22 @@ const getRandomExamplePoem = function (inPoemType) {
   .catch((error) => console.log(error));
 }
 
+const checkUserLogIn = function (userName) {
+  fetch("http://localhost:8080/api/user", {
+    method: "GET",
+    mode: "cors",
+  })
+  .then((response) => response.json())
+  .then((userName) => {
+    if (userName != null) {
+      userPoemsElement(userName);
+    }
+  })
+  .catch((error) => console.log(error));
+}
+
 
  export {getPoemTypes};
  export {getRandomExamplePoem};
- export {clearChildren}
+ export {clearChildren};
+ export {checkUserLogIn};
