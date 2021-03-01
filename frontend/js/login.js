@@ -31,7 +31,7 @@ const loginElement = function(){
     loginForm.appendChild(loginFormSubmit);
 
     loginFormSubmit.addEventListener("click", () => {
-        checkUserLogIn(userName);
+        checkUserLogIn(loginInput.value);
     })
 }
 

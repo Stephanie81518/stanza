@@ -2,7 +2,6 @@ import { createHeader } from "./header.js";
 import { landing } from "./landing.js";
 import { poemChoiceElement } from "./poem-choice-page.js";
 import { createFooter } from "./footer.js";
-import { poemTypeElement } from "./poemTypeView.js";
 import {userPoemsElement} from "./user.js";
 
 const clearChildren = function (element) {
@@ -72,21 +71,34 @@ const getRandomExamplePoem = function (inPoemType) {
   .catch((error) => console.log(error));
 }
 
-const checkUserLogIn = function (userName) {
+const checkUserLogIn = function (user) {
   fetch("http://localhost:8080/api/user/", {
     method: "GET",
     mode: "cors",
   })
   .then((response) => response.json())
-  .then((userName) => {
-    if (userName != null) {
-      fetch("http://localhost:8080/api/userpoems/", {
-        method: "GET",
-        mode: "cors",
+  .then((userList) => {
+    console.log(user);
+    let userFound = false;
+    userList.forEach(currentUser => {
+      if (currentUser.userName == user) {
+        userFound = true;
+      userPoemsElement(currentUser);
+      }
+    });
+
+    if (userFound == false) {
+      fetch("http://localhost:8080/api/user/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userName: user,
+      }), 
       })
       .then((response) => response.json())
-      .then((userPoems) => userPoemsElement(userPoems))
-      userPoemsElement();
+      .then(() => landing())
     }
   })
   .catch((error) => console.log(error));

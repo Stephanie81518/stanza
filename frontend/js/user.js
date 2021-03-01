@@ -8,7 +8,7 @@ const userPoemsElement = function (userName) {
     userPoemsDiv.classList.add("user-poems-div");
     userPoemsElement.appendChild(userPoemsDiv);
 
-    userName.forEach((userPoems) => {
+    userName.userPoems.forEach((userPoems) => {
         const singleUserPoemDiv = document.createElement("div");
         singleUserPoemDiv.classList.add("single-user-poem-div");
         userPoemsDiv.appendChild(singleUserPoemDiv);
