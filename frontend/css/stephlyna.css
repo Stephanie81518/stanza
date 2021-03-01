@@ -184,9 +184,9 @@ a:hover{
     justify-content: space-between;
     flex-wrap: wrap;
    /*Below will be tweaked and moved to style.css*/
-    background-color: rgba(250, 190, 192, .75);
+    background-color: rgba(250, 190, 192, .9);
     background: linear-gradient(145deg, #ffcbcd, #e1abad);
-    box-shadow:  8px 8px 25px #644c4d, -8px -8px 25px #D3D7DA;
+    box-shadow:  4px 4px 12px #644c4d;
     width: 30vw;
     height: auto;
     padding: 35px;
