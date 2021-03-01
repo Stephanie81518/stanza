@@ -179,7 +179,6 @@ const poemTypeElement = function (examplePoemType) {
 
 
   addTextEditor();
-  
 
   const rightColumn = document.createElement('div');
   rightColumn.setAttribute('id', 'rightColumn');
