@@ -1,7 +1,7 @@
 import { createHeader } from "./header.js";
 import { landing } from "./landing.js";
 import { poemChoiceElement } from "./poem-choice-page.js";
-import {createFooter} from "./footer.js";
+import { createFooter } from "./footer.js";
 import { poemTypeElement } from "./poemTypeView.js";
 
 const clearChildren = function (element) {
