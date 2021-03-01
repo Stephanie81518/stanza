@@ -51,9 +51,9 @@ const discoverElement = function () {
     discoverDiv4.classList.add("discover-div-4");
     discoverMainDiv.appendChild(discoverDiv4);
 
-    const discoverDiv5 = document.createElement("div");
+    /*const discoverDiv5 = document.createElement("div");
     discoverDiv5.classList.add("discover-div-5");
-    discoverMainDiv.appendChild(discoverDiv5);
+    discoverMainDiv.appendChild(discoverDiv5);*/
 
     return discoverElement;
 }
