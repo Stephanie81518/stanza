@@ -184,16 +184,17 @@ a:hover{
     justify-content: space-between;
     flex-wrap: wrap;
    /*Below will be tweaked and moved to style.css*/
-    background-color: rgba(250, 190, 192, .9);
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    background-color: rgba(249,189,177,.9);
     box-shadow:  4px 4px 12px #644c4d;
-    width: 30vw;
+    box-shadow:  4px 4px 12px #644c4d;
+    width: 40vw;
     height: auto;
     padding: 35px;
     border-radius: 30px;
-    margin-bottom: 50px;
     font-family:  'Open Sans', sans-serif;
     font-size: 1.5em;
     color: #4A5259;
 }
+
+
 

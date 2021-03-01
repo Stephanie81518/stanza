@@ -33,14 +33,18 @@
 .discover-div-3,
 .discover-div-4,
 .discover-div-5 {
-    background-color: rgba(250, 190, 192, .9);
+    font-size: 1em;
+    background-color: rgba(249,189,177,.9);
+    box-shadow:  4px 4px 12px #644c4d;
     width: 400px;
     height: auto;
     border-radius: 30px;
     margin-bottom: 50px;
+    padding: 1em;
 }
 .description-header,
 .type-description-p,
 .type-examples-div {
     margin-left: 60px;
+
 }
