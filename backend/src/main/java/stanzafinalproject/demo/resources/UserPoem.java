@@ -1,9 +1,8 @@
 package stanzafinalproject.demo.resources;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -13,20 +12,25 @@ public class UserPoem {
     @GeneratedValue
     private Long id;
     private String poetName;
-    private String userName;
+    @ManyToOne
+    @JsonIgnore
+    private User user;
     private String title;
     @Lob
     private String poemContent;
 
-    public UserPoem(String poetName, String title, String poemContent, String userName) {
+    public UserPoem(String poetName, String title, String poemContent) {
         this.poetName = poetName;
         this.title = title;
         this.poemContent = poemContent;
-        this.userName = userName;
     }
 
     public UserPoem() {
 
+    }
+
+    public void addUserToPoem(User inUser){
+        user = inUser;
     }
 
     public Long getId() {
@@ -45,8 +49,19 @@ public class UserPoem {
         return poemContent;
     }
 
-    public String getUserName() {
-        return userName;
+    public User getUser() {
+        return user;
+    }
+
+    @Override
+    public String toString() {
+        return "UserPoem{" +
+                "id=" + id +
+                ", poetName='" + poetName + '\'' +
+                ", user=" + user +
+                ", title='" + title + '\'' +
+                ", poemContent='" + poemContent + '\'' +
+                '}';
     }
 
     @Override
@@ -54,11 +69,11 @@ public class UserPoem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserPoem userPoem = (UserPoem) o;
-        return Objects.equals(id, userPoem.id) && Objects.equals(poetName, userPoem.poetName) && Objects.equals(userName, userPoem.userName) && Objects.equals(title, userPoem.title) && Objects.equals(poemContent, userPoem.poemContent);
+        return Objects.equals(id, userPoem.id) && Objects.equals(poetName, userPoem.poetName) && Objects.equals(user, userPoem.user) && Objects.equals(title, userPoem.title) && Objects.equals(poemContent, userPoem.poemContent);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, poetName, userName, title, poemContent);
+        return Objects.hash(id, poetName, user, title, poemContent);
     }
 }
