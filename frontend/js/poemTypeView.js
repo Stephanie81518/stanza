@@ -1,11 +1,12 @@
 import { getRandomExamplePoem, saveUserPoem } from "./app.js";
 import { addTextEditor } from "./syllableCounter.js";
-
+import { addWordGenerator} from "./wordGenerator.js";
 const poemTypeElement = function (examplePoemType) {
   const poemTypeContent = document.querySelector(".main-content");
   clearChildren(poemTypeContent);
 
   const containerDiv = document.createElement("div");
+  containerDiv.setAttribute("id", "containerDiv");
   containerDiv.classList.add("descriptionDiv");
   poemTypeContent.appendChild(containerDiv);
 
@@ -275,6 +276,12 @@ const poemTypeElement = function (examplePoemType) {
   //add event listener here to open collapsible tools menu?
   toolsDiv.appendChild(toolsButton);
   rightColumn.appendChild(toolsDiv);
+
+
+
+ 
+
+  addWordGenerator();
 
   //poem type example random
   typeExamplesP = document.createElement("p");
