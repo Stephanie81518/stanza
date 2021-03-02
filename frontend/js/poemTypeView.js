@@ -201,7 +201,42 @@ const poemTypeElement = function (examplePoemType) {
   });
   typeExamplesDiv.appendChild(anotherExampleButton);
 
+
+  function getFrontHTML(){
+    return `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+    `;
+  }
+
+  function getBackHTML(){
+    return `
+        
+    </body>
+    </html>`;
+  }
+
   //user poem buttons (download, share, reset)
+  function download(filename, text) {
+    let downloadElement = document.createElement('a');
+    downloadElement.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    downloadElement.setAttribute('download', filename);
+
+    downloadElement.style.display = 'none';
+    editorDiv.appendChild(downloadElement);
+
+    downloadElement.click();
+    editorDiv.removeChild(downloadElement);
+  } 
+
+
   const userPoemOptionsDiv = document.createElement("div");
   userPoemOptionsDiv.classList.add("user-poem-options-div");
   editorDiv.appendChild(userPoemOptionsDiv);
@@ -209,7 +244,10 @@ const poemTypeElement = function (examplePoemType) {
   downloadButton.classList.add("download-button");
   downloadButton.innerText = "Download";
   downloadButton.addEventListener("click", () => {
+    let text = getFrontHTML() + document.getElementById("editor1").innerHTML + getBackHTML();
+    let filename = "yournewfile.html";
 
+    download(filename, text);
   })
   userPoemOptionsDiv.appendChild(downloadButton);
   const saveButton = document.createElement("button");
