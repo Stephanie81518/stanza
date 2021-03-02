@@ -63,7 +63,6 @@ a:hover{
     font-family: 'Open Sans', sans-serif;
     font-size: 2.5em;
     color: #873C37;
-    transition-duration: 0.3s;
 }
 .create-button:hover {
     border-radius: 60px;
@@ -96,7 +95,6 @@ a:hover{
     width: 250px;
     margin-right: 5%;
     margin-left: 10%;
-    transition-duration: 0.3s;
 }
 .poem-type-button:hover{
     border-radius: 60px;
@@ -112,7 +110,7 @@ a:hover{
     border: none;
 }
 
-.download-button,.share-button,.reset-button{
+.download-button,.save-button,.reset-button{
     background-color:#FABEC0;
     background: linear-gradient(145deg, #ffcbcd, #e1abad);
     border-radius: 60px;
@@ -128,7 +126,7 @@ a:hover{
     margin-left: 10%;
     margin-top: 2%;
 }
-.download-button:hover,.share-button:hover,.reset-button:hover{
+.download-button:hover,.save-button:hover,.reset-button:hover{
     border-radius: 60px;
     outline: none; 
     border: none;
@@ -137,7 +135,7 @@ a:hover{
     color: #4a5259;
     cursor: pointer;
 }
-.download-button:focus,.share-button:focus,.reset-button:focus {
+.download-button:focus,.save-button:focus,.reset-button:focus {
     outline: none; 
     border: none;
 }

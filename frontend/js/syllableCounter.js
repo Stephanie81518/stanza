@@ -12,7 +12,7 @@ let arrayForOneWordAndNumSyllables = [];
 
 function addTextEditor(){
     let bookViewDiv = document.querySelector('.editor-div');
-    const editorArea = document.createElement("div");
+    let editorArea = document.createElement("div");
     editorArea.classList.add("editor-div");
     editorArea.setAttribute("name", "editorAreaInput");
     editorArea.setAttribute("id", "editor1");
@@ -30,6 +30,7 @@ function addTextEditor(){
 
     poetryTextEditor = document.getElementById('editor1');
     syllablesDisplay = document.getElementById('div--count-of-syllables-per-line');
+    
 
 
     function stripNonAlphanumeric(inString){
@@ -62,20 +63,20 @@ function addTextEditor(){
         })
     }
   //editor textarea
-  let bookViewDiv = document.querySelector('.editor-div');
+  //let bookViewDiv = document.querySelector('.editor-div');
   //let editorContainer = document.querySelector('.');
 
-  const editorArea = document.createElement("div");
-  editorArea.classList.add("editor-div");
-  editorArea.setAttribute("name", "");
-  editorArea.setAttribute("id", "editor1");
-  editorArea.setAttribute("contenteditable", true);
-  editorArea.setAttribute("data-text", "Write here.");
-  bookViewDiv.appendChild(editorArea);
+//   let editorArea = document.createElement("div");
+//   editorArea.classList.add("editor-div");
+//   editorArea.setAttribute("name", "");
+//   editorArea.setAttribute("id", "editor1");
+//   editorArea.setAttribute("contenteditable", true);
+//   editorArea.setAttribute("data-text", "Write here.");
+//   bookViewDiv.appendChild(editorArea);
 
-  const columnOfSyllableCounts = document.createElement('div');
-  columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
-  bookViewDiv.appendChild(columnOfSyllableCounts);
+//   const columnOfSyllableCounts = document.createElement('div');
+//   columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
+//   bookViewDiv.appendChild(columnOfSyllableCounts);
 
 
 
