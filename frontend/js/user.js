@@ -20,7 +20,7 @@ const userPoemsElement = function (userName) {
 
     const singleUserPoemP = document.createElement("p");
     singleUserPoemP.classList.add("single-user-poem-p");
-    singleUserPoemP.innerText = userPoems.poemContent;
+    singleUserPoemP.innerHTML = userPoems.poemContent;
     singleUserPoemDiv.appendChild(singleUserPoemP);
 
     const userPoemEditButton = document.createElement("button");

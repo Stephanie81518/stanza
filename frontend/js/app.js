@@ -5,6 +5,8 @@ import { createFooter } from "./footer.js";
 import { userPoemsElement } from "./user.js";
 import { poemTypeElement } from "./poemTypeView.js";
 
+let loggedInUser = "";
+
 const clearChildren = function (element) {
   while (element.firstChild) {
     element.removeChild(element.lastChild);
@@ -93,6 +95,7 @@ const checkUserLogIn = function (user) {
       let userFound = false;
       userList.forEach((currentUser) => {
         if (currentUser.userName == user) {
+          loggedInUser = currentUser;
           userFound = true;
           userPoemsElement(currentUser);
           header.innerHTML = `${currentUser.userName}`;
@@ -114,6 +117,7 @@ const checkUserLogIn = function (user) {
         })
           .then((response) => response.json())
           .then((user) => {
+            loggedInUser = user;
             userPoemsElement(user);
             header.innerHTML = `${user.userName}`;
             header.addEventListener("click", () => {
@@ -131,27 +135,36 @@ const deleteUserPoem = function (id) {
     mode: "cors",
   })
     .then((response) => response.json())
+    .then(() => userPoemsElement())
     .catch((error) => console.log(error));
 };
 
-const saveUserPoem = function (userName) {
-  fetch("http://localhost:8080/api/userpoems/", {
-    method: "POST",
+const saveUserPoem = function () {
+  fetch("http://localhost:8080/api/user/" + loggedInUser.id + "/poem", {
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      poemContent: editorValue.value,
-    })
+      poemContent: editor1.innerHTML,
+      poetName: "",
+      title: "",
+    }),
   })
-  .then((response) => response.json())
-  .then((userName) => userPoemsElement(userName))
-  .catch((error) => console.log(error));
-}
+    .then((response) => response.json())
+    .then((userName) => userPoemsElement(userName))
+    .catch((error) => console.log(error));
+};
+
+const editUserPoem = function () {
+  fetch("http://localhost:8080/api/userpoems/", {
+    method: "PUT",
+  });
+};
 
 export { getPoemTypes };
 export { getRandomExamplePoem };
 export { clearChildren };
 export { checkUserLogIn };
 export { deleteUserPoem };
-export {saveUserPoem};
+export { saveUserPoem };

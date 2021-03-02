@@ -19,11 +19,10 @@ function addTextEditor(){
     editorArea.setAttribute("data-text", "Write here.");
     editorArea.setAttribute("method", "post");
     bookViewDiv.appendChild(editorArea);
-    const editorInput = document.createElement("input");
-    editorInput.setAttribute("type", "hidden");
-    editorInput.setAttribute("id", "editorValue");
-    editorInput.setAttribute("name", "editorAreaInput");
-    editorArea.appendChild(editorInput);
+    const userInput = document.createElement("input");
+    userInput.setAttribute("type", "hidden");
+    userInput.setAttribute("id", "");
+    userInput.setAttribute("name", "userInput");
     const columnOfSyllableCounts = document.createElement('div');
     columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
     bookViewDiv.appendChild(columnOfSyllableCounts);

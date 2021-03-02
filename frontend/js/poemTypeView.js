@@ -216,7 +216,7 @@ const poemTypeElement = function (examplePoemType) {
   saveButton.classList.add("save-button");
   saveButton.innerText = "Save";
   saveButton.addEventListener("click", () => {
-    saveUserPoem(editor1.value);
+    saveUserPoem();
   })
   userPoemOptionsDiv.appendChild(saveButton);
   const resetButton = document.createElement("button");
