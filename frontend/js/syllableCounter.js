@@ -13,11 +13,17 @@ function addTextEditor(){
     let bookViewDiv = document.querySelector('.editor-div');
     const editorArea = document.createElement("div");
     editorArea.classList.add("editor-div");
-    editorArea.setAttribute("name", "");
+    editorArea.setAttribute("name", "editorAreaInput");
     editorArea.setAttribute("id", "editor1");
     editorArea.setAttribute("contenteditable", true);
     editorArea.setAttribute("data-text", "Write here.");
+    editorArea.setAttribute("method", "post");
     bookViewDiv.appendChild(editorArea);
+    const editorInput = document.createElement("input");
+    editorInput.setAttribute("type", "hidden");
+    editorInput.setAttribute("id", "editorValue");
+    editorInput.setAttribute("name", "editorAreaInput");
+    editorArea.appendChild(editorInput);
     const columnOfSyllableCounts = document.createElement('div');
     columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
     bookViewDiv.appendChild(columnOfSyllableCounts);

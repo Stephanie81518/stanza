@@ -1,7 +1,4 @@
 import { getPoemTypes } from "./app.js";
-import { createFooter } from "./footer.js";
-import { poemChoiceElement } from "./poem-choice-page.js";
-import {loginElement} from "./login.js";
 
 const landing = function () {
   const landing = document.createElement("main");
@@ -17,15 +14,7 @@ const landing = function () {
     getPoemTypes();
   });
 
-  const loginButton = document.createElement("button");
-  loginButton.classList.add("login-button");
-  loginButton.innerText = "Login";
-  loginButton.addEventListener("click", ()=> {
-    loginElement();
-  });
-
   landing.appendChild(createButton);
-  landing.appendChild(loginButton);
   createButtonDiv.appendChild(createButton);
   //landing.appendChild(createFooter());
   return landing;

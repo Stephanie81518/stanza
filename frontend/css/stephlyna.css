@@ -100,7 +100,7 @@ a:hover{
     font-size: 1.8em;
     cursor: pointer;
 }
-.download-button,.share-button,.reset-button{
+.download-button,.save-button,.reset-button{
     background-color:#FABEC0;
     border-radius: 60px;
     border-color: #FABEC0;

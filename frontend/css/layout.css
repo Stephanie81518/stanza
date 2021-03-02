@@ -44,3 +44,7 @@
 .type-examples-div {
     margin-left: 60px;
 }
+header {
+    display: flex;
+    justify-content: flex-end;
+}
