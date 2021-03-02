@@ -179,6 +179,14 @@ const poemTypeElement = function (examplePoemType) {
   optionSize1.innerText = "1";
   fontSizeSelect.appendChild(optionSize1);
 
+  const imageLabelSyllableCountArrow = document.createElement("img");
+  imageLabelSyllableCountArrow.setAttribute('src', './images/syllables-arrow.png');
+  imageLabelSyllableCountArrow.style.width = '100px';
+  imageLabelSyllableCountArrow.style.position = 'relative';
+  imageLabelSyllableCountArrow.style.top = '7px';
+  imageLabelSyllableCountArrow.style.left = '15px';
+  poemEditorFieldset.appendChild(imageLabelSyllableCountArrow);
+
 
   addTextEditor();
 
