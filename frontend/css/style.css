@@ -139,3 +139,12 @@ figcaption {
 .typeOfPoemBox {
     margin-top: 150px;
 }
+.login-button,
+header {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 40px;
+    color:#873C37;
+    background: none;
+    border: none;
+    margin-right: 30px;
+}

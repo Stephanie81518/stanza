@@ -1,13 +1,16 @@
+import { loginElement } from "./login.js";
 
 const createHeader = function () {
-    const header = document.createElement("header");
-    header.classList.add("main-header");
-    header.innerHTML = ``;
-    return header;
-}
+  const header = document.createElement("header");
+  header.classList.add("main-header");
+  const loginButton = document.createElement("button");
+  loginButton.classList.add("login-button");
+  loginButton.innerText = "Login";
+  loginButton.addEventListener("click", () => {
+    loginElement();
+  });
+  header.appendChild(loginButton);
+  return header;
+};
 
-const createPoemTypeViewHeader = function () {
-    
-}
-
-export {createHeader};
+export { createHeader };

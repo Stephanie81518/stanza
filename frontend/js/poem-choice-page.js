@@ -18,9 +18,6 @@ const poemChoiceElement = function (poemType) {
     typeOfPoemDiv.appendChild(poemTypeButton);
   });
 
-  //let footer = createFooter();
-  //typeOfPoemDiv.appendChild(footer);
-
   return poemChoiceElement;
 };
 
@@ -31,64 +28,3 @@ const clearChildren = function (element) {
 };
 
 export { poemChoiceElement };
-
-//     const buttonFreeVerse = document.createElement("button");
-//     buttonFreeVerse.classList.add("free-verse-button");
-//     buttonFreeVerse.innerText = "Free Verse";
-//     typeOfPoem.append(buttonFreeVerse);
-//         buttonFreeVerse.addEventListener("click", () => {
-//             poemTypeElement(poemType);
-//         })
-
-//     const buttonHaiku = document.createElement("button");
-//     buttonHaiku.classList.add("haiku-button");
-//     buttonHaiku.innerText = "Haiku";
-//     typeOfPoem.append(buttonHaiku);
-//         buttonHaiku.addEventListener("click", () => {
-
-//         })
-
-//     const buttonSonnet = document.createElement("button");
-//     buttonSonnet.classList.add("sonnet-button");
-//     buttonSonnet.innerText = "Sonnet";
-//     typeOfPoem.append(buttonSonnet);
-//         buttonSonnet.addEventListener("click", () => {
-
-//         })
-
-//     const buttonSestina = document.createElement("button");
-//     buttonSestina.classList.add("sestina-button");
-//     buttonSestina.innerText = "Sestina";
-//     typeOfPoem.append(buttonSestina);
-//         buttonSestina.addEventListener("click", () => {
-
-//         })
-
-//     const buttonVillanelle = document.createElement("button");
-//     buttonVillanelle.classList.add("villanelle-button");
-//     buttonVillanelle.innerText = "Villanelle";
-//     typeOfPoem.append(buttonVillanelle);
-//         buttonVillanelle.addEventListener("click", () => {
-
-//         })
-
-//     const buttonGhazal = document.createElement("button");
-//     buttonGhazal.classList.add("ghazal-button");
-//     buttonGhazal.innerText = "Ghazal";
-//     typeOfPoem.append(buttonGhazal);
-//         buttonGhazal.addEventListener("click", () => {
-
-//         })
-
-//     const buttonPantoum = document.createElement("button");
-//     buttonPantoum.classList.add("pantoum-button");
-//     buttonPantoum.innerText = "Pantoum";
-//     typeOfPoem.append(buttonPantoum);
-//         buttonPantoum.addEventListener("click", () => {
-
-//         })
-
-// const buttonLogin = document.createElement("button");
-// buttonLogin.classList.add("login-button");
-// buttonLogin.innerText = "Log In";
-// mainElement.append(buttonLogin);
