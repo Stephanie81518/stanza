@@ -21,23 +21,24 @@ function addWordGenerator () {
    containerDiv.appendChild(radioButtonDiv);
    const radioButton = ['Rhyming', 'Related', 'Synonyms'];
    radioButton.forEach((radioButtonValue, i) =>{
-     const labelValue = document.createElement('label');
-     labelValue.innerHTML = radioButtonValue;
-     const inputValue = document.createElement('input');
-     inputValue.type = "radio";
-     inputValue.value = radioButtonValue;
-     inputValue.name = "selector";
-     inputValue.checked = "checked";
-     inputValue.rButtonValue = i;
-     if (radioButtonValue == "Rhyming") {
-       rhyming = inputValue;
-     }else if (radioButtonValue == "Related") {
-       rWord = inputValue;
-     }else if(radioButtonValue == "Synonyms") {
-       synonym = inputValue;
-     }
-     radioButtonDiv.appendChild(labelValue);
-     radioButtonDiv.appendChild(inputValue);
+        const labelValue = document.createElement('label');
+        labelValue.innerHTML = radioButtonValue;
+        const inputValue = document.createElement('input');
+        inputValue.type = "radio";
+        inputValue.value = radioButtonValue;
+        inputValue.setAttribute('id', `radioButton${radioButtonValue}`)
+        inputValue.name = "selector";
+        inputValue.rButtonValue = i;
+        if (radioButtonValue == "Rhyming") {
+            rhyming = inputValue;
+                inputValue.checked = "checked";
+            }else if (radioButtonValue == "Related") {
+                rWord = inputValue;
+            }else if(radioButtonValue == "Synonyms") {
+                synonym = inputValue;
+        }
+        radioButtonDiv.appendChild(labelValue);
+        radioButtonDiv.appendChild(inputValue);
    })
  
    rightColumn.appendChild(radioButtonDiv); 
@@ -62,6 +63,9 @@ function addWordGenerator () {
    wordHistory.classList.add("history");
    wordHistory.innerHTML = ""
    rightColumn.appendChild(wordHistory);
+
+
+
 // Event Listeners
 initialWordDiv = document.getElementById("initial-word-form");
 initialWordDiv.addEventListener("submit", initialWordFormSubmit);
@@ -72,19 +76,47 @@ function initialWordFormSubmit(event) {
   if(newInitialWordInput) {
     relatedWord.text = newInitialWordInput;
     wordHistory.innerHTML = `<span>${newInitialWordInput}</span>`;
-    initialWordForm.value = "";
+    // initialWordForm.value = "";
     initialWordForm.blur();
   }
 }
+
+
+
+// const radioButton = ['Rhyming', 'Related', 'Synonyms'];
+// radioButton
+let radioButton1 = document.getElementById('radioButtonRhyming');
+let radioButton2 = document.getElementById('radioButtonRelated');
+let radioButton3 = document.getElementById('radioButtonSynonyms');
+radioButton1.addEventListener('change', initialWordFormSubmit);
+radioButton2.addEventListener('change', initialWordFormSubmit);
+radioButton3.addEventListener('change', initialWordFormSubmit);
+
+
 relatedWord.addEventListener("click", relatedWordClick);
 function relatedWordClick(event) {
-  event.preventDefault();
+  // event.preventDefault();
   relatedWord.classList.toggle("disabled");
+  console.log(relatedWord.textContent);
   fetch(`https://api.datamuse.com/words?${radioButtonIf()}=` + relatedWord.textContent)
   // fetch(proxyURL + "https://api.datamuse.com/words?ml=" + relatedWord.textContent)
   .then(res => res.json())
   .then(data => {
     const relatedWordIndex = Math.floor(Math.random()*Math.min(data.length,maxRelatedWordDistance));
+
+    let i;
+    let stringOf10Results = '';
+    for(i=0;i<10;i++){
+      if (stringOf10Results != '') {
+        let tempString =  ", " + data[i].word;
+        console.log(data[i].word);
+        stringOf10Results += tempString;
+      } else {
+        stringOf10Results = console.log(data[i].word);
+      }
+    }
+    console.log(stringOf10Results);
+
     if(data[relatedWordIndex]) {
       relatedWord.text = data[relatedWordIndex].word;
       history.innerHTML += ` &rarr; <span>${data[relatedWordIndex].word}</span>`;

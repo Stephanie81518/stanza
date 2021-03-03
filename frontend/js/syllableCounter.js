@@ -11,22 +11,40 @@ let arrayForOneWordAndNumSyllables = [];
 
 
 function addTextEditor(){
-  //editor textarea
-  let bookViewDiv = document.querySelector('.editor-div');
-  //let editorContainer = document.querySelector('.');
+    let bookViewDiv = document.querySelector('.editor-div');
+    const editorArea = document.createElement("div");
+    // editorArea.classList.add("editor-div");
+    editorArea.setAttribute("name", "editorAreaInput");
+    editorArea.setAttribute("id", "editor1");
+    editorArea.setAttribute("contenteditable", true);
+    editorArea.setAttribute("data-text", "Write here.");
+    editorArea.setAttribute("method", "post");
+    bookViewDiv.appendChild(editorArea);
+    const userInput = document.createElement("input");
+    userInput.setAttribute("type", "hidden");
+    userInput.setAttribute("id", "");
+    userInput.setAttribute("name", "userInput");
+    const columnOfSyllableCounts = document.createElement('div');
+    columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
+    bookViewDiv.appendChild(columnOfSyllableCounts);
 
-  const editorArea = document.createElement("div");
-  editorArea.classList.add("editor-div");
-  editorArea.setAttribute("name", "");
-  editorArea.setAttribute("id", "editor1");
-  editorArea.setAttribute("contenteditable", true);
-  editorArea.setAttribute("data-text", "Write here.");
-  bookViewDiv.appendChild(editorArea);
 
-  const columnOfSyllableCounts = document.createElement('div');
-  columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
-  bookViewDiv.appendChild(columnOfSyllableCounts);
 
+    function updateSyllables(){
+        syllablesDisplay.innerHTML = '';
+        let sizeOfSyllablesArray = arrayOfEverything.length;
+        let arrayCountOfSyllablesForEachLine = new Array(sizeOfSyllablesArray);
+        arrayOfEverything.forEach((line, inLineNum)=>{
+            let totalSyllablesForThisLine = 0;
+            line.forEach((word)=>{
+                totalSyllablesForThisLine += word[1];
+            })
+            arrayCountOfSyllablesForEachLine[inLineNum] = totalSyllablesForThisLine;
+        })
+        arrayCountOfSyllablesForEachLine.forEach((element)=>{
+            syllablesDisplay.innerHTML+=(element + '<br>');
+        })
+    }
 
 
 poetryTextEditor = document.getElementById('editor1');
