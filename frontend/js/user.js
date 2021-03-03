@@ -1,5 +1,4 @@
-import { clearChildren, deleteUserPoem, editUserPoem, getSingleUserPoem } from "./app.js";
-import { userPoemElement } from "./user-single-poem.js";
+import { clearChildren, deleteUserPoem, getSingleUserPoem } from "./app.js";
 
 const userPoemsElement = function (userName) {
   const userPoemsElement = document.querySelector(".main-content");
@@ -13,7 +12,7 @@ const userPoemsElement = function (userName) {
     const singleUserPoemDiv = document.createElement("div");
     singleUserPoemDiv.classList.add("single-user-poem-div");
     singleUserPoemDiv.setAttribute("contenteditable", true);
-    singleUserPoemDiv.setAttribute("id", "userPoemEditor")
+    singleUserPoemDiv.setAttribute("id", "userPoemEditor");
     singleUserPoemDiv.setAttribute("method", "post");
     userPoemsDiv.appendChild(singleUserPoemDiv);
 
@@ -31,15 +30,14 @@ const userPoemsElement = function (userName) {
     userPoemEditButton.classList.add("poem-edit-button");
     userPoemEditButton.innerText = "Edit";
     userPoemEditButton.addEventListener("click", () => {
-        //editUserPoem(userPoems.id);
-        getSingleUserPoem(userPoems.id);
+      getSingleUserPoem(userPoems.id);
     });
     singleUserPoemDiv.appendChild(userPoemEditButton);
     const userPoemDeleteButton = document.createElement("button");
     userPoemDeleteButton.classList.add("poem-delete-button");
     userPoemDeleteButton.innerText = "Delete";
     userPoemDeleteButton.addEventListener("click", () => {
-        deleteUserPoem(userPoems.id);
+      deleteUserPoem(userPoems.id);
     });
     singleUserPoemDiv.appendChild(userPoemDeleteButton);
   });
