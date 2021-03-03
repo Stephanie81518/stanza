@@ -110,7 +110,7 @@ fieldset > button {
 
 #div--count-of-syllables-per-line{
     width: 25px;
-    height: 550px;  /*This height adjustment fixed the scroll problem. Still need to fix the non-centered problem*/
+    height: 550px;  /*This height adjustment fixed the scroll problem. Still need to fix the non-centered problem of the text editor box*/
     position: absolute;
     top: 28px;
     left: 577px;
@@ -124,9 +124,11 @@ fieldset > button {
 #devsImage5,
 #devsImage6,
 figcaption {
-
     width: 200px;
     padding: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    color: white; /*No color showed up as well as white here--open to suggestions*/
+    font-size: 1.4em;
 }
 .discover-div-main a,
 .discover-div-main p {
@@ -136,23 +138,21 @@ figcaption {
     overflow: auto;
 }
 
-/*.discover-div1-main h2{      Not working -- cannot find correct naming of h2 headers in the discover-div-mains in order to fix styling
-    display: flex;
-    font-size: 1.2em;
-    color:#4A5259;
-    justify-content: center;
-} */
+.discover-div-1, .discover-div-2, .discover-div-3, .discover-div-4 {      /*Not working -- cannot find correct naming of headers in the discover-div-mains in order to fix styling.*/
+    font-size: 1.2em;                                                     /*This is the naming highlighted on inspect elements in browser*/
+    color:#4A5259;                                          /*h2 is referring to the paragraph content, according to the elements inspection*/
+} 
 
 .typeOfPoemBox {
     margin-top: 150px;  /*I don't think this is an actual element?*/
 }
 
 .type-description-p, .type-examples-p {
-    color: #3A4046;  /*this is super dark grey instead of black now -- on the entire page*/
+    color: #3A4046; 
 }
 
-.login-button,
-header {
+.login-button
+/*header */{
     font-family: 'Open Sans', sans-serif;
     font-size: 40px;
     color:#873C37;
@@ -160,6 +160,17 @@ header {
     border: none;
     margin-right: 30px;
 }
+.login-button:hover {
+    color:#3A4046; 
+    cursor: pointer;
+}
+.login-button:focus {
+    color:#3A4046;
+    background-color: rgb(249,189,177);
+    outline: none; 
+    border: none;
+}
+
 label {
     color:#3A4046; 
     font-family: 'Open Sans', sans-serif;
