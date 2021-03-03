@@ -5,8 +5,11 @@
 }
 body {
     background-color:#9DA6AE;
-    background-image: url('../images/grayStone3.jpg');
+    background-image: url('../images/larger-landing-background-0224.png'), url('../images/grayStone3.jpg');
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    background-position: center center;
+    background-size: 48%, cover;
     overflow: auto;
 }
 .main-content {
@@ -17,9 +20,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../images/larger-landing-background-0224.png');
-    background-repeat:no-repeat;
-    background-size: 48%;
     background-position: top;
     background-attachment:fixed;
 }
