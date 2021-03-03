@@ -12,8 +12,8 @@ let arrayForOneWordAndNumSyllables = [];
 
 function addTextEditor(){
     let bookViewDiv = document.querySelector('.editor-div');
-    let editorArea = document.createElement("div");
-    editorArea.classList.add("editor-div");
+    const editorArea = document.createElement("div");
+    // editorArea.classList.add("editor-div");
     editorArea.setAttribute("name", "editorAreaInput");
     editorArea.setAttribute("id", "editor1");
     editorArea.setAttribute("contenteditable", true);
@@ -28,23 +28,6 @@ function addTextEditor(){
     columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
     bookViewDiv.appendChild(columnOfSyllableCounts);
 
-    poetryTextEditor = document.getElementById('editor1');
-    syllablesDisplay = document.getElementById('div--count-of-syllables-per-line');
-    
-
-
-    function stripNonAlphanumeric(inString){
-        let currentString = inString.replace(/[^a-z0-9- ↵]+/gi, ' ');
-        return currentString;
-    }
-
-
-    function filterUnnecessaryStrings(inArray){
-        let finalArrayOfWords = inArray.filter(function (oneWord) {
-            return (oneWord != null && oneWord != '' && oneWord != 'nbsp' && oneWord != 'br' && oneWord != 'div');
-        });
-        return finalArrayOfWords;
-    }
 
 
     function updateSyllables(){
@@ -62,22 +45,6 @@ function addTextEditor(){
             syllablesDisplay.innerHTML+=(element + '<br>');
         })
     }
-  //editor textarea
-  //let bookViewDiv = document.querySelector('.editor-div');
-  //let editorContainer = document.querySelector('.');
-
-//   let editorArea = document.createElement("div");
-//   editorArea.classList.add("editor-div");
-//   editorArea.setAttribute("name", "");
-//   editorArea.setAttribute("id", "editor1");
-//   editorArea.setAttribute("contenteditable", true);
-//   editorArea.setAttribute("data-text", "Write here.");
-//   bookViewDiv.appendChild(editorArea);
-
-//   const columnOfSyllableCounts = document.createElement('div');
-//   columnOfSyllableCounts.setAttribute('id', 'div--count-of-syllables-per-line');
-//   bookViewDiv.appendChild(columnOfSyllableCounts);
-
 
 
 poetryTextEditor = document.getElementById('editor1');
