@@ -24,7 +24,7 @@ function addWordGenerator () {
 
    let containerDiv = document.getElementById("containerDiv");
    containerDiv.appendChild(radioButtonDiv);
-   const radioButton = ['Rhyming', 'Related', 'Synonyms'];
+   const radioButton = ['Rhyming', 'Related', 'Synonyms'];  /*I can fix the spacing here, but it has to be done here and will have to match lines 31-36 values*/
    radioButton.forEach((radioButtonValue, i) =>{
         const labelValue = document.createElement('label');
         labelValue.innerHTML = radioButtonValue;
