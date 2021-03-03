@@ -18,14 +18,13 @@ GET localhost:8080/api/userpoems/70
 ###
 DELETE localhost:8080/api/userpoems/228
 ###
-PUT localhost:8080/api/userpoems/
+PUT localhost:8080/api/userpoems/227
 Content-Type: application/json
 
-{ "id": 70,
+{ "id": 259,
   "poetName": "Jake",
   "title": "Love Simon",
-  "poemContent": "This is a Poem about loooooooove.",
-  "userName": "Joe123"
+  "poemContent": "This is a Poem about loooooooove."
 }
 ###
 GET localhost:8080/api/user
