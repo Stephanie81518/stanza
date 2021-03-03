@@ -292,8 +292,8 @@ const poemTypeElement = function (examplePoemType) {
   const toolsDiv = document.createElement("div");
   toolsDiv.classList.add("tools-div");
   containerDiv.appendChild(toolsDiv);
-  const toolsButton = document.createElement("button");
-  toolsButton.classList.add("tools-button");
+  const toolsButton = document.createElement("h2");
+  // toolsButton.classList.add("tools-button");
   toolsButton.innerText = "Tools";
   //add event listener here to open collapsible tools menu?
   toolsDiv.appendChild(toolsButton);
