@@ -169,17 +169,12 @@ a:hover{
     border: none;
 }
 
-.about-header { /*This specification is temporary for building purposes on this branch only, but this issue will need to be fixed in dev*/
-    margin-bottom: 95%;
-}
+
 .about-div-main {
-    /* Below will be tweaked and moved to layout.css*/
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-   /*Below will be tweaked and moved to style.css*/
     background-color: rgba(249,189,177,.9);
-    box-shadow:  4px 4px 12px #644c4d;
     box-shadow:  4px 4px 12px #644c4d;
     width: 40vw;
     height: auto;
@@ -189,6 +184,25 @@ a:hover{
     font-size: 1.5em;
     color: #4A5259;
 }
+
+h1, h2 {
+    font-size: 2em;
+    color: #873C37;
+}
+
+.initial-word-form  {
+    font-family: 'Open Sans', sans-serif;
+    color: #3A4046;
+}
+
+figcaption {
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 1.4em;
+}
+
+
+
 
 
 

@@ -4,11 +4,6 @@ const aboutElement = function () {
   const aboutElement = document.querySelector(".main-content");
   clearChildren(aboutElement);
 
-  const aboutHeader = document.createElement("h1");
-  aboutHeader.classList.add("about-header");
-  aboutHeader.innerText = "About";
-  aboutElement.appendChild(aboutHeader);
-
   const aboutMainDiv = document.createElement("div");
   aboutMainDiv.classList.add("about-div-main");
   aboutMainDiv.innerHTML =

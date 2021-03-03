@@ -275,20 +275,6 @@ const poemTypeElement = function (examplePoemType) {
   })
   userPoemOptionsDiv.appendChild(resetButton);
 
-  //tools button
-  const toolsDiv = document.createElement("div");
-  toolsDiv.classList.add("tools-div");
-  containerDiv.appendChild(toolsDiv);
-  const toolsButton = document.createElement("button");
-  toolsButton.classList.add("tools-button");
-  toolsButton.innerText = "Tools";
-  //add event listener here to open collapsible tools menu?
-  toolsDiv.appendChild(toolsButton);
-  rightColumn.appendChild(toolsDiv);
-
-
-
- 
 
   addWordGenerator();
 
