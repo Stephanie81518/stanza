@@ -26,8 +26,10 @@ function addWordGenerator () {
    containerDiv.appendChild(radioButtonDiv);
    const radioButton = ['Rhyming', 'Related', 'spelledLike'];  /*I can fix the spacing here, but it has to be done here and will have to match lines 31-36 values*/
    radioButton.forEach((radioButtonValue, i) =>{
+        const radioButtonLabels = ['Rhyming', 'Related', 'Spelled Like'];
         const labelValue = document.createElement('label');
-        labelValue.innerHTML = radioButtonValue;
+        labelValue.innerHTML = radioButtonLabels[i];
+        labelValue.classList.add('radioButtonLabel');
         const inputValue = document.createElement('input');
         inputValue.type = "radio";
         inputValue.value = radioButtonValue;
@@ -81,6 +83,9 @@ let radioButton3 = document.getElementById('radioButtonspelledLike');
 radioButton1.addEventListener('change', initialWordFormSubmit);
 radioButton2.addEventListener('change', initialWordFormSubmit);
 radioButton3.addEventListener('change', initialWordFormSubmit);
+// document.getElementsByClassName('radioButtonLabel').forEach((element)=>{
+//   element.addEventListener('click', initialWordFormSubmit);
+// });
 
 let wordExplorerOutputDiv = document.createElement('div');
 rightColumn.appendChild(wordExplorerOutputDiv);
