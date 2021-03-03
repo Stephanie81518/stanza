@@ -25,16 +25,15 @@
     cursor:move;
 }
 #editor1 {
-    border: 1px solid grey;
+    border: 2px solid maroon;
     height: 400px;
-    width: 602px;
+    width: 600px;
     margin: 0px auto 0;
     padding: 10px;
     overflow: auto;
     background-color: rgba(255, 255, 255, .5);
-    background-image: url('../images/cottonPaperTexture2.png');
+    background-image: url('../images/cottonPaperTexture3.png');
     background-size: cover;
-    border: none;
     outline: none;
    }
 fieldset {
@@ -147,4 +146,9 @@ header {
     background: none;
     border: none;
     margin-right: 30px;
+}
+
+.radio-button-header{
+    padding-top: 25px;
+    text-decoration: underline;
 }

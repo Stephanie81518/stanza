@@ -13,10 +13,15 @@ function addWordGenerator () {
    //Radio Buttons
    const radioButtonDiv = document.createElement("div");
    radioButtonDiv.classList.add("radio-button-div");
-   const radioButtonHeader = document.createElement("h2");
+   const radioButtonHeader = document.createElement("h3");
    radioButtonHeader.classList.add("radio-button-header");
-   radioButtonHeader.innerHTML ="Word Generator";
+   radioButtonHeader.innerHTML ="Word Explorer";
    radioButtonDiv.appendChild(radioButtonHeader);
+   const radioButtonExplanation = document.createElement("div");
+   radioButtonExplanation.innerHTML ="Find new words & inspiration with this tool.";
+   radioButtonExplanation.style.paddingBottom = '7px'
+   radioButtonDiv.appendChild(radioButtonExplanation);
+
    let containerDiv = document.getElementById("containerDiv");
    containerDiv.appendChild(radioButtonDiv);
    const radioButton = ['Rhyming', 'Related', 'Synonyms'];
@@ -37,8 +42,10 @@ function addWordGenerator () {
             }else if(radioButtonValue == "Synonyms") {
                 synonym = inputValue;
         }
-        radioButtonDiv.appendChild(labelValue);
+        labelValue.style.paddingLeft = '3px';
+        labelValue.style.paddingRight = '15px';
         radioButtonDiv.appendChild(inputValue);
+        radioButtonDiv.appendChild(labelValue);
    })
  
    rightColumn.appendChild(radioButtonDiv); 
