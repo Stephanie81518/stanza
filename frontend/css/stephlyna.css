@@ -5,11 +5,12 @@
 }
 body {
     background-color:#9DA6AE;
+    background-image: url('../images/grayStone3.jpg');
     background-attachment: fixed;
     overflow: auto;
 }
 .main-content {
-    background-color:#9DA6AE ;
+    background-color: transparent;
     font-family: 'Open Sans', sans-serif;
     padding: 0;
     height: 90%;
