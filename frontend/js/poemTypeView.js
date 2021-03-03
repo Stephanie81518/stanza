@@ -34,11 +34,11 @@ const poemTypeElement = function (examplePoemType) {
   editorDiv.classList.add("editor-div");
   wrapperForFlexboxOrGrid.appendChild(editorDiv);
   //title input
-  const titleInput = document.createElement("div");
+  const titleInput = document.createElement("input");
   titleInput.classList.add("title-input");
   titleInput.setAttribute("id", "titleInput");
-  titleInput.setAttribute("contenteditable", true);
-  titleInput.setAttribute("data-text", "Add a title");
+  //titleInput.setAttribute("contenteditable", true);
+  titleInput.setAttribute("placeholder", "Add a title");
   titleInput.setAttribute("method", "post");
   editorDiv.appendChild(titleInput);
   //editor toolbar
@@ -277,7 +277,7 @@ const poemTypeElement = function (examplePoemType) {
   userPoemOptionsDiv.appendChild(downloadButton);
   const saveButton = document.createElement("button");
   saveButton.classList.add("save-button");
-  saveButton.innerText = "Save";
+  saveButton.innerText = "Save to Account";
   saveButton.addEventListener("click", () => {
     saveUserPoem();
   });

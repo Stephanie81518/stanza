@@ -18,7 +18,7 @@ const discoverElement = function () {
   discoverMainDiv.appendChild(discoverDiv1);
   const disDiv1Header = document.createElement("h2");
   disDiv1Header.classList.add("discover-div1-header");
-  discoverDiv1.innerText = "Read Poems Online";
+  disDiv1Header.innerText = "Read Poems Online";
   discoverDiv1.appendChild(disDiv1Header);
   const disDiv1P = document.createElement("p");
   disDiv1P.classList.add("discover-div1-p");
@@ -43,7 +43,7 @@ const discoverElement = function () {
     discoverMainDiv.appendChild(discoverDiv2);
     const disDiv2Header = document.createElement("h2");
     disDiv2Header.classList.add("discover-div2-header");
-    discoverDiv2.innerText = "Learn About Poetry";
+    disDiv2Header.innerText = "Learn About Poetry";
     discoverDiv2.appendChild(disDiv2Header);
     const disDiv2P = document.createElement("p");
     disDiv2P.classList.add("discover-div2-p");
@@ -62,7 +62,7 @@ const discoverElement = function () {
     discoverMainDiv.appendChild(discoverDiv3);
     const disDiv3Header = document.createElement("h2");
     disDiv3Header.classList.add("discover-div3-header");
-    discoverDiv3.innerText = "Poetry Events in Ohio";
+    disDiv3Header.innerText = "Poetry Events in Ohio";
     discoverDiv3.appendChild(disDiv3Header);
     const disDiv3P = document.createElement("p");
     disDiv3P.classList.add("discover-div3-p");
@@ -80,7 +80,7 @@ const discoverElement = function () {
     discoverMainDiv.appendChild(discoverDiv4);
     const disDiv4Header = document.createElement("h2");
     disDiv4Header.classList.add("discover-div4-header");
-    discoverDiv4.innerText = "Poetry News";
+    disDiv4Header.innerText = "Poetry News";
     discoverDiv4.appendChild(disDiv4Header);
     const disDiv4P = document.createElement("p");
     disDiv4P.classList.add("discover-div4-p");

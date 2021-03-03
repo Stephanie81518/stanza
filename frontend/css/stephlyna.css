@@ -84,6 +84,7 @@ a:hover{
     margin-top: 40px;
     align-items: center;
     justify-self: center;
+    justify-content: space-around;
     background-color:#FABEC0;
     background: linear-gradient(145deg, #ffcbcd, #e1abad);
     box-shadow:  4px 4px 12px #644c4d;
@@ -111,7 +112,7 @@ a:hover{
     border: none;
 }
 
-.download-button,.save-button,.reset-button{
+.download-button,.save-button,.reset-button, .login-form-submit{
     background-color:#FABEC0;
     background: linear-gradient(145deg, #ffcbcd, #e1abad);
     border-radius: 60px;
@@ -121,10 +122,10 @@ a:hover{
     color: #873C37;
     font-size: 1em;
     height: 35px;
-    width: 100px;
+    width: 130px;
     margin-bottom: 5%;
     margin-right: 5%;
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 2%;
 }
 .download-button:hover,.save-button:hover,.reset-button:hover{

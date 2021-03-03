@@ -34,19 +34,24 @@
     margin: 0px auto 0;
     padding: 10px;
     overflow: auto;
+    border-radius: 0px 0px 15px 15px;
     background-color: rgba(255, 255, 255, .5);
     background-image: url('../images/cottonPaperTexture3.png');
     background-size: cover;
     outline: none;
    }
 .title-input {
-    width: 602px;
-    border: 1px solid grey;
+    width: 600px;
+    border: 1px solid maroon;
+    border-radius: 15px 15px 0px 0px;
     background-color: rgba(255, 255, 255, .5);
-    height: 30px;
+    background-image: url('../images/cottonPaperTexture3.png');
+    height: 35px;
     font-size: 20px;
-    margin-bottom: 5px;
     padding: 10px;
+}
+.title-input::before {
+    height: 30px;
 }
 .single-user-poem-div {
     border: 1px solid grey;
@@ -59,9 +64,12 @@
 }
 fieldset {
     margin: auto;
+    border-right: 1px solid maroon;
+    border-left: 1px solid maroon;
+    border-top: none;
+    border-bottom: none;
     background-color: #F2F2F2;
     width: 600px;
-    border:none;
 }
 fieldset > button {
     width: 5ex;
@@ -109,7 +117,8 @@ fieldset > button {
 }
 
 #leftColumn{
-    min-width: 33vw;
+    width: 33vw;
+    justify-content: flex-end;
     padding: 1rem;
 }
 
@@ -120,7 +129,7 @@ fieldset > button {
 }
 
 #rightColumn{
-    min-width: 33vw;
+    width: 33vw;
     justify-content: right;
     padding: 1rem;
 }
@@ -173,8 +182,8 @@ figcaption {
     color: #3A4046; 
 }
 
-.login-button
-/*header */{
+.login-button,
+header {
     font-family: 'Open Sans', sans-serif;
     font-size: 40px;
     color:#873C37;
