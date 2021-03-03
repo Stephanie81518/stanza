@@ -113,7 +113,7 @@ a:hover{
 
 .download-button,.save-button,.reset-button{
     background-color:#FABEC0;
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    background: linear-gradient(145deg, hsl(358, 100%, 90%), #e1abad);
     border-radius: 60px;
     border-color: #FABEC0;
     box-shadow:  2px 2px 6px #644c4d; 

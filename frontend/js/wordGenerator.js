@@ -88,37 +88,47 @@ radioButton3.addEventListener('change', initialWordFormSubmit);
 // });
 
 let wordExplorerOutputDiv = document.createElement('div');
+wordExplorerOutputDiv.setAttribute('id', 'wordExplorerOutputDiv');
 rightColumn.appendChild(wordExplorerOutputDiv);
 
+let arrayOfAllWords = [];
 function relatedWordClick(event) {
-  fetch(`https://api.datamuse.com/words?${radioButtonIf()}=` + initialWordForm.value)
-  .then(res => res.json())
-  .then(data => {
-    const relatedWordIndex = Math.floor(Math.random()*Math.min(data.length,maxRelatedWordDistance));
-    let i = 0;
-    let stringOfResults = '';
-    for(i=0;i<data.length;i++){
-      if (i>0){
-        let tempString =  ", " + data[i].word;
-        stringOfResults += tempString;
-      } else {
-        stringOfResults = data[i].word;
+    fetch(`https://api.datamuse.com/words?${radioButtonIf()}=` + initialWordForm.value)
+    .then(res => res.json())
+    .then(data => {
+      arrayOfAllWords = [];
+      wordExplorerOutputDiv.innerHTML = '';
+      let i = 0;
+      let numberOfResults = Math.min(data.length, 33);
+      for(i=0;i<numberOfResults;i++){
+        if (i<numberOfResults-1){  //makes sure there isn't a comma left at the end of all words
+          wordExplorerOutputDiv.innerHTML += `${data[i].word}, `;
+        } else {
+          wordExplorerOutputDiv.innerHTML += data[i].word;
+        }
       }
-    }
-    wordExplorerOutputDiv.innerHTML = '';
-    wordExplorerOutputDiv.append(stringOfResults);
-  })
-  .catch(err => {
-    console.log(err);
-  });
+
+      arrayOfAllWords.forEach((word)=>{
+        wordExplorerOutputDiv.innerHTML += word + ', ';
+      })
+     
+      setTimeout(()=>{
+        wordExplorerOutputDiv.append( );
+      }, 3000);
+    })
+    .catch(err => {
+      console.log(err);
+    });
 }
+
+
 
 
 function radioButtonIf (){    
   if(rhyming.checked==true){
-  return "rel_rhy"
+    return "rel_rhy"
   }else if (rWord.checked==true)
-  return "ml"
+    return "ml"
   else if (spelledLike.checked==true)
     return "sp"
   else
