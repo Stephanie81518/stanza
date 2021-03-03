@@ -4,8 +4,10 @@ import { poemChoiceElement } from "./poem-choice-page.js";
 import { createFooter } from "./footer.js";
 import { userPoemsElement } from "./user.js";
 import { poemTypeElement } from "./poemTypeView.js";
+import { userPoemElement } from "./user-single-poem.js";
 
 let loggedInUser = "";
+let currentUserPoem = "";
 
 const clearChildren = function (element) {
   while (element.firstChild) {
@@ -53,6 +55,18 @@ const getUserPoems = function () {
     .then((userPoems) => userPoemElement(userPoems))
     .catch((error) => console.log(error));
 };
+
+const getSingleUserPoem = function (id) {
+  fetch("http://localhost:8080/api/userpoems/" + id, {
+    method: "GET",
+    mode: "cors",
+  })
+  .then((response) => response.json())
+  .then((userPoem) => {
+    console.log(id);
+    userPoemElement(userPoem);
+  })
+}
 
 const getRandomExamplePoem = function (inPoemType) {
   fetch("http://localhost:8080/api/examplepoems", {
@@ -148,7 +162,7 @@ const saveUserPoem = function () {
     body: JSON.stringify({
       poemContent: editor1.innerHTML,
       poetName: "",
-      title: "",
+      title: titleInput.innerHTML,
     }),
   })
     .then((response) => response.json())
@@ -156,10 +170,22 @@ const saveUserPoem = function () {
     .catch((error) => console.log(error));
 };
 
-const editUserPoem = function () {
-  fetch("http://localhost:8080/api/userpoems/", {
-    method: "PUT",
-  });
+const editUserPoem = function (id) {
+  let poemEditor = document.querySelector(".saved-editor-div");
+  fetch("http://localhost:8080/api/userpoems/" + id, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      poetName: "",
+      title: "",
+      poemContent: poemEditor.innerHTML,
+    }),
+  })
+  .then((response) => response.json())
+  //.then((loggedInUser) => userPoemsElement(loggedInUser))
+  .catch((error) => console.log(error));
 };
 
 export { getPoemTypes };
@@ -168,3 +194,5 @@ export { clearChildren };
 export { checkUserLogIn };
 export { deleteUserPoem };
 export { saveUserPoem };
+export {editUserPoem};
+export {getSingleUserPoem};

@@ -24,7 +24,8 @@
     text-align: center;
     cursor:move;
 }
-#editor1 {
+#editor1,
+#savedEditor1 {
     border: 1px solid grey;
     height: 400px;
     width: 602px;
@@ -33,6 +34,24 @@
     overflow: auto;
     background-color: rgba(255, 255, 255, .5);
    }
+.title-input {
+    width: 602px;
+    border: 1px solid grey;
+    background-color: rgba(255, 255, 255, .5);
+    height: 30px;
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding: 10px;
+}
+.single-user-poem-div {
+    border: 1px solid grey;
+    height: auto;
+    width: auto;
+    margin: 0px auto 0;
+    padding: 10px;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, .5);
+}
 fieldset {
     margin: auto;
     background-color: #F2F2F2;

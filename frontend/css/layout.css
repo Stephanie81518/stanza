@@ -51,3 +51,8 @@ header {
     display: flex;
     justify-content: flex-end;
 }
+.user-poems-div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

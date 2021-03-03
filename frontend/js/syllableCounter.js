@@ -11,7 +11,7 @@ let arrayForOneWordAndNumSyllables = [];
 
 
 function addTextEditor(){
-    let bookViewDiv = document.querySelector('.editor-div');
+    let bookViewDiv = document.querySelector(".editor-div");
     let editorArea = document.createElement("div");
     editorArea.classList.add("editor-div");
     editorArea.setAttribute("name", "editorAreaInput");

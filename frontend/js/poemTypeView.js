@@ -1,4 +1,4 @@
-import { getRandomExamplePoem, saveUserPoem } from "./app.js";
+import { getRandomExamplePoem, saveUserPoem, editUserPoem } from "./app.js";
 import { addTextEditor } from "./syllableCounter.js";
 import { addWordGenerator} from "./wordGenerator.js";
 const poemTypeElement = function (examplePoemType) {
@@ -33,6 +33,14 @@ const poemTypeElement = function (examplePoemType) {
   const editorDiv = document.createElement("div");
   editorDiv.classList.add("editor-div");
   wrapperForFlexboxOrGrid.appendChild(editorDiv);
+  //title input
+  const titleInput = document.createElement("input");
+  titleInput.classList.add("title-input");
+  titleInput.setAttribute("id", "titleInput");
+  titleInput.setAttribute("type", "text");
+  titleInput.setAttribute("placeholder", "Add a title");
+  titleInput.setAttribute("method", "post");
+  editorDiv.appendChild(titleInput);
   //editor toolbar
   const poemEditorFieldset = document.createElement("fieldset");
   poemEditorFieldset.classList.add("poem-editor-fieldset");
@@ -211,7 +219,7 @@ const poemTypeElement = function (examplePoemType) {
   });
   typeExamplesDiv.appendChild(anotherExampleButton);
 
-
+  //download poem function
   function getFrontHTML(){
     return `<!DOCTYPE html>
     <html lang="en">
@@ -233,7 +241,6 @@ const poemTypeElement = function (examplePoemType) {
     </html>`;
   }
 
-  //user poem buttons (download, share, reset)
   function download(filename, text) {
     let downloadElement = document.createElement('a');
     downloadElement.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -246,7 +253,7 @@ const poemTypeElement = function (examplePoemType) {
     editorDiv.removeChild(downloadElement);
   } 
 
-
+  //user poem buttons (download, share, reset)
   const userPoemOptionsDiv = document.createElement("div");
   userPoemOptionsDiv.classList.add("user-poem-options-div");
   editorDiv.appendChild(userPoemOptionsDiv);
