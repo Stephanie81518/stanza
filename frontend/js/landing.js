@@ -16,7 +16,6 @@ const landing = function () {
 
   landing.appendChild(createButton);
   createButtonDiv.appendChild(createButton);
-  //landing.appendChild(createFooter());
   return landing;
 };
 
