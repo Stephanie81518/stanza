@@ -43,7 +43,7 @@ a{
     font-size: 2.2em; 
 }
 
-a:hover{
+a:active{
     color: #4A5259;
     font-weight: bold;
     cursor: pointer;
@@ -65,7 +65,7 @@ a:hover{
     font-size: 2.5em;
     color: #873C37;
 }
-.create-button:hover {
+.create-button:active {
     border-radius: 60px;
     outline: none; 
     border: none;
@@ -97,7 +97,7 @@ a:hover{
     margin-right: 5%;
     margin-left: 10%;
 }
-.poem-type-button:hover{
+.poem-type-button:active{
     border-radius: 60px;
     outline: none; 
     border: none;
@@ -127,7 +127,7 @@ a:hover{
     margin-left: 10%;
     margin-top: 2%;
 }
-.download-button:hover,.save-button:hover,.reset-button:hover{
+.download-button:active,.save-button:active,.reset-button:active{
     border-radius: 60px;
     outline: none; 
     border: none;
@@ -156,7 +156,7 @@ a:hover{
         margin-left: 10%;
         margin-top: 2%;
 }
-.another-example-button:hover,.tools-button:hover{
+.another-example-button:active,.tools-button:active{
     border-radius: 60px;
     outline: none; 
     border: none;
