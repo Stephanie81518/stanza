@@ -35,7 +35,7 @@ nav {
     width: 100%;
     height: 120px;
     background-color:#873C37;
-    color:#FABEC0;
+    color:#FFC3B4;
     font-family: 'Open Sans', sans-serif;
     position: fixed;
 }
@@ -51,13 +51,12 @@ a:hover{
 
 .create-button{
     margin-top: 75%;
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    background-color:#FFC3B4;
     box-shadow:  4px 4px 12px #644c4d;
     height: 75px;
     width: 250px;
     border-radius: 60px;
-    border-color: #FABEC0;
+    border-color: #FFC3B4;
     display: flex;
     justify-content:center;
     align-items: center;
@@ -69,7 +68,7 @@ a:hover{
     border-radius: 60px;
     outline: none; 
     border: none;
-    background: #fabec0;
+    background: #FFC3B4;
     box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
     color: #4a5259;
     cursor: pointer;
@@ -84,11 +83,10 @@ a:hover{
     margin-top: 40px;
     align-items: center;
     justify-self: center;
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    background-color:#FFC3B4;
     box-shadow:  4px 4px 12px #644c4d;
     border-radius: 60px;
-    border-color: #FABEC0;
+    border-color: #FFC3B4;
     font-family: 'Open Sans', sans-serif;
     color: #873C37;
     font-size: 2em;
@@ -101,7 +99,7 @@ a:hover{
     border-radius: 60px;
     outline: none; 
     border: none;
-    background: #fabec0;
+    background: #FFC3B4;
     box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
     color: #4a5259;
     cursor: pointer;
@@ -112,10 +110,9 @@ a:hover{
 }
 
 .download-button,.save-button,.reset-button{
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
+    background-color:#FFC3B4;
     border-radius: 60px;
-    border-color: #FABEC0;
+    border-color: #FFC3B4;
     box-shadow:  2px 2px 6px #644c4d; 
     font-family: 'Open Sans', sans-serif;
     color: #873C37;
@@ -131,7 +128,7 @@ a:hover{
     border-radius: 60px;
     outline: none; 
     border: none;
-    background: #fabec0;
+    background: #FFC3B4;
     box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
     color: #4a5259;
     cursor: pointer;
@@ -142,9 +139,9 @@ a:hover{
 }
 
 .another-example-button, .tools-button {
-        background-color:#FABEC0;
+        background-color:#FFC3B4;
         border-radius: 60px;
-        border-color: #FABEC0;
+        border-color: #FFC3B4;
         box-shadow:  2px 2px 6px #644c4d;
         font-family: 'Open Sans', sans-serif;
         color: #873C37;
@@ -160,7 +157,7 @@ a:hover{
     border-radius: 60px;
     outline: none; 
     border: none;
-    background: #fabec0;
+    background: #FFC3B4;
     box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
     color: #4a5259;
     cursor: pointer;
@@ -198,7 +195,8 @@ h1, h2 {
 
 figcaption {
     font-family: 'Open Sans', sans-serif;
-    color: white; /*No color showed up as well as white here--open to suggestions*/
+    color: #2A2F33; 
+    font-weight: bold;
     font-size: 1.4em;
 }
 

@@ -187,10 +187,7 @@ figcaption {
     cursor: pointer;
 }
 .login-button:focus {
-    color:#3A4046;
-    background-color: rgb(249,189,177);
-    outline: none; 
-    border: none;
+    color:#FFC3B4;
 }
 
 label {
