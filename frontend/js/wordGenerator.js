@@ -101,7 +101,10 @@ rightColumn.appendChild(wordExplorerOutputDiv);
 let arrayOfAllWords = [];
 function relatedWordClick(event) {
   if(initialWordForm.value.length < 6 && spelledLike.checked==true){
-    wordExplorerOutputDiv.innerHTML = 'Please use a longer word. '
+    wordExplorerOutputDiv.innerHTML = 'Please use a longer word. '     
+    setTimeout(()=>{
+      wordExplorerOutputDiv.innerHTML = '';
+    }, 3000);
   } else {
     fetch(`https://api.datamuse.com/words?${radioButtonIf()}=` + initialWordForm.value)
     .then(res => res.json())
@@ -118,15 +121,15 @@ function relatedWordClick(event) {
         }
       }
       if(data.length == 0){
-        wordExplorerOutputDiv.innerHTML = 'That word is not in the API\'s dictionary.'
+        wordExplorerOutputDiv.innerHTML = 'That word is not in the API\'s dictionary.;'
+        setTimeout(()=>{
+          wordExplorerOutputDiv.innerHTML = '';
+        }, 3000);
       }
       arrayOfAllWords.forEach((word)=>{
         wordExplorerOutputDiv.innerHTML += word + ', ';
       })
-     
-      setTimeout(()=>{
-        wordExplorerOutputDiv.append( );
-      }, 3000);
+
     })
     .catch(err => {
       console.log(err);
