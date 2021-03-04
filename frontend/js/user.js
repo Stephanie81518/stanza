@@ -4,14 +4,22 @@ const userPoemsElement = function (userName) {
   const userPoemsElement = document.querySelector(".main-content");
   clearChildren(userPoemsElement);
 
+  const userPoemsMainDiv = document.createElement("div");
+  userPoemsMainDiv.classList.add("user-poems-main-div");
+  userPoemsElement.appendChild(userPoemsMainDiv);
+
   const userPoemsDiv = document.createElement("div");
   userPoemsDiv.classList.add("user-poems-div");
-  userPoemsElement.appendChild(userPoemsDiv);
+  userPoemsMainDiv.appendChild(userPoemsDiv);
+
+  const userPoemsHeader = document.createElement("h1");
+  userPoemsHeader.classList.add("user-poems-header");
+  userPoemsHeader.innerText = "View & Edit Your Poems";
+  userPoemsMainDiv.prepend(userPoemsHeader);
 
   userName.userPoems.forEach((userPoems) => {
     const singleUserPoemDiv = document.createElement("div");
     singleUserPoemDiv.classList.add("single-user-poem-div");
-    singleUserPoemDiv.setAttribute("contenteditable", true);
     singleUserPoemDiv.setAttribute("id", "userPoemEditor");
     singleUserPoemDiv.setAttribute("method", "post");
     userPoemsDiv.appendChild(singleUserPoemDiv);

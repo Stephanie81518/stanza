@@ -1,210 +1,225 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    background-color:#9DA6AE;
-    background-image: url('../images/larger-landing-background-0224.png'), url('../images/grayStone3.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: 48%, cover;
-    overflow: auto;
+  background-color: #9da6ae;
+  background-image: url("../images/larger-landing-background-0224.png"),
+    url("../images/grayStone3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: 48%, cover;
+  overflow: auto;
 }
 .main-content {
-    background-color: transparent;
-    font-family: 'Open Sans', sans-serif;
-    padding: 0;
-    height: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-position: top;
-    background-attachment:fixed;
+  background-color: transparent;
+  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: top;
+  background-attachment: fixed;
 }
-.container{
-    height:100vh;
-    padding: 0px;
+.container {
+  height: 100vh;
+  padding: 0px;
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    padding: auto;
-    width: 100%;
-    height: 120px;
-    background-color:#873C37;
-    color:#FABEC0;
-    font-family: 'Open Sans', sans-serif;
-    position: fixed;
+  display: flex;
+  justify-content: space-around;
+  padding: auto;
+  width: 100%;
+  height: 120px;
+  background-color: #873c37;
+  color: #fabec0;
+  font-family: "Open Sans", sans-serif;
+  position: fixed;
 }
-a{
-    font-size: 2.2em; 
-}
-
-a:hover{
-    color: #4A5259;
-    font-weight: bold;
-    cursor: pointer;
+a {
+  font-size: 2.2em;
 }
 
-.create-button{
-    margin-top: 75%;
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
-    box-shadow:  4px 4px 12px #644c4d;
-    height: 75px;
-    width: 250px;
-    border-radius: 60px;
-    border-color: #FABEC0;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 2.5em;
-    color: #873C37;
+a:hover {
+  color: #4a5259;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.create-button {
+  margin-top: 75%;
+  background-color: #fabec0;
+  background: linear-gradient(145deg, #ffcbcd, #e1abad);
+  box-shadow: 4px 4px 12px #644c4d;
+  height: 75px;
+  width: 250px;
+  border-radius: 60px;
+  border-color: #fabec0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2.5em;
+  color: #873c37;
 }
 .create-button:hover {
-    border-radius: 60px;
-    outline: none; 
-    border: none;
-    background: #fabec0;
-    box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
-    color: #4a5259;
-    cursor: pointer;
+  border-radius: 60px;
+  outline: none;
+  border: none;
+  background: #fabec0;
+  box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
+  color: #4a5259;
+  cursor: pointer;
 }
 
 .create-button:focus {
-    outline: none; 
-    border: none;
-    }
-
-.poem-type-button{
-    margin-top: 40px;
-    align-items: center;
-    justify-self: center;
-    justify-content: space-around;
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
-    box-shadow:  4px 4px 12px #644c4d;
-    border-radius: 60px;
-    border-color: #FABEC0;
-    font-family: 'Open Sans', sans-serif;
-    color: #873C37;
-    font-size: 2em;
-    height: 75px;
-    width: 250px;
-    margin-right: 5%;
-    margin-left: 10%;
+  outline: none;
+  border: none;
 }
-.poem-type-button:hover{
-    border-radius: 60px;
-    outline: none; 
-    border: none;
-    background: #fabec0;
-    box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
-    color: #4a5259;
-    cursor: pointer;
+
+.poem-type-button {
+  margin-top: 40px;
+  align-items: center;
+  justify-self: center;
+  justify-content: space-around;
+  background-color: #fabec0;
+  background: linear-gradient(145deg, #ffcbcd, #e1abad);
+  box-shadow: 4px 4px 12px #644c4d;
+  border-radius: 60px;
+  border-color: #fabec0;
+  font-family: "Open Sans", sans-serif;
+  color: #873c37;
+  font-size: 2em;
+  height: 75px;
+  width: 250px;
+  margin-right: 5%;
+  margin-left: 10%;
+}
+.poem-type-button:hover {
+  border-radius: 60px;
+  outline: none;
+  border: none;
+  background: #fabec0;
+  box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
+  color: #4a5259;
+  cursor: pointer;
 }
 .poem-type-button:focus {
-    outline: none; 
-    border: none;
+  outline: none;
+  border: none;
 }
 
-.download-button,.save-button,.reset-button, .login-form-submit{
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, #ffcbcd, #e1abad);
-    border-radius: 60px;
-    border-color: #FABEC0;
-    box-shadow:  2px 2px 6px #644c4d; 
-    font-family: 'Open Sans', sans-serif;
-    color: #873C37;
-    font-size: 1em;
-    height: 35px;
-    width: 130px;
-    margin-bottom: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
-    margin-top: 2%;
+.download-button,
+.save-button,
+.reset-button,
+.login-form-submit,
+.save-changes-button,
+.new-login-form-submit {
+  background-color: #fabec0;
+  background: linear-gradient(145deg, #ffcbcd, #e1abad);
+  border-radius: 60px;
+  border-color: #fabec0;
+  box-shadow: 2px 2px 6px #644c4d;
+  font-family: "Open Sans", sans-serif;
+  color: #873c37;
+  font-size: 1em;
+  height: 35px;
+  width: 130px;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 2%;
 }
-.download-button:hover,.save-button:hover,.reset-button:hover{
-    border-radius: 60px;
-    outline: none; 
-    border: none;
-    background: #fabec0;
-    box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
-    color: #4a5259;
-    cursor: pointer;
+.download-button:hover,
+.save-button:hover,
+.reset-button:hover,
+.login-form-submit:hover,
+.save-changes-button:hover,
+.new-login-form-submit:hover {
+  border-radius: 60px;
+  outline: none;
+  border: none;
+  background: #fabec0;
+  box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
+  color: #4a5259;
+  cursor: pointer;
 }
-.download-button:focus,.save-button:focus,.reset-button:focus {
-    outline: none; 
-    border: none;
+.download-button:focus,
+.save-button:focus,
+.reset-button:focus,
+.login-form-submit:focus,
+.save-changes-button:focus,
+.new-login-form-submit:focus {
+  outline: none;
+  border: none;
 }
-
-.another-example-button, .tools-button {
-        background-color:#FABEC0;
-        border-radius: 60px;
-        border-color: #FABEC0;
-        box-shadow:  2px 2px 6px #644c4d;
-        font-family: 'Open Sans', sans-serif;
-        color: #873C37;
-        font-size: 1em;
-        height: 35px;
-        width: 145px;
-        margin-bottom: 5%;
-        margin-right: 5%;
-        margin-left: 10%;
-        margin-top: 2%;
+.new-login-form-submit {
+    width: 160px;
 }
-.another-example-button:hover,.tools-button:hover{
-    border-radius: 60px;
-    outline: none; 
-    border: none;
-    background: #fabec0;
-    box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
-    color: #4a5259;
-    cursor: pointer;
+.another-example-button,
+.tools-button {
+  background-color: #fabec0;
+  border-radius: 60px;
+  border-color: #fabec0;
+  box-shadow: 2px 2px 6px #644c4d;
+  font-family: "Open Sans", sans-serif;
+  color: #873c37;
+  font-size: 1em;
+  height: 35px;
+  width: 145px;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  margin-left: 10%;
+  margin-top: 2%;
 }
-.another-example-button:focus,.tools-button:focus {
-    outline: none; 
-    border: none;
+.another-example-button:hover,
+.tools-button:hover {
+  border-radius: 60px;
+  outline: none;
+  border: none;
+  background: #fabec0;
+  box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
+  color: #4a5259;
+  cursor: pointer;
 }
-
+.another-example-button:focus,
+.tools-button:focus {
+  outline: none;
+  border: none;
+}
 
 .about-div-main {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: rgba(249,189,177,.9);
-    box-shadow:  4px 4px 12px #644c4d;
-    width: 40vw;
-    height: auto;
-    padding: 35px;
-    border-radius: 30px;
-    font-family:  'Open Sans', sans-serif;
-    font-size: 1.5em;
-    color: #4A5259;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: rgba(249, 189, 177, 0.9);
+  box-shadow: 4px 4px 12px #644c4d;
+  width: 40vw;
+  height: auto;
+  padding: 35px;
+  border-radius: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em;
+  color: #4a5259;
 }
 
-h1, h2 {
-    font-size: 2em;
-    color: #873C37;
+h1,
+h2 {
+  font-size: 2em;
+  color: #873c37;
 }
 
-.initial-word-form  {
-    font-family: 'Open Sans', sans-serif;
-    color: #3A4046;
+.initial-word-form {
+  font-family: "Open Sans", sans-serif;
+  color: #3a4046;
 }
 
 figcaption {
-    font-family: 'Open Sans', sans-serif;
-    color: white; /*No color showed up as well as white here--open to suggestions*/
-    font-size: 1.4em;
+  font-family: "Open Sans", sans-serif;
+  color: white; /*No color showed up as well as white here--open to suggestions*/
+  font-size: 1.4em;
 }
-
-
-
-
-
-

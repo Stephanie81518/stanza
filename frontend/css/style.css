@@ -57,10 +57,21 @@
     border: 1px solid grey;
     height: auto;
     width: auto;
-    margin: 0px auto 0;
-    padding: 10px;
+    margin: 20px;
+    padding: 20px;
     overflow: auto;
     background-color: rgba(255, 255, 255, .5);
+}
+.user-poems-header,
+.discover-header {
+    display: flex;
+    background-color: rgba(255, 255, 255, .5);
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 500px;
 }
 fieldset {
     margin: auto;
@@ -174,6 +185,12 @@ figcaption {
     color:#4A5259;                                          /*h2 is referring to the paragraph content, according to the elements inspection*/
 } 
 
+.discover-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
 .typeOfPoemBox {
     margin-top: 150px;  /*I don't think this is an actual element?*/
 }
@@ -197,11 +214,27 @@ header {
 }
 .login-button:focus {
     color:#3A4046;
-    background-color: rgb(249,189,177);
     outline: none; 
     border: none;
 }
-
+.login-div {
+    display: flex;
+    flex-direction: row;
+}
+.login-form {
+    border: 2px solid maroon;
+    height: 200px;
+    width: 300px;
+    margin-top: 250px;
+    margin-right: 20px;
+    padding: 10px;
+    overflow: auto;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, .5);
+    background-image: url('../images/cottonPaperTexture3.png');
+    background-size: cover;
+    outline: none;
+}
 label {
     color:#3A4046; 
     font-family: 'Open Sans', sans-serif;
