@@ -3,7 +3,7 @@ import { landing } from "./landing.js";
 import { poemChoiceElement } from "./poem-choice-page.js";
 import { createFooter } from "./footer.js";
 import { userPoemsElement } from "./user.js";
-import { poemTypeElement } from "./poemTypeView.js";
+import { userPoemElement } from "./user-single-poem.js";
 
 let loggedInUser = "";
 
@@ -54,6 +54,18 @@ const getUserPoems = function () {
     .catch((error) => console.log(error));
 };
 
+const getSingleUserPoem = function (id) {
+  fetch("http://localhost:8080/api/userpoems/" + id, {
+    method: "GET",
+    mode: "cors",
+  })
+    .then((response) => response.json())
+    .then((userPoem) => {
+      console.log(id);
+      userPoemElement(userPoem);
+    });
+};
+
 const getRandomExamplePoem = function (inPoemType) {
   fetch("http://localhost:8080/api/examplepoems", {
     method: "GET",
@@ -100,7 +112,7 @@ const checkUserLogIn = function (user) {
           userPoemsElement(currentUser);
           header.innerHTML = `${currentUser.userName}`;
           header.addEventListener("click", () => {
-            userPoemsElement(currentUser);
+            updateUserPoems(currentUser);
           });
         }
       });
@@ -118,10 +130,10 @@ const checkUserLogIn = function (user) {
           .then((response) => response.json())
           .then((user) => {
             loggedInUser = user;
-            userPoemsElement(user);
+            updateUsers(user);
             header.innerHTML = `${user.userName}`;
             header.addEventListener("click", () => {
-              userPoemsElement(user);
+              updateUserPoems(user);
             });
           })
           .catch((error) => console.log(error));
@@ -135,7 +147,7 @@ const deleteUserPoem = function (id) {
     mode: "cors",
   })
     .then((response) => response.json())
-    .then(() => userPoemsElement())
+    .then((loggedInUser) => userPoemsElement(loggedInUser))
     .catch((error) => console.log(error));
 };
 
@@ -146,20 +158,54 @@ const saveUserPoem = function () {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      poemContent: editor1.innerHTML,
       poetName: "",
-      title: "",
+      title: titleInput.innerHTML,
+      poemContent: editor1.innerHTML,
     }),
   })
     .then((response) => response.json())
-    .then((userName) => userPoemsElement(userName))
+    .then((userName) => updateUserPoems(userName))
     .catch((error) => console.log(error));
 };
 
-const editUserPoem = function () {
-  fetch("http://localhost:8080/api/userpoems/", {
+const editUserPoem = function (userPoem) {
+  let poemEditor = document.querySelector(".saved-editor-div");
+  console.log(loggedInUser);
+  fetch("http://localhost:8080/api/userpoems/" + loggedInUser.id, {
     method: "PUT",
-  });
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      id: userPoem.id,
+      poetName: userPoem.poetName,
+      title: userPoem.title,
+      poemContent: poemEditor.innerHTML,
+    }),
+  })
+    .then((response) => response.json())
+    .then((loggedInUser) => updateUserPoems(loggedInUser))
+    .catch((error) => console.log(error));
+};
+
+const updateUserPoems = function (user) {
+  fetch("http://localhost:8080/api/user/" + loggedInUser.id, {
+    method: "GET",
+    mode: "cors",
+  })
+    .then((response) => response.json())
+    .then((loggedInUser) => userPoemsElement(loggedInUser))
+    .catch((error) => console.log(error));
+};
+
+const updateUsers = function (user) {
+  fetch("http://localhost:8080/api/user", {
+    method: "GET",
+    mode: "cors",
+  })
+    .then((response) => response.json())
+    .then((loggedInUser) => userPoemsElement(loggedInUser))
+    .catch((error) => console.log(error));
 };
 
 export { getPoemTypes };
@@ -168,3 +214,5 @@ export { clearChildren };
 export { checkUserLogIn };
 export { deleteUserPoem };
 export { saveUserPoem };
+export { editUserPoem };
+export { getSingleUserPoem };

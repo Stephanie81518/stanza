@@ -1,6 +1,6 @@
 import { getRandomExamplePoem, saveUserPoem } from "./app.js";
 import { addTextEditor } from "./syllableCounter.js";
-import { addWordGenerator} from "./wordGenerator.js";
+import { addWordGenerator } from "./wordGenerator.js";
 const poemTypeElement = function (examplePoemType) {
   const poemTypeContent = document.querySelector(".main-content");
   clearChildren(poemTypeContent);
@@ -33,6 +33,14 @@ const poemTypeElement = function (examplePoemType) {
   const editorDiv = document.createElement("div");
   editorDiv.classList.add("editor-div");
   wrapperForFlexboxOrGrid.appendChild(editorDiv);
+  //title input
+  const titleInput = document.createElement("div");
+  titleInput.classList.add("title-input");
+  titleInput.setAttribute("id", "titleInput");
+  titleInput.setAttribute("contenteditable", true);
+  titleInput.setAttribute("data-text", "Add a title");
+  titleInput.setAttribute("method", "post");
+  editorDiv.appendChild(titleInput);
   //editor toolbar
   const poemEditorFieldset = document.createElement("fieldset");
   poemEditorFieldset.classList.add("poem-editor-fieldset");
@@ -175,15 +183,17 @@ const poemTypeElement = function (examplePoemType) {
   optionSize1.innerText = "1";
   fontSizeSelect.appendChild(optionSize1);
 
-
   const imageLabelSyllableCountArrow = document.createElement("img");
-  imageLabelSyllableCountArrow.setAttribute('src', './images/syllables-arrow.png');
-  imageLabelSyllableCountArrow.style.width = '100px';
-  imageLabelSyllableCountArrow.style.position = 'relative';
-  imageLabelSyllableCountArrow.style.top = '7px';
-  imageLabelSyllableCountArrow.style.left = '15px';
+  imageLabelSyllableCountArrow.setAttribute(
+    "src",
+    "./images/syllables-arrow.png"
+  );
+  imageLabelSyllableCountArrow.style.width = "100px";
+  imageLabelSyllableCountArrow.style.position = "relative";
+  imageLabelSyllableCountArrow.style.top = "7px";
+  imageLabelSyllableCountArrow.style.left = "15px";
   poemEditorFieldset.appendChild(imageLabelSyllableCountArrow);
-  
+
   addTextEditor();
 
   const rightColumn = document.createElement("div");
@@ -211,8 +221,8 @@ const poemTypeElement = function (examplePoemType) {
   });
   typeExamplesDiv.appendChild(anotherExampleButton);
 
-
-  function getFrontHTML(){
+  //download poem function
+  function getFrontHTML() {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -226,27 +236,29 @@ const poemTypeElement = function (examplePoemType) {
     `;
   }
 
-  function getBackHTML(){
+  function getBackHTML() {
     return `
         
     </body>
     </html>`;
   }
 
-  //user poem buttons (download, share, reset)
   function download(filename, text) {
-    let downloadElement = document.createElement('a');
-    downloadElement.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-    downloadElement.setAttribute('download', filename);
+    let downloadElement = document.createElement("a");
+    downloadElement.setAttribute(
+      "href",
+      "data:text/plain;charset=utf-8," + encodeURIComponent(text)
+    );
+    downloadElement.setAttribute("download", filename);
 
-    downloadElement.style.display = 'none';
+    downloadElement.style.display = "none";
     editorDiv.appendChild(downloadElement);
 
     downloadElement.click();
     editorDiv.removeChild(downloadElement);
-  } 
+  }
 
-
+  //user poem buttons (download, share, reset)
   const userPoemOptionsDiv = document.createElement("div");
   userPoemOptionsDiv.classList.add("user-poem-options-div");
   editorDiv.appendChild(userPoemOptionsDiv);
@@ -254,27 +266,38 @@ const poemTypeElement = function (examplePoemType) {
   downloadButton.classList.add("download-button");
   downloadButton.innerText = "Download";
   downloadButton.addEventListener("click", () => {
-    let text = getFrontHTML() + document.getElementById("editor1").innerHTML + getBackHTML();
+    let text =
+      getFrontHTML() +
+      document.getElementById("editor1").innerHTML +
+      getBackHTML();
     let filename = "yournewfile.html";
 
     download(filename, text);
-  })
+  });
   userPoemOptionsDiv.appendChild(downloadButton);
   const saveButton = document.createElement("button");
   saveButton.classList.add("save-button");
   saveButton.innerText = "Save";
   saveButton.addEventListener("click", () => {
     saveUserPoem();
-  })
+  });
   userPoemOptionsDiv.appendChild(saveButton);
   const resetButton = document.createElement("button");
   resetButton.classList.add("reset-button");
   resetButton.innerText = "Reset";
-  resetButton.addEventListener("click", () => {
-    
-  })
+  resetButton.addEventListener("click", () => {});
   userPoemOptionsDiv.appendChild(resetButton);
 
+  //tools button
+  const toolsDiv = document.createElement("div");
+  toolsDiv.classList.add("tools-div");
+  containerDiv.appendChild(toolsDiv);
+  const toolsButton = document.createElement("h2");
+  // toolsButton.classList.add("tools-button");
+  toolsButton.innerText = "Tools";
+  //add event listener here to open collapsible tools menu?
+  toolsDiv.appendChild(toolsButton);
+  rightColumn.appendChild(toolsDiv);
 
   addWordGenerator();
 
