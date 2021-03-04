@@ -84,7 +84,6 @@ a:hover {
 .poem-type-button {
   margin-top: 40px;
   align-items: center;
-  justify-self: center;
   justify-content: space-around;
   background-color: #fabec0;
   background: linear-gradient(145deg, #ffcbcd, #e1abad);
@@ -98,6 +97,10 @@ a:hover {
   width: 250px;
   margin-right: 5%;
   margin-left: 10%;
+}
+.typeOfPoemBox > button:nth-child(7) {
+    display: flex;
+    align-self: center;
 }
 .poem-type-button:hover {
   border-radius: 60px;
@@ -216,10 +219,4 @@ h2 {
 .initial-word-form {
   font-family: "Open Sans", sans-serif;
   color: #3a4046;
-}
-
-figcaption {
-  font-family: "Open Sans", sans-serif;
-  color: white; /*No color showed up as well as white here--open to suggestions*/
-  font-size: 1.4em;
 }
