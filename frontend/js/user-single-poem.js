@@ -36,7 +36,6 @@ const userPoemElement = function (userPoems) {
   boldButton.addEventListener("click", (e) => {
     e.preventDefault();
     document.execCommand("bold", false, null);
-    console.log("bold button clicked");
   });
   poemEditorFieldset.appendChild(boldButton);
   const underlineButton = document.createElement("button");

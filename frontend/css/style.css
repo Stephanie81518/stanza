@@ -31,7 +31,7 @@
 #savedEditor1 {
   border: 2px solid maroon;
   height: 400px;
-  width: 600px;
+  width: 652px;
   margin: 0px auto 0;
   padding: 10px;
   overflow: auto;
@@ -40,9 +40,10 @@
   background-image: url("../images/cottonPaperTexture3.png");
   background-size: cover;
   outline: none;
+  overflow-y: auto;
 }
 .title-input {
-  width: 600px;
+  width: 652px;
   border: 2px solid maroon;
   border-radius: 15px 15px 0px 0px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -50,6 +51,8 @@
   height: 35px;
   font-size: 20px;
   padding: 10px;
+  position: relative;
+  left: 4px;
 }
 .single-user-poem-div {
   border: 1px solid grey;
@@ -78,7 +81,7 @@ fieldset {
   border-top: none;
   border-bottom: none;
   background-color: #f2f2f2;
-  width: 600px;
+  width: 652px;
 }
 fieldset > button {
   width: 5ex;
@@ -132,7 +135,7 @@ fieldset > button {
 }
 
 .editor-div {
-  width: 600px;
+  width: 660px;
   margin: auto;
   position: relative;
 }
@@ -149,12 +152,13 @@ fieldset > button {
 }
 
 #div--count-of-syllables-per-line {
-  width: 25px;
-  height: 550px;
-  position: absolute;
-  top: 28px;
-  left: 577px;
-  padding: 15px 0px 0px 5px;
+    width: 25px;
+    height: 400px;
+    position: absolute;
+    top: 65px;
+    left: 600px;
+    padding: 15px 0px 0px 5px;
+    overflow: hidden;
 }
 #devsImage1,
 #devsImage2,
