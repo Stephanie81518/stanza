@@ -33,6 +33,15 @@
     overflow:auto;
     margin-top: 420px;
 }
+.user-poems-main-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow:auto;
+    margin-top: 250px;
+}
 .discover-div-1,
 .discover-div-2,
 .discover-div-3,

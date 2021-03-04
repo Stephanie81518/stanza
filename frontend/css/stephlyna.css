@@ -16,6 +16,8 @@ body {
 .main-content {
   background-color: transparent;
   font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: large;
   padding: 0;
   height: 85%;
   display: flex;
@@ -95,12 +97,16 @@ a:hover {
   font-size: 2em;
   height: 75px;
   width: 250px;
-  margin-right: 5%;
-  margin-left: 10%;
+  margin: 20px;
+}
+.typeOfPoemBox {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
 }
 .typeOfPoemBox > button:nth-child(7) {
-    display: flex;
-    align-self: center;
+    grid-row-start: 3;
+    grid-column-start: 2;
 }
 .poem-type-button:hover {
   border-radius: 60px;
@@ -121,15 +127,17 @@ a:hover {
 .reset-button,
 .login-form-submit,
 .save-changes-button,
-.new-login-form-submit {
-  background-color: #fabec0;
+.new-login-form-submit,
+.poem-edit-button,
+.poem-delete-button {
+  background-color: rgba(160, 73, 56, 0.9);
   background: linear-gradient(145deg, #ffcbcd, #e1abad);
   border-radius: 60px;
-  border-color: #fabec0;
+  border-color: #FBBEB4;
   box-shadow: 2px 2px 6px #644c4d;
   font-family: "Open Sans", sans-serif;
   color: #873c37;
-  font-size: 1em;
+  font-size: .8em;
   height: 35px;
   width: 130px;
   margin-bottom: 5%;
@@ -142,11 +150,13 @@ a:hover {
 .reset-button:hover,
 .login-form-submit:hover,
 .save-changes-button:hover,
-.new-login-form-submit:hover {
+.new-login-form-submit:hover,
+.poem-edit-button:hover,
+.poem-delete-button:hover {
   border-radius: 60px;
   outline: none;
   border: none;
-  background: #fabec0;
+  background: #FBBEB4;
   box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
   color: #4a5259;
   cursor: pointer;
@@ -156,7 +166,9 @@ a:hover {
 .reset-button:focus,
 .login-form-submit:focus,
 .save-changes-button:focus,
-.new-login-form-submit:focus {
+.new-login-form-submit:focus,
+.poem-edit-button:focus,
+.poem-delete-button:focus {
   outline: none;
   border: none;
 }
@@ -171,7 +183,7 @@ a:hover {
   box-shadow: 2px 2px 6px #644c4d;
   font-family: "Open Sans", sans-serif;
   color: #873c37;
-  font-size: 1em;
+  font-size: .85em;
   height: 35px;
   width: 145px;
   margin-bottom: 5%;

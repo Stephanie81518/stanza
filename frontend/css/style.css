@@ -42,7 +42,7 @@
    }
 .title-input {
     width: 600px;
-    border: 1px solid maroon;
+    border: 2px solid maroon;
     border-radius: 15px 15px 0px 0px;
     background-color: rgba(255, 255, 255, .5);
     background-image: url('../images/cottonPaperTexture3.png');
@@ -50,9 +50,9 @@
     font-size: 20px;
     padding: 10px;
 }
-.title-input::before {
+/* .title-input::before {
     height: 30px;
-}
+} */
 .single-user-poem-div {
     border: 1px solid grey;
     height: auto;
@@ -75,8 +75,8 @@
 }
 fieldset {
     margin: auto;
-    border-right: 1px solid maroon;
-    border-left: 1px solid maroon;
+    border-right: 2px solid maroon;
+    border-left: 2px solid maroon;
     border-top: none;
     border-bottom: none;
     background-color: #F2F2F2;
@@ -244,4 +244,56 @@ input {
 border-style: none;
 font-family: 'Open Sans', sans-serif;
 font-size: 1em;
+}
+#generatorButton{
+    background-color:#FABEC0;
+    background: linear-gradient(145deg, hsl(358, 100%, 90%), #E1ABAD);
+    border-radius: 60px;
+    border-color: #FABEC0;
+    box-shadow:  2px 2px 6px #644C4D; 
+    font-family: 'Open Sans', sans-serif;
+    color: #873C37;
+    font-size: 1em;
+    height: 30px;
+    width: 70px;
+    /* margin-bottom: 5%; */
+    margin-right: 5%;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+}
+#generatorButton:hover{
+    border-radius: 60px;
+    outline: none; 
+    border: none;
+    background: #FABEC0;
+    box-shadow: inset 2px 2px 6px #76595A, inset -2px -2px 6px #FFFFFF;
+    color: #4A5259;
+    cursor: pointer;
+}
+#generatorInputTextField{
+    background-color:#ffdcdc;
+    height: 30px;
+    font-size: 30px;
+    background-color:#FABEC0;
+    background: linear-gradient(145deg, hsl(358, 100%, 90%), #E1ABAD);
+    border-radius: 60px;
+    border-color: #FABEC0;
+    box-shadow:  2px 2px 6px #644C4D; 
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+    font-size: 1em;
+    padding-left: 20px;
+    /* width: 50px; */
+    /* margin-bottom: 5%; */
+    margin-right: 5%;
+    margin-left: 10px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+}
+#wordExplorerOutputDiv{
+    margin: 25px 5px 5px 5px;
+    width: 350px;
 }
