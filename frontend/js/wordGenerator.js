@@ -6,7 +6,7 @@ const proxyURL = "https://cors.io/?"; // This is in order to bypass the 'Access-
 const maxRelatedWordDistance = 10; // Index of the next related word (from related words' array) will be between 0 and maxRelatedWordDistance-1
 let rhyming = document.getElementById("ryhming");
 let rWord = document.getElementById("rWord");
-let synonym = document.getElementById("synonym");
+let spelledLike = document.getElementById("spelledLike");
 const syllables = document.getElementById("syllables");
 
 function addWordGenerator () {
@@ -24,10 +24,12 @@ function addWordGenerator () {
 
    let containerDiv = document.getElementById("containerDiv");
    containerDiv.appendChild(radioButtonDiv);
-   const radioButton = ['Rhyming', 'Related', 'Synonyms'];  /*I can fix the spacing here, but it has to be done here and will have to match lines 31-36 values*/
+   const radioButton = ['Rhyming', 'Related', 'spelledLike'];  /*I can fix the spacing here, but it has to be done here and will have to match lines 31-36 values*/
    radioButton.forEach((radioButtonValue, i) =>{
+        const radioButtonLabels = ['Rhyming', 'Related', 'Spelled Like'];
         const labelValue = document.createElement('label');
-        labelValue.innerHTML = radioButtonValue;
+        labelValue.innerHTML = radioButtonLabels[i];
+        labelValue.classList.add('radioButtonLabel');
         const inputValue = document.createElement('input');
         inputValue.type = "radio";
         inputValue.value = radioButtonValue;
@@ -39,8 +41,8 @@ function addWordGenerator () {
                 inputValue.checked = "checked";
             }else if (radioButtonValue == "Related") {
                 rWord = inputValue;
-            }else if(radioButtonValue == "Synonyms") {
-                synonym = inputValue;
+            }else if(radioButtonValue == "spelledLike") {
+                spelledLike = inputValue;
         }
         labelValue.style.paddingLeft = '3px';
         labelValue.style.paddingRight = '15px';
@@ -56,22 +58,17 @@ function addWordGenerator () {
    containerDiv.appendChild(initialWordDiv);
    const initialWordForm = document.createElement("input");
    // initialWordForm.classList.add("form");
-   initialWordForm.setAttribute('placeholder', 'Enter a Word');  
+   initialWordForm.setAttribute('id', 'generatorInputTextField');  
+   initialWordForm.setAttribute('placeholder', 'Enter a Word Here');  
    initialWordDiv.appendChild(initialWordForm);
+
+   const generatorButton = document.createElement("button");
+   generatorButton.setAttribute('id', 'generatorButton');
+   generatorButton.innerText = 'Search';  
+   initialWordDiv.appendChild(generatorButton);
+
    rightColumn.appendChild(initialWordDiv);
  
-   // Placeholder for Word Generator output
-   const relatedWord = document.createElement("a");
-   relatedWord.classList.add("related-word");
-   relatedWord.href = "#";
-   rightColumn.appendChild(relatedWord);
- 
-   const wordHistory = document.createElement("p");
-   wordHistory.classList.add("history");
-   wordHistory.innerHTML = ""
-   rightColumn.appendChild(wordHistory);
-
-
 
 // Event Listeners
 initialWordDiv = document.getElementById("initial-word-form");
@@ -81,77 +78,75 @@ function initialWordFormSubmit(event) {
     event.preventDefault();}
   const newInitialWordInput = initialWordForm.value.trim().toLowerCase();
   if(newInitialWordInput) {
-    relatedWord.text = newInitialWordInput;
-    wordHistory.innerHTML = `<span>${newInitialWordInput}</span>`;
-    // initialWordForm.value = "";
     initialWordForm.blur();
+  }
+  relatedWordClick();
+}
+
+
+let radioButton1 = document.getElementById('radioButtonRhyming');
+let radioButton2 = document.getElementById('radioButtonRelated');
+let radioButton3 = document.getElementById('radioButtonspelledLike');
+radioButton1.addEventListener('change', initialWordFormSubmit);
+radioButton2.addEventListener('change', initialWordFormSubmit);
+radioButton3.addEventListener('change', initialWordFormSubmit);
+// document.getElementsByClassName('radioButtonLabel').forEach((element)=>{
+//   element.addEventListener('click', initialWordFormSubmit);
+// });
+
+let wordExplorerOutputDiv = document.createElement('div');
+wordExplorerOutputDiv.setAttribute('id', 'wordExplorerOutputDiv');
+rightColumn.appendChild(wordExplorerOutputDiv);
+
+let arrayOfAllWords = [];
+function relatedWordClick(event) {
+  if(initialWordForm.value.length < 6 && spelledLike.checked==true){
+    wordExplorerOutputDiv.innerHTML = 'Please use a longer word. '     
+    setTimeout(()=>{
+      wordExplorerOutputDiv.innerHTML = '';
+    }, 3000);
+  } else {
+    fetch(`https://api.datamuse.com/words?${radioButtonIf()}=` + initialWordForm.value)
+    .then(res => res.json())
+    .then(data => {
+      arrayOfAllWords = [];
+      wordExplorerOutputDiv.innerHTML = '';
+      let i = 0;
+      let numberOfResults = Math.min(data.length, 33);
+      for(i=0;i<numberOfResults;i++){
+        if (i<numberOfResults-1){  //makes sure there isn't a comma left at the end of all words
+          wordExplorerOutputDiv.innerHTML += `${data[i].word}, `;
+        } else {
+          wordExplorerOutputDiv.innerHTML += data[i].word;
+        }
+      }
+      if(data.length == 0){
+        wordExplorerOutputDiv.innerHTML = 'That word is not in the API\'s dictionary.;'
+        setTimeout(()=>{
+          wordExplorerOutputDiv.innerHTML = '';
+        }, 3000);
+      }
+      arrayOfAllWords.forEach((word)=>{
+        wordExplorerOutputDiv.innerHTML += word + ', ';
+      })
+
+    })
+    .catch(err => {
+      console.log(err);
+    });
   }
 }
 
 
 
-// const radioButton = ['Rhyming', 'Related', 'Synonyms'];
-// radioButton
-let radioButton1 = document.getElementById('radioButtonRhyming');
-let radioButton2 = document.getElementById('radioButtonRelated');
-let radioButton3 = document.getElementById('radioButtonSynonyms');
-radioButton1.addEventListener('change', initialWordFormSubmit);
-radioButton2.addEventListener('change', initialWordFormSubmit);
-radioButton3.addEventListener('change', initialWordFormSubmit);
 
-
-relatedWord.addEventListener("click", relatedWordClick);
-function relatedWordClick(event) {
-  // event.preventDefault();
-  relatedWord.classList.toggle("disabled");
-  console.log(relatedWord.textContent);
-  fetch(`https://api.datamuse.com/words?${radioButtonIf()}=` + relatedWord.textContent)
-  // fetch(proxyURL + "https://api.datamuse.com/words?ml=" + relatedWord.textContent)
-  .then(res => res.json())
-  .then(data => {
-    const relatedWordIndex = Math.floor(Math.random()*Math.min(data.length,maxRelatedWordDistance));
-
-    let i;
-    let stringOf10Results = '';
-    for(i=0;i<10;i++){
-      if (stringOf10Results != '') {
-        let tempString =  ", " + data[i].word;
-        console.log(data[i].word);
-        stringOf10Results += tempString;
-      } else {
-        stringOf10Results = console.log(data[i].word);
-      }
-    }
-    console.log(stringOf10Results);
-
-    if(data[relatedWordIndex]) {
-      relatedWord.text = data[relatedWordIndex].word;
-      history.innerHTML += ` &rarr; <span>${data[relatedWordIndex].word}</span>`;
-    }
-    relatedWord.classList.toggle("disabled");
-  })
-  .catch(err => {
-    console.log(err);
-    relatedWord.classList.toggle("disabled");
-  });
-}
-// history.addEventListener("mouseover", historyMouseover);
-// function historyMouseover(event) {
-//   if(event.target.tagName.toLowerCase()==="span" && !event.target.hasAttribute("data-tooltip")) {
-//     fetch(`https://api.datamuse.com/words?${radioButtonIf()}=` + event.target.textContent)
-//     // fetch(proxyURL + "https://api.datamuse.com/words?rel_syn=" + event.target.textContent)
-//     .then(res => res.json())    
-//     .then(data => data.length ? event.target.setAttribute("data-tooltip", data.slice(0, Math.min(data.length,10)).map(syn => syn.word).join(", ")) : event.target.setAttribute("data-tooltip", "Synonyms Not Found!"))
-//     .catch(err => console.log(err));
-//   }
-// }
 function radioButtonIf (){    
   if(rhyming.checked==true){
-  return "rel_rhy"
+    return "rel_rhy"
   }else if (rWord.checked==true)
-  return "ml"
-  else if (synonym.checked==true)
-    return "rel_syn"
+    return "ml"
+  else if (spelledLike.checked==true)
+    return "sp"
   else
     alert("No channel selected");  
 }

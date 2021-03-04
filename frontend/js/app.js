@@ -147,7 +147,7 @@ const deleteUserPoem = function (id) {
     mode: "cors",
   })
     .then((response) => response.json())
-    .then((loggedInUser) => userPoemsElement(loggedInUser))
+    .then((id) => updateUserPoems(id))
     .catch((error) => console.log(error));
 };
 
@@ -159,7 +159,7 @@ const saveUserPoem = function () {
     },
     body: JSON.stringify({
       poetName: "",
-      title: titleInput.innerHTML,
+      title: titleInput.value,
       poemContent: editor1.innerHTML,
     }),
   })
@@ -179,7 +179,7 @@ const editUserPoem = function (userPoem) {
     body: JSON.stringify({
       id: userPoem.id,
       poetName: userPoem.poetName,
-      title: userPoem.title,
+      title: editTitleInput.value,
       poemContent: poemEditor.innerHTML,
     }),
   })

@@ -34,11 +34,10 @@ const poemTypeElement = function (examplePoemType) {
   editorDiv.classList.add("editor-div");
   wrapperForFlexboxOrGrid.appendChild(editorDiv);
   //title input
-  const titleInput = document.createElement("div");
+  const titleInput = document.createElement("input");
   titleInput.classList.add("title-input");
   titleInput.setAttribute("id", "titleInput");
-  titleInput.setAttribute("contenteditable", true);
-  titleInput.setAttribute("data-text", "Add a title");
+  titleInput.setAttribute("placeholder", "Add a title");
   titleInput.setAttribute("method", "post");
   editorDiv.appendChild(titleInput);
   //editor toolbar
@@ -206,7 +205,7 @@ const poemTypeElement = function (examplePoemType) {
   leftColumn.appendChild(typeExamplesDiv);
   const typeExamplesHeader = document.createElement("h2");
   typeExamplesHeader.classList.add("type-examples-header");
-  typeExamplesHeader.innerHTML = `Read a ${examplePoemType.typeName}`;
+  typeExamplesHeader.innerHTML = `Read an Example`;
   typeExamplesDiv.appendChild(typeExamplesHeader);
   let typeExamplesP = document.createElement("p");
   typeExamplesP.classList.add("type-examples-p");
@@ -277,7 +276,7 @@ const poemTypeElement = function (examplePoemType) {
   userPoemOptionsDiv.appendChild(downloadButton);
   const saveButton = document.createElement("button");
   saveButton.classList.add("save-button");
-  saveButton.innerText = "Save";
+  saveButton.innerText = "Save to Account";
   saveButton.addEventListener("click", () => {
     saveUserPoem();
   });
@@ -285,7 +284,12 @@ const poemTypeElement = function (examplePoemType) {
   const resetButton = document.createElement("button");
   resetButton.classList.add("reset-button");
   resetButton.innerText = "Reset";
-  resetButton.addEventListener("click", () => {});
+  resetButton.addEventListener("click", () => {
+    let resetEditor = document.getElementById("editor1");
+    let resetTitle = document.getElementById("titleInput");
+    resetEditor.innerText = "";
+    resetTitle.value = "";
+  });
   userPoemOptionsDiv.appendChild(resetButton);
 
   //tools button
@@ -293,9 +297,7 @@ const poemTypeElement = function (examplePoemType) {
   toolsDiv.classList.add("tools-div");
   containerDiv.appendChild(toolsDiv);
   const toolsButton = document.createElement("h2");
-  // toolsButton.classList.add("tools-button");
   toolsButton.innerText = "Tools";
-  //add event listener here to open collapsible tools menu?
   toolsDiv.appendChild(toolsButton);
   rightColumn.appendChild(toolsDiv);
 
