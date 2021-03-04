@@ -22,7 +22,10 @@
 .devs-div-main {
     display: flex;
     align-items: space-between;
+    align-items: baseline;
     flex-wrap: wrap;
+    background-color: rgba(249,189,177, 0.3);
+    border-radius: 20px;
 }
 .discover-div-main {
     display: flex;
