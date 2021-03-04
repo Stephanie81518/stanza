@@ -69,7 +69,6 @@ function addTextEditor() {
     "div--count-of-syllables-per-line"
   );
 
-  
   function stripNonAlphanumeric(inString) {
     let currentString = inString.replace(/[^a-z0-9-' ↵]+/gi, " ");
     return currentString;

@@ -1,116 +1,114 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#div--right-panel{
-    padding: 0px;
-    margin: 0px;
+#div--right-panel {
+  padding: 0px;
+  margin: 0px;
 }
-.div--right-panel-item{
-    border: 1px solid gray;
-    margin: 10px;
-    width: 600px;
-    height: 200px
+.div--right-panel-item {
+  border: 1px solid gray;
+  margin: 10px;
+  width: 600px;
+  height: 200px;
 }
-#div--poem-type{
-    margin: 0px 0px 0px 10px;
+#div--poem-type {
+  margin: 0px 0px 0px 10px;
 }
-.section--discover-subsection{
-    margin: 20px auto 20px auto;
-    border: 1px solid gray;
-    width: 50%;
-    height: 166px;
+.section--discover-subsection {
+  margin: 20px auto 20px auto;
+  border: 1px solid gray;
+  width: 50%;
+  height: 166px;
 }
-#container, #containerHeader{
-    text-align: center;
-    cursor:move;
+#container,
+#containerHeader {
+  text-align: center;
+  cursor: move;
 }
 #editor1,
 #savedEditor1 {
-    border: 2px solid maroon;
-    height: 400px;
-    width: 600px;
-    margin: 0px auto 0;
-    padding: 10px;
-    overflow: auto;
-    border-radius: 0px 0px 15px 15px;
-    background-color: rgba(255, 255, 255, .5);
-    background-image: url('../images/cottonPaperTexture3.png');
-    background-size: cover;
-    outline: none;
-   }
-.title-input {
-    width: 600px;
-    border: 2px solid maroon;
-    border-radius: 15px 15px 0px 0px;
-    background-color: rgba(255, 255, 255, .5);
-    background-image: url('../images/cottonPaperTexture3.png');
-    height: 35px;
-    font-size: 20px;
-    padding: 10px;
+  border: 2px solid maroon;
+  height: 400px;
+  width: 600px;
+  margin: 0px auto 0;
+  padding: 10px;
+  overflow: auto;
+  border-radius: 0px 0px 15px 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url("../images/cottonPaperTexture3.png");
+  background-size: cover;
+  outline: none;
 }
-/* .title-input::before {
-    height: 30px;
-} */
+.title-input {
+  width: 600px;
+  border: 2px solid maroon;
+  border-radius: 15px 15px 0px 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url("../images/cottonPaperTexture3.png");
+  height: 35px;
+  font-size: 20px;
+  padding: 10px;
+}
 .single-user-poem-div {
-    border: 1px solid grey;
-    height: auto;
-    width: auto;
-    margin: 20px;
-    padding: 20px;
-    overflow: auto;
-    background-color: rgba(255, 255, 255, .5);
+  border: 1px solid grey;
+  height: auto;
+  width: auto;
+  margin: 20px;
+  padding: 20px;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 .user-poems-header,
 .discover-header {
-    display: flex;
-    background-color: rgba(255, 255, 255, .5);
-    justify-content: center;
-    align-items: center;
-    justify-self: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 500px;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.5);
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 500px;
 }
 fieldset {
-    margin: auto;
-    border-right: 2px solid maroon;
-    border-left: 2px solid maroon;
-    border-top: none;
-    border-bottom: none;
-    background-color: #F2F2F2;
-    width: 600px;
+  margin: auto;
+  border-right: 2px solid maroon;
+  border-left: 2px solid maroon;
+  border-top: none;
+  border-bottom: none;
+  background-color: #f2f2f2;
+  width: 600px;
 }
 fieldset > button {
-    width: 5ex;
-    text-align: center;
-    justify-items: center;
-    padding: 1px 3px;
-    height:30px;
-    width:30px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border:none;
+  width: 5ex;
+  text-align: center;
+  justify-items: center;
+  padding: 1px 3px;
+  height: 30px;
+  width: 30px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: none;
 }
 
-#container .color-apply{
-    width: 20px;
+#container .color-apply {
+  width: 20px;
 }
 
-[contentEditable=true]:empty:not(:focus):before{
-    content:attr(data-text);
-    color:#888;
+[contentEditable="true"]:empty:not(:focus):before {
+  content: attr(data-text);
+  color: #888;
 }
 #container .loader {
-    border: 6px solid #F3F3F3; 
-    border-top: 6px solid #3498DB; 
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 2s linear infinite;
-    margin: 0 auto;
-    line-height: 20px;
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+  line-height: 20px;
 }
 #bold-image,
 #italic-image,
@@ -121,183 +119,174 @@ fieldset > button {
 #aligncenter-image,
 #redo-image,
 #undo-image {
-    height: 25px;
+  height: 25px;
 }
 #font-input {
-    height: 25px;
+  height: 25px;
 }
 
-#leftColumn{
-    width: 33vw;
-    justify-content: flex-end;
-    padding: 1rem;
+#leftColumn {
+  width: 33vw;
+  justify-content: flex-end;
+  padding: 1rem;
 }
 
-.editor-div{
-    width: 600px;
-    margin: auto;
-    position: relative;
+.editor-div {
+  width: 600px;
+  margin: auto;
+  position: relative;
 }
 
-#rightColumn{
-    width: 33vw;
-    justify-content: right;
-    padding: 1rem;
+#rightColumn {
+  width: 33vw;
+  justify-content: right;
+  padding: 1rem;
 }
 
 #leftColumn a {
-    font-size: 1em;
-    text-decoration: none;
+  font-size: 1em;
+  text-decoration: none;
 }
 
-#div--count-of-syllables-per-line{
-    width: 25px;
-    height: 550px;  /*This height adjustment fixed the scroll problem. Still need to fix the non-centered problem of the text editor box*/
-    position: absolute;
-    top: 28px;
-    left: 577px;
-    padding: 15px 0px 0px 5px;
+#div--count-of-syllables-per-line {
+  width: 25px;
+  height: 550px;
+  position: absolute;
+  top: 28px;
+  left: 577px;
+  padding: 15px 0px 0px 5px;
 }
-
 #devsImage1,
 #devsImage2,
 #devsImage3,
 #devsImage4,
 #devsImage5,
-#devsImage6,
-figcaption {
-    width: 200px;
-    padding: 1rem;
-    font-family: 'Open Sans', sans-serif;
-    color: white; /*No color showed up as well as white here--open to suggestions*/
-    font-size: 1.4em;
+#devsImage6 {
+  width: 200px;
+  padding: 1rem;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 1.4em;
 }
 .discover-div-main a,
 .discover-div-main p {
-    font-size: 1em;
-    color: #873C37;
-    margin-left: 10px;
-    overflow: auto;
+  font-size: 1em;
+  color: #873c37;
+  margin-left: 10px;
+  overflow: auto;
 }
 
-.discover-div-1, .discover-div-2, .discover-div-3, .discover-div-4 {      /*Not working -- cannot find correct naming of headers in the discover-div-mains in order to fix styling.*/
-    font-size: 1.2em;                                                     /*This is the naming highlighted on inspect elements in browser*/
-    color:#4A5259;                                          /*h2 is referring to the paragraph content, according to the elements inspection*/
-} 
+.discover-div-1,
+.discover-div-2,
+.discover-div-3,
+.discover-div-4 {
+  font-size: 1.2em;
+  color: #4a5259;
+}
 
 .discover-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 50px;
 }
 .typeOfPoemBox {
-    margin-top: 150px;  /*I don't think this is an actual element?*/
+  margin-top: 150px;
 }
 
-.type-description-p, .type-examples-p {
-    color: #3A4046; 
+.type-description-p,
+.type-examples-p {
+  color: #3a4046;
 }
 
 .login-button,
 header {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 40px;
-    color:#873C37;
-    background: none;
-    border: none;
-    margin-right: 30px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 40px;
+  color: #873c37;
+  background: none;
+  border: none;
+  margin-right: 30px;
 }
 .login-button:hover {
-    color:#3A4046; 
-    cursor: pointer;
+  color: #3a4046;
+  cursor: pointer;
 }
 .login-button:focus {
-<<<<<<< HEAD
-    color:#3A4046;
-    outline: none; 
-    border: none;
-=======
-    color:#FFC3B4;
->>>>>>> dcb15f40a71a42114341077a97797a0e421e536d
+  color: #ffc3b4;
 }
 .login-div {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .login-form {
-    border: 2px solid maroon;
-    height: 200px;
-    width: 300px;
-    margin-top: 250px;
-    margin-right: 20px;
-    padding: 10px;
-    overflow: auto;
-    border-radius: 15px;
-    background-color: rgba(255, 255, 255, .5);
-    background-image: url('../images/cottonPaperTexture3.png');
-    background-size: cover;
-    outline: none;
+  border: 2px solid maroon;
+  height: 200px;
+  width: 300px;
+  margin-top: 250px;
+  margin-right: 20px;
+  padding: 10px;
+  overflow: auto;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url("../images/cottonPaperTexture3.png");
+  background-size: cover;
+  outline: none;
 }
 label {
-    color:#3A4046; 
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1em;
+  color: #3a4046;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
 }
 input {
-border-style: none;
-font-family: 'Open Sans', sans-serif;
-font-size: 1em;
+  border-style: none;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
 }
-#generatorButton{
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, hsl(358, 100%, 90%), #E1ABAD);
-    border-radius: 60px;
-    border-color: #FABEC0;
-    box-shadow:  2px 2px 6px #644C4D; 
-    font-family: 'Open Sans', sans-serif;
-    color: #873C37;
-    font-size: 1em;
-    height: 30px;
-    width: 70px;
-    /* margin-bottom: 5%; */
-    margin-right: 5%;
-    margin-left: 10px;
-    margin-top: 10px;
-    border: none;
-    outline: none;
+#generatorButton {
+  background-color: #ffc3b4;
+  border-radius: 60px;
+  border-color: #ffc3b4;
+  box-shadow: 2px 2px 6px #644c4d;
+  font-family: "Open Sans", sans-serif;
+  color: #873c37;
+  font-size: 1em;
+  height: 30px;
+  width: 70px;
+  margin-right: 5%;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
 }
-#generatorButton:hover{
-    border-radius: 60px;
-    outline: none; 
-    border: none;
-    background: #FABEC0;
-    box-shadow: inset 2px 2px 6px #76595A, inset -2px -2px 6px #FFFFFF;
-    color: #4A5259;
-    cursor: pointer;
+#generatorButton:hover {
+  border-radius: 60px;
+  outline: none;
+  border: none;
+  background: #ffc3b4;
+  box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
+  color: #4a5259;
+  cursor: pointer;
 }
-#generatorInputTextField{
-    background-color:#ffdcdc;
-    height: 30px;
-    font-size: 30px;
-    background-color:#FABEC0;
-    background: linear-gradient(145deg, hsl(358, 100%, 90%), #E1ABAD);
-    border-radius: 60px;
-    border-color: #FABEC0;
-    box-shadow:  2px 2px 6px #644C4D; 
-    font-family: 'Open Sans', sans-serif;
-    color: black;
-    font-size: 1em;
-    padding-left: 20px;
-    /* width: 50px; */
-    /* margin-bottom: 5%; */
-    margin-right: 5%;
-    margin-left: 10px;
-    margin-top: 10px;
-    border: none;
-    outline: none;
+#generatorInputTextField {
+  background-color: #ffc3b4;
+  height: 30px;
+  font-size: 30px;
+  background-color: #ffc3b4;
+  border-radius: 60px;
+  border-color: #ffc3b4;
+  box-shadow: 2px 2px 6px #644c4d;
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  font-size: 1em;
+  padding-left: 20px;
+  margin-right: 5%;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: none;
+  outline: none;
 }
-#wordExplorerOutputDiv{
-    margin: 25px 5px 5px 5px;
-    width: 350px;
+#wordExplorerOutputDiv {
+  margin: 25px 5px 5px 5px;
+  width: 350px;
 }
