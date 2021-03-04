@@ -122,7 +122,7 @@ function addWordGenerator() {
           }
           if (data.length == 0) {
             wordExplorerOutputDiv.innerHTML =
-              "That word is not in the API's dictionary.;";
+              "That word is not in the API's dictionary.";
             setTimeout(() => {
               wordExplorerOutputDiv.innerHTML = "";
             }, 3000);

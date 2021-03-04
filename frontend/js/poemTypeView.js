@@ -59,7 +59,6 @@ const poemTypeElement = function (examplePoemType) {
   boldButton.addEventListener("click", (e) => {
     e.preventDefault();
     document.execCommand("bold", false, null);
-    console.log("bold button clicked");
   });
   poemEditorFieldset.appendChild(boldButton);
   const underlineButton = document.createElement("button");
@@ -185,12 +184,12 @@ const poemTypeElement = function (examplePoemType) {
   const imageLabelSyllableCountArrow = document.createElement("img");
   imageLabelSyllableCountArrow.setAttribute(
     "src",
-    "./images/syllables-arrow.png"
+    "./images/syllables-arrow2.png"
   );
-  imageLabelSyllableCountArrow.style.width = "100px";
+  imageLabelSyllableCountArrow.style.height = "22px";
   imageLabelSyllableCountArrow.style.position = "relative";
   imageLabelSyllableCountArrow.style.top = "7px";
-  imageLabelSyllableCountArrow.style.left = "15px";
+  imageLabelSyllableCountArrow.style.left = "18px";
   poemEditorFieldset.appendChild(imageLabelSyllableCountArrow);
 
   addTextEditor();

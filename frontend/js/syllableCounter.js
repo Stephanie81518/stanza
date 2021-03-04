@@ -25,6 +25,14 @@ function addTextEditor() {
   columnOfSyllableCounts.setAttribute("id", "div--count-of-syllables-per-line");
   bookViewDiv.appendChild(columnOfSyllableCounts);
 
+  // NEW CODE FOR SIMULTANEOUS SCROLLING //////////////////////////////////////////////////////////////
+  function updateOtherDivsScroll(){
+    columnOfSyllableCounts.scrollTop = editorArea.scrollTop;
+  }
+  editorArea.addEventListener('scroll', updateOtherDivsScroll);
+  /////////////////////////////////////////////////////////////////////////////////////////////////// END
+
+
   poetryTextEditor = document.getElementById("editor1");
   syllablesDisplay = document.getElementById(
     "div--count-of-syllables-per-line"
@@ -69,6 +77,7 @@ function addTextEditor() {
     "div--count-of-syllables-per-line"
   );
 
+  
   function stripNonAlphanumeric(inString) {
     let currentString = inString.replace(/[^a-z0-9-' ↵]+/gi, " ");
     return currentString;
@@ -115,7 +124,6 @@ function addTextEditor() {
         lookupSyllables(oneWord, i, ii);
       });
     });
-    console.log(arrayOfEverything);
   }
 
   function splitIntoLines(inString) {
@@ -146,8 +154,13 @@ function addTextEditor() {
       const json = await res.json();
       arrayOfEverything[inLineNum][inWordNum] = [];
       arrayForOneWordAndNumSyllables = [];
-      await arrayForOneWordAndNumSyllables.push(json[0].word);
-      await arrayForOneWordAndNumSyllables.push(json[0].numSyllables);
+      if(json.length == 0) {
+        arrayForOneWordAndNumSyllables.push(inWord);
+        arrayForOneWordAndNumSyllables.push(1);
+      } else{
+        await arrayForOneWordAndNumSyllables.push(json[0].word);
+        await arrayForOneWordAndNumSyllables.push(json[0].numSyllables);
+      }
       arrayOfEverything[inLineNum][
         inWordNum
       ] = await arrayForOneWordAndNumSyllables;
