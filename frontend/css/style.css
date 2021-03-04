@@ -213,9 +213,13 @@ header {
     cursor: pointer;
 }
 .login-button:focus {
+<<<<<<< HEAD
     color:#3A4046;
     outline: none; 
     border: none;
+=======
+    color:#FFC3B4;
+>>>>>>> dcb15f40a71a42114341077a97797a0e421e536d
 }
 .login-div {
     display: flex;

@@ -32,6 +32,7 @@ body {
 }
 
 nav {
+<<<<<<< HEAD
   display: flex;
   justify-content: space-around;
   padding: auto;
@@ -205,9 +206,148 @@ a:hover {
 .tools-button:focus {
   outline: none;
   border: none;
+=======
+    display: flex;
+    justify-content: space-around;
+    padding: auto;
+    width: 100%;
+    height: 120px;
+    background-color:#873C37;
+    color:#FFC3B4;
+    font-family: 'Open Sans', sans-serif;
+    position: fixed;
+}
+a{
+    font-size: 2.2em; 
+}
+
+a:hover{
+    color: #4A5259;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.create-button{
+    margin-top: 75%;
+    background-color:#FFC3B4;
+    box-shadow:  4px 4px 12px #644c4d;
+    height: 75px;
+    width: 250px;
+    border-radius: 60px;
+    border-color: #FFC3B4;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2.5em;
+    color: #873C37;
+}
+.create-button:hover {
+    border-radius: 60px;
+    outline: none; 
+    border: none;
+    background: #FFC3B4;
+    box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
+    color: #4a5259;
+    cursor: pointer;
+}
+
+.create-button:focus {
+    outline: none; 
+    border: none;
+    }
+
+.poem-type-button{
+    margin-top: 40px;
+    align-items: center;
+    justify-self: center;
+    background-color:#FFC3B4;
+    box-shadow:  4px 4px 12px #644c4d;
+    border-radius: 60px;
+    border-color: #FFC3B4;
+    font-family: 'Open Sans', sans-serif;
+    color: #873C37;
+    font-size: 2em;
+    height: 75px;
+    width: 250px;
+    margin-right: 5%;
+    margin-left: 10%;
+}
+.poem-type-button:hover{
+    border-radius: 60px;
+    outline: none; 
+    border: none;
+    background: #FFC3B4;
+    box-shadow: inset 4px 4px 12px #76595a, inset -4px -4px 12px #ffffff;
+    color: #4a5259;
+    cursor: pointer;
+}
+.poem-type-button:focus {
+    outline: none; 
+    border: none;
+}
+
+.download-button,.save-button,.reset-button{
+    background-color:#FFC3B4;
+    border-radius: 60px;
+    border-color: #FFC3B4;
+    box-shadow:  2px 2px 6px #644c4d; 
+    font-family: 'Open Sans', sans-serif;
+    color: #873C37;
+    font-size: 1em;
+    height: 35px;
+    width: 100px;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+.download-button:hover,.save-button:hover,.reset-button:hover{
+    border-radius: 60px;
+    outline: none; 
+    border: none;
+    background: #FFC3B4;
+    box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
+    color: #4a5259;
+    cursor: pointer;
+}
+.download-button:focus,.save-button:focus,.reset-button:focus {
+    outline: none; 
+    border: none;
+}
+
+.another-example-button, .tools-button {
+        background-color:#FFC3B4;
+        border-radius: 60px;
+        border-color: #FFC3B4;
+        box-shadow:  2px 2px 6px #644c4d;
+        font-family: 'Open Sans', sans-serif;
+        color: #873C37;
+        font-size: 1em;
+        height: 35px;
+        width: 145px;
+        margin-bottom: 5%;
+        margin-right: 5%;
+        margin-left: 10%;
+        margin-top: 2%;
+}
+.another-example-button:hover,.tools-button:hover{
+    border-radius: 60px;
+    outline: none; 
+    border: none;
+    background: #FFC3B4;
+    box-shadow: inset 2px 2px 6px #76595a, inset -2px -2px 6px #ffffff;
+    color: #4a5259;
+    cursor: pointer;
+}
+.another-example-button:focus,.tools-button:focus {
+    outline: none; 
+    border: none;
+>>>>>>> dcb15f40a71a42114341077a97797a0e421e536d
 }
 
 .about-div-main {
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -232,3 +372,41 @@ h2 {
   font-family: "Open Sans", sans-serif;
   color: #3a4046;
 }
+=======
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: rgba(249,189,177,.9);
+    box-shadow:  4px 4px 12px #644c4d;
+    width: 40vw;
+    height: auto;
+    padding: 35px;
+    border-radius: 30px;
+    font-family:  'Open Sans', sans-serif;
+    font-size: 1.5em;
+    color: #4A5259;
+}
+
+h1, h2 {
+    font-size: 2em;
+    color: #873C37;
+}
+
+.initial-word-form  {
+    font-family: 'Open Sans', sans-serif;
+    color: #3A4046;
+}
+
+figcaption {
+    font-family: 'Open Sans', sans-serif;
+    color: #2A2F33; 
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+
+
+
+
+
+>>>>>>> dcb15f40a71a42114341077a97797a0e421e536d

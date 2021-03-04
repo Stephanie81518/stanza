@@ -13,7 +13,7 @@ const devsElement = function () {
   devsMainDiv.appendChild(devsDiv1);
   const devsImage1 = document.createElement("img");
   devsImage1.setAttribute("id", "devsImage1");
-  devsImage1.src = "images/placeholder.jpg";
+  devsImage1.src = "images/eric-profile-pic.jpg";
   devsDiv1.appendChild(devsImage1);
   const devsImageCap1 = document.createElement("figcaption");
   devsImageCap1.classList.add("devs-image-cap-1");
@@ -25,7 +25,7 @@ const devsElement = function () {
   devsMainDiv.appendChild(devsDiv2);
   const devsImage2 = document.createElement("img");
   devsImage2.setAttribute("id", "devsImage2");
-  devsImage2.src = "images/placeholder.jpg";
+  devsImage2.src = "images/dylon-profile-pic.jpg";
   devsDiv2.appendChild(devsImage2);
   const devsImageCap2 = document.createElement("figcaption");
   devsImageCap2.classList.add("devs-image-cap-2");
@@ -49,7 +49,7 @@ const devsElement = function () {
   devsMainDiv.appendChild(devsDiv4);
   const devsImage4 = document.createElement("img");
   devsImage4.setAttribute("id", "devsImage4");
-  devsImage4.src = "images/placeholder.jpg";
+  devsImage4.src = "images/duane-profile-pic.jpg";
   devsDiv4.appendChild(devsImage4);
   const devsImageCap4 = document.createElement("figcaption");
   devsImageCap4.classList.add("devs-image-cap-4");
@@ -61,7 +61,7 @@ const devsElement = function () {
   devsMainDiv.appendChild(devsDiv5);
   const devsImage5 = document.createElement("img");
   devsImage5.setAttribute("id", "devsImage5");
-  devsImage5.src = "images/placeholder.jpg";
+  devsImage5.src = "images/lyna-profile-pic.png";
   devsDiv5.appendChild(devsImage5);
   const devsImageCap5 = document.createElement("figcaption");
   devsImageCap5.classList.add("devs-image-cap-5");
@@ -73,7 +73,7 @@ const devsElement = function () {
   devsMainDiv.appendChild(devsDiv6);
   const devsImage6 = document.createElement("img");
   devsImage6.setAttribute("id", "devsImage6");
-  devsImage6.src = "images/placeholder.jpg";
+  devsImage6.src = "images/steph-profile-pic.jpg";
   devsDiv6.appendChild(devsImage6);
   const devsImageCap6 = document.createElement("figcaption");
   devsImageCap6.classList.add("devs-image-cap-6");
