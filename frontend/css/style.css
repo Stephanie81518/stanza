@@ -1,0 +1,38 @@
+.header{
+    margin: auto;
+}
+
+.typeOfPoemBox{
+}
+
+
+textarea{
+    background-color: rgb(228, 255, 255);
+}
+
+#div--panels-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.div--right-panel-item{
+    border: 1px solid gray;
+    margin: 10px;
+    width: 600px;
+    height: 200px
+}
+
+.section--discover-subsection{
+    margin: 20px auto 20px auto;
+    border: 1px solid gray;
+    width: 50%;
+    height: 166px;
+}
+
+#nav-bar{
+    margin: 20px auto 20px auto;
+    padding: auto;
+    border: 1px solid gray;
+    width: 100%;
+    height: 66px;
+}
