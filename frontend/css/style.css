@@ -53,6 +53,7 @@
   padding: 10px;
   position: relative;
   left: 4px;
+  outline: none;
 }
 .single-user-poem-div {
   border: 1px solid grey;
