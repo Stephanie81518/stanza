@@ -55,6 +55,10 @@
   left: 4px;
   outline: none;
 }
+#editTitleInput {
+    width: 100%;
+    left: 0px;
+}
 .single-user-poem-div {
   border: 1px solid grey;
   height: auto;

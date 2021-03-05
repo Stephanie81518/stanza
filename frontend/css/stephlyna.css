@@ -12,6 +12,7 @@ body {
   background-position: center center;
   background-size: 48%, cover;
   overflow: auto;
+  overflow-x: hidden;
 }
 .main-content {
   background-color: transparent;
@@ -123,7 +124,8 @@ a:hover {
 .save-button,
 .reset-button,
 .poem-edit-button,
-.poem-delete-button {
+.poem-delete-button,
+.save-changes-button {
   background-color: #ffc3b4;
   border-radius: 60px;
   border-color: #ffc3b4;
@@ -137,6 +139,9 @@ a:hover {
   margin-right: 5%;
   margin-left: 8%;
   margin-top: 2%;
+}
+.save-changes-button {
+    width: 150px;
 }
 .new-login-form-submit,
 .login-form-submit {
@@ -157,7 +162,8 @@ a:hover {
 .save-button:hover,
 .reset-button:hover,
 .poem-edit-button:hover,
-.poem-delete-button:hover {
+.poem-delete-button:hover,
+.save-changes-button:hover {
   border-radius: 60px;
   outline: none;
   border: none;
@@ -170,7 +176,8 @@ a:hover {
 .save-button:focus,
 .reset-button:focus,
 .poem-edit-button:focus,
-.poem-delete-button:focus {
+.poem-delete-button:focus,
+.save-changes-button:focus {
   outline: none;
   border: none;
 }
