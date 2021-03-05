@@ -96,7 +96,7 @@ function addWordGenerator() {
 
   let arrayOfAllWords = [];
   function relatedWordClick(event) {
-    if (initialWordForm.value.length < 6 && spelledLike.checked == true) {
+    if (initialWordForm.value.length < 5 && spelledLike.checked == true) {
       wordExplorerOutputDiv.innerHTML = "Please use a longer word. ";
       setTimeout(() => {
         wordExplorerOutputDiv.innerHTML = "";

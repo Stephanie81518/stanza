@@ -308,6 +308,10 @@ const poemTypeElement = function (examplePoemType) {
   getRandomExamplePoem(examplePoemType.typeName);
   containerDiv.appendChild(typeExamplesP);
 
+  wrapperForFlexboxOrGrid.style.position = 'relative';
+  wrapperForFlexboxOrGrid.style.top = '-35px';
+  document.body.style.backgroundPosition = 'center -75px';
+
   return poemTypeElement;
 };
 
