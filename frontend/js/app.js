@@ -78,9 +78,7 @@ const getRandomExamplePoem = function (inPoemType) {
         let filtered = examplePoems.filter(
           (onePoem) => onePoem.examplePoemType.typeName === inPoemType
         );
-        console.log(filtered);
         let randomPoem = Math.floor(Math.random() * filtered.length);
-        console.log(filtered[randomPoem]);
         examplePoemDisplay.innerHTML =
           `<a href="` +
           filtered[randomPoem].poemUrl +

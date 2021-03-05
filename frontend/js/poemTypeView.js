@@ -310,7 +310,7 @@ const poemTypeElement = function (examplePoemType) {
 
   wrapperForFlexboxOrGrid.style.position = 'relative';
   wrapperForFlexboxOrGrid.style.top = '-35px';
-  document.body.style.backgroundPosition = 'center -75px';
+  document.body.style.backgroundPosition = 'center -65px';
 
   return poemTypeElement;
 };
